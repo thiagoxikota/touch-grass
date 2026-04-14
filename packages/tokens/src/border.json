@@ -1,0 +1,32 @@
+{
+  "border": {
+    "hairline": {
+      "width": { "value": "1px",       "type": "borderWidth" },
+      "color": { "value": "{color.hairline.value}", "type": "color" },
+      "style": { "value": "solid",     "type": "borderStyle" }
+    },
+    "strong": {
+      "width": { "value": "2px",       "type": "borderWidth" },
+      "color": { "value": "{color.fg.value}", "type": "color" },
+      "style": { "value": "solid",     "type": "borderStyle" }
+    },
+    "active": {
+      "width": { "value": "2px",       "type": "borderWidth" },
+      "color": { "value": "{color.earned.value}", "type": "color" },
+      "style": { "value": "solid",     "type": "borderStyle" }
+    },
+    "danger": {
+      "width": { "value": "2px",       "type": "borderWidth" },
+      "color": { "value": "{color.danger.value}", "type": "color" },
+      "style": { "value": "solid",     "type": "borderStyle" }
+    },
+    "disabled": {
+      "width": { "value": "2px",       "type": "borderWidth" },
+      "color": { "value": "{color.fg.value}", "type": "color" },
+      "style": { "value": "dashed",    "type": "borderStyle" }
+    }
+  },
+  "radius": {
+    "none": { "value": "0", "type": "borderRadius", "comment": "Only radius. Never changes." }
+  }
+}

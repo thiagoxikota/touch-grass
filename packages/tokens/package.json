@@ -1,0 +1,55 @@
+{
+  "name": "@touch-grass/tokens",
+  "version": "0.1.0",
+  "description": "Brutalist design tokens. CSS variables, Tailwind v4 theme, Figma W3C JSON, and Swift constants from one source.",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/tokens.css",
+  "exports": {
+    ".": "./dist/tokens.css",
+    "./css": "./dist/tokens.css",
+    "./tailwind": "./dist/tailwind.theme.css",
+    "./figma": "./dist/figma-tokens.json"
+  },
+  "keywords": [
+    "design-system",
+    "design-tokens",
+    "style-dictionary",
+    "tailwindcss",
+    "brutalism",
+    "css-variables",
+    "figma",
+    "swift",
+    "tokens"
+  ],
+  "author": "Thiago Xikota",
+  "homepage": "https://github.com/thiagoxikota/touch-grass#readme",
+  "bugs": {
+    "url": "https://github.com/thiagoxikota/touch-grass/issues"
+  },
+  "files": [
+    "dist",
+    "src",
+    "build.ts",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsx build.ts",
+    "prepublishOnly": "tsx build.ts",
+    "test": "vitest run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thiagoxikota/touch-grass.git",
+    "directory": "packages/tokens"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "style-dictionary": "^4.2.0",
+    "tsx": "^4.19.0",
+    "vitest": "^2.1.0",
+    "typescript": "^5.6.0"
+  }
+}

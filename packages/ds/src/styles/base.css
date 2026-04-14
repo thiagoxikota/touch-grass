@@ -1,0 +1,43 @@
+@import '@fontsource/geist-sans/400.css';
+@import '@fontsource/geist-sans/600.css';
+@import '@fontsource/geist-sans/700.css';
+@import '@fontsource/geist-sans/800.css';
+@import '@fontsource/geist-sans/900.css';
+@import '@fontsource/geist-mono/600.css';
+@import '@fontsource/geist-mono/700.css';
+@import '@fontsource/geist-mono/800.css';
+@import '@fontsource/geist-mono/900.css';
+
+@import '@touch-grass/tokens/css';
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  border-radius: 0 !important;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: 'Geist', ui-sans-serif, system-ui, sans-serif;
+  font-size: var(--font-size-body);
+  font-weight: 600;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+button { font: inherit; cursor: pointer; }
+button:disabled { cursor: not-allowed; }
+
+/* Hard halo focus — never glow */
+:focus-visible {
+  outline: 2px solid var(--color-fg);
+  outline-offset: 3px;
+}
+
+/* No motion. Ever. */
+*, *::before, *::after {
+  transition-duration: 0ms !important;
+  animation-duration: 0ms !important;
+}

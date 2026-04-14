@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 606 244" fill="currentColor" fill-rule="evenodd" role="img" aria-label="Touch Grass — Design System">
+  <title>Touch Grass — Design System</title>
+
+  <!-- Icon: 5 grass blades radiating from center-bottom point -->
+  <g stroke="currentColor" stroke-width="16" stroke-linecap="butt" fill="none">
+    <line x1="303" y1="108" x2="303" y2="12"/>
+    <line x1="303" y1="108" x2="263" y2="24"/>
+    <line x1="303" y1="108" x2="343" y2="24"/>
+    <line x1="303" y1="108" x2="211" y2="36"/>
+    <line x1="303" y1="108" x2="395" y2="36"/>
+  </g>
+
+  <!-- Wordmark: TOUCH GRASS -->
+  <g transform="translate(0, 132)">
+    <g transform="translate(0,0)"><path d="M4,0 L44,0 L48,4 L48,12 L30,12 L30,64 L18,64 L18,12 L0,12 L0,4 Z"/></g>
+    <g transform="translate(60,0)"><path d="M0,0 L48,0 L48,64 L0,64 Z M12,12 L36,12 L36,52 L12,52 Z"/></g>
+    <g transform="translate(120,0)"><path d="M0,0 L12,0 L12,52 L36,52 L36,0 L48,0 L48,64 L0,64 Z"/></g>
+    <g transform="translate(180,0)"><path d="M0,0 L48,0 L48,12 L12,12 L12,52 L48,52 L48,64 L0,64 Z"/></g>
+    <g transform="translate(240,0)"><path d="M0,0 L12,0 L12,26 L36,26 L36,0 L48,0 L48,64 L36,64 L36,38 L12,38 L12,64 L0,64 Z"/></g>
+    <g transform="translate(318,0)"><path d="M0,0 L48,0 L48,12 L12,12 L12,52 L36,52 L36,42 L28,42 L28,30 L48,30 L48,64 L0,64 Z"/></g>
+    <g transform="translate(378,0)"><path d="M0,0 L48,0 L48,30 L36,30 L48,64 L36,64 L24,30 L12,30 L12,64 L0,64 Z M12,12 L12,18 L36,18 L36,12 Z"/></g>
+    <g transform="translate(438,0)"><path d="M0,0 L48,0 L48,64 L36,64 L36,38 L12,38 L12,64 L0,64 Z M12,12 L12,26 L36,26 L36,12 Z"/></g>
+    <g transform="translate(498,0)"><path d="M0,0 L48,0 L48,12 L12,12 L12,26 L48,26 L48,64 L0,64 L0,52 L36,52 L36,38 L0,38 Z"/></g>
+    <g transform="translate(558,0)"><path d="M0,0 L48,0 L48,12 L12,12 L12,26 L48,26 L48,64 L0,64 L0,52 L36,52 L36,38 L0,38 Z"/></g>
+  </g>
+
+  <!-- Subtitle: DESIGN SYSTEM (half-scale block letters; wider word gap) -->
+  <g transform="translate(114, 212) scale(0.5)">
+    <g transform="translate(0,0)"><path d="M0,0 L48,0 L48,64 L0,64 Z M12,12 L36,12 L36,52 L12,52 Z"/></g>
+    <g transform="translate(60,0)"><path d="M0,0 L48,0 L48,12 L12,12 L12,26 L40,26 L40,38 L12,38 L12,52 L48,52 L48,64 L0,64 Z"/></g>
+    <g transform="translate(120,0)"><path d="M0,0 L48,0 L48,12 L12,12 L12,26 L48,26 L48,64 L0,64 L0,52 L36,52 L36,38 L0,38 Z"/></g>
+    <g transform="translate(180,0)"><path d="M12,0 L36,0 L36,64 L12,64 Z"/></g>
+    <g transform="translate(240,0)"><path d="M0,0 L48,0 L48,12 L12,12 L12,52 L36,52 L36,42 L28,42 L28,30 L48,30 L48,64 L0,64 Z"/></g>
+    <g transform="translate(300,0)"><path d="M0,0 L16,0 L36,40 L36,0 L48,0 L48,64 L32,64 L12,24 L12,64 L0,64 Z"/></g>
+    <g transform="translate(408,0)"><path d="M0,0 L48,0 L48,12 L12,12 L12,26 L48,26 L48,64 L0,64 L0,52 L36,52 L36,38 L0,38 Z"/></g>
+    <g transform="translate(468,0)"><path d="M0,0 L12,0 L30,24 L18,24 Z M36,0 L48,0 L30,24 L18,24 Z M18,24 L30,24 L30,64 L18,64 Z"/></g>
+    <g transform="translate(528,0)"><path d="M0,0 L48,0 L48,12 L12,12 L12,26 L48,26 L48,64 L0,64 L0,52 L36,52 L36,38 L0,38 Z"/></g>
+    <g transform="translate(588,0)"><path d="M4,0 L44,0 L48,4 L48,12 L30,12 L30,64 L18,64 L18,12 L0,12 L0,4 Z"/></g>
+    <g transform="translate(648,0)"><path d="M0,0 L48,0 L48,12 L12,12 L12,26 L40,26 L40,38 L12,38 L12,52 L48,52 L48,64 L0,64 Z"/></g>
+    <g transform="translate(708,0)"><path d="M0,0 L48,0 L48,64 L36,64 L36,12 L24,32 L12,12 L12,64 L0,64 Z"/></g>
+  </g>
+</svg>

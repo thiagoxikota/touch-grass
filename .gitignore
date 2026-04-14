@@ -1,0 +1,23 @@
+node_modules/
+dist/
+.DS_Store
+**/.DS_Store
+*.log
+.vite/
+.turbo/
+coverage/
+.superpowers/brainstorm/
+*.tsbuildinfo
+
+# Tooling
+.claude/
+.playwright-mcp/
+
+# Editor
+.vscode/
+.idea/
+
+# Env
+.env
+.env.local
+.env.*.local

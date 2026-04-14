@@ -1,0 +1,59 @@
+{
+  "name": "@touch-grass/ds",
+  "version": "0.1.0",
+  "description": "React 19 component library for Touch Grass — brutalist primitives and patterns. Zero rounded corners, zero motion, tokens only.",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./styles/base.css": "./src/styles/base.css"
+  },
+  "keywords": [
+    "design-system",
+    "react",
+    "components",
+    "brutalism",
+    "tailwindcss",
+    "ui",
+    "touch-grass"
+  ],
+  "author": "Thiago Xikota",
+  "homepage": "https://github.com/thiagoxikota/touch-grass#readme",
+  "bugs": {
+    "url": "https://github.com/thiagoxikota/touch-grass/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thiagoxikota/touch-grass.git",
+    "directory": "packages/ds"
+  },
+  "scripts": {
+    "build": "echo 'shell \u2014 bundler lands in v0.2' && exit 0",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@touch-grass/tokens": "workspace:*",
+    "clsx": "^2.1.0",
+    "tailwind-merge": "^2.5.0",
+    "@fontsource/geist-sans": "^5.1.0",
+    "@fontsource/geist-mono": "^5.1.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "@testing-library/react": "^16.1.0",
+    "@testing-library/jest-dom": "^6.6.0",
+    "@vitejs/plugin-react": "^4.3.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "vitest": "^2.1.0",
+    "jsdom": "^25.0.0",
+    "typescript": "^5.6.0"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "@touch-grass/tokens": "workspace:*"
+  }
+}

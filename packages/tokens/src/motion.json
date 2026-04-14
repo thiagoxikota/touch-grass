@@ -1,0 +1,10 @@
+{
+  "motion": {
+    "duration": {
+      "instant": { "value": "0ms", "type": "duration", "comment": "The only duration. There is no other." }
+    },
+    "easing": {
+      "none": { "value": "linear", "type": "cubicBezier" }
+    }
+  }
+}

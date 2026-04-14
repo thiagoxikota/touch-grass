@@ -1,0 +1,5 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {},
+  "include": ["build.ts", "tests/**/*", "src/**/*.json"]
+}
