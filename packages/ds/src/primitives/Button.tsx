@@ -1,4 +1,5 @@
 import { forwardRef, type ComponentProps, type ReactNode } from 'react';
+import { Slot } from '@radix-ui/react-slot';
 import { cn } from '../lib/cn';
 
 type ButtonVariant = 'primary' | 'ghost' | 'danger';
@@ -7,6 +8,15 @@ export interface ButtonProps extends Omit<ComponentProps<'button'>, 'children'> 
   variant?: ButtonVariant;
   loading?: boolean;
   loadingLabel?: string;
+  /**
+   * Render the button as its single child (e.g. an `<a>` or a
+   * react-router `<Link>`) via Radix Slot. When true, the rendered
+   * element adopts the Button's classes and forwarded props but keeps
+   * its own tag. `disabled` is translated to `aria-disabled` +
+   * `pointer-events-none` because arbitrary elements don't support the
+   * real HTML `disabled` attribute.
+   */
+  asChild?: boolean;
   children: ReactNode;
 }
 
@@ -31,19 +41,26 @@ const variants: Record<ButtonVariant, string> = {
 };
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
-  { variant = 'primary', loading, loadingLabel, children, className, disabled, ...rest },
+  { variant = 'primary', loading, loadingLabel, asChild, children, className, disabled, ...rest },
   ref
 ) {
   const isDisabled = disabled || loading;
+  const Comp = asChild ? Slot : 'button';
   return (
-    <button
+    <Comp
       ref={ref}
-      disabled={isDisabled}
+      {...(asChild ? {} : { disabled: isDisabled })}
+      aria-disabled={isDisabled ? true : undefined}
       aria-busy={loading ? true : undefined}
-      className={cn(base, variants[variant], className)}
+      className={cn(
+        base,
+        variants[variant],
+        className,
+        isDisabled && 'pointer-events-none',
+      )}
       {...rest}
     >
       {loading ? `█▌ ${loadingLabel ?? 'LOADING'}` : children}
-    </button>
+    </Comp>
   );
 });
