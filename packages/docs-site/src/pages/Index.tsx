@@ -251,12 +251,60 @@ import { Button } from '@touch-grass-ds/react';
         </div>
       </Section>
 
+      {/* Author — who built this, where to find them */}
+      <Section eyebrow="// AUTHOR" title="BUILT BY THIAGO XIKOTA.">
+        <div className="border border-[var(--color-hairline)] grid grid-cols-1 md:grid-cols-[200px_1fr]">
+          <div className="border-b md:border-b-0 md:border-r border-[var(--color-hairline)] p-0 bg-[var(--color-bg-alt)]">
+            <img
+              src="/thiagoxikota.png"
+              alt="Thiago Xikota — product designer and creator of Touch Grass DS"
+              className="block w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div className="p-6 md:p-8 flex flex-col gap-5">
+            <p className="font-mono text-[14px] font-semibold leading-relaxed text-[var(--color-fg)] max-w-[60ch]">
+              <strong className="text-[var(--color-earned)]">Thiago Xikota</strong> — product designer,
+              design system lead, AI workflow engineer. Built Touch Grass DS from scratch in 48 hours
+              with Claude Code. Shipping <strong className="text-[var(--color-earned)]">Timeouts</strong>,
+              the social gym for time off the phone.
+            </p>
+            <ul className="grid grid-cols-2 gap-x-6 gap-y-2">
+              {[
+                { label: 'PORTFOLIO', href: 'https://thiagoxikota.com' },
+                { label: 'CASE STUDY', href: 'https://thiagoxikota.com/projects/touch-grass' },
+                { label: 'LINKEDIN', href: 'https://br.linkedin.com/in/thiagoxikota' },
+                { label: 'GITHUB', href: 'https://github.com/thiagoxikota' },
+                { label: 'FIGMA COMMUNITY', href: 'https://www.figma.com/community/file/1625695815996602388/touch-grass-ds' },
+                { label: 'TIMEOUTS.APP', href: 'https://timeouts.app' },
+              ].map((it) => (
+                <li key={it.label}>
+                  <a
+                    href={it.href}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className="font-mono text-[12px] font-black uppercase tracking-[0.12em] text-[var(--color-fg)] hover:bg-[var(--color-earned)] hover:text-[var(--color-bg)] inline-block px-1 -mx-1"
+                  >
+                    {it.label} ↗
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </Section>
+
       <RelatedLinks
         title="ELSEWHERE"
         items={[
           { label: 'TIMEOUTS.APP', to: 'https://timeouts.app', kind: 'external' },
-          { label: 'CASE STUDY', to: 'https://thiagoxikota.com/blog/construindo-touch-grass-com-claude-code', kind: 'external' },
           { label: 'GITHUB REPO', to: 'https://github.com/thiagoxikota/touch-grass', kind: 'external' },
+          { label: 'NPM · REACT', to: 'https://www.npmjs.com/package/@touch-grass-ds/react', kind: 'external' },
+          { label: 'NPM · TOKENS', to: 'https://www.npmjs.com/package/@touch-grass-ds/tokens', kind: 'external' },
+          { label: 'FIGMA COMMUNITY', to: 'https://www.figma.com/community/file/1625695815996602388/touch-grass-ds', kind: 'external' },
+          { label: 'CASE STUDY (PT-BR)', to: 'https://thiagoxikota.com/blog/construindo-touch-grass-com-claude-code', kind: 'external' },
+          { label: 'PORTFOLIO', to: 'https://thiagoxikota.com', kind: 'external' },
+          { label: 'LINKEDIN', to: 'https://br.linkedin.com/in/thiagoxikota', kind: 'external' },
         ]}
       />
     </div>

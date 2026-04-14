@@ -8,7 +8,12 @@ Zero rounded corners. Zero grey text. Zero animation. Geist Mono everywhere it c
 [![License: MIT](https://img.shields.io/badge/license-MIT-000000?style=flat-square&labelColor=a6ff00&color=000000)](./LICENSE)
 [![Node](https://img.shields.io/badge/node-%E2%89%A522-000000?style=flat-square&labelColor=a6ff00&color=000000)](./package.json)
 [![CI](https://img.shields.io/github/actions/workflow/status/thiagoxikota/touch-grass/ci.yml?style=flat-square&labelColor=a6ff00&color=000000&label=ci)](./.github/workflows/ci.yml)
-[![Made with pnpm](https://img.shields.io/badge/pnpm-9-000000?style=flat-square&labelColor=a6ff00&color=000000)](https://pnpm.io)
+[![npm · react](https://img.shields.io/npm/v/@touch-grass-ds/react?style=flat-square&labelColor=a6ff00&color=000000&label=npm%20%C2%B7%20react)](https://www.npmjs.com/package/@touch-grass-ds/react)
+[![npm · tokens](https://img.shields.io/npm/v/@touch-grass-ds/tokens?style=flat-square&labelColor=a6ff00&color=000000&label=npm%20%C2%B7%20tokens)](https://www.npmjs.com/package/@touch-grass-ds/tokens)
+[![Figma Community](https://img.shields.io/badge/figma-community-000000?style=flat-square&labelColor=a6ff00&color=000000)](https://www.figma.com/community/file/1625695815996602388/touch-grass-ds)
+
+**By [Thiago Xikota](https://thiagoxikota.com)** — product designer, DS lead, AI workflow engineer.
+[Portfolio](https://thiagoxikota.com) · [Case study](https://thiagoxikota.com/projects/touch-grass) · [LinkedIn](https://br.linkedin.com/in/thiagoxikota) · [Timeouts.app](https://timeouts.app)
 
 </div>
 
@@ -196,6 +201,23 @@ Standing on the shoulders of:
 - **[Vite](https://vitejs.dev/)** + **[React 19](https://react.dev/)** — docs site
 - **[Vitest](https://vitest.dev/)** + **[Testing Library](https://testing-library.com/)** — tests
 
+## Author
+
+**Thiago Xikota** — product designer, design system lead, and AI workflow engineer. Built Touch Grass DS from scratch in 48 hours using Claude Code as an operating system for product work, as the visual backbone for [Timeouts](https://timeouts.app).
+
+- **Portfolio** — [thiagoxikota.com](https://thiagoxikota.com)
+- **Case study (detail page)** — [thiagoxikota.com/projects/touch-grass](https://thiagoxikota.com/projects/touch-grass)
+- **Case study (PT-BR long-form)** — [thiagoxikota.com/blog/construindo-touch-grass-com-claude-code](https://thiagoxikota.com/blog/construindo-touch-grass-com-claude-code)
+- **LinkedIn** — [br.linkedin.com/in/thiagoxikota](https://br.linkedin.com/in/thiagoxikota)
+- **GitHub** — [github.com/thiagoxikota](https://github.com/thiagoxikota)
+- **X / Twitter** — [@thiagoxikota](https://x.com/thiagoxikota)
+
+Touch Grass is distributed on:
+
+- **npm** — [`@touch-grass-ds/react`](https://www.npmjs.com/package/@touch-grass-ds/react) · [`@touch-grass-ds/tokens`](https://www.npmjs.com/package/@touch-grass-ds/tokens)
+- **Figma Community** — [Touch Grass DS](https://www.figma.com/community/file/1625695815996602388/touch-grass-ds)
+- **Swift Package Manager** — [github.com/thiagoxikota/touch-grass](https://github.com/thiagoxikota/touch-grass)
+
 ## License
 
-[MIT](./LICENSE) © Thiago Xikota
+[MIT](./LICENSE) © [Thiago Xikota](https://thiagoxikota.com)

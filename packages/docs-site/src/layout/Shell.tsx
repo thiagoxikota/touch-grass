@@ -40,16 +40,19 @@ function Footer() {
           label="REPO"
           items={[
             { label: 'GITHUB', href: 'https://github.com/thiagoxikota/touch-grass', external: true },
-            { label: 'NPM', href: 'https://www.npmjs.com/package/@touch-grass-ds/react', external: true },
+            { label: 'NPM · REACT', href: 'https://www.npmjs.com/package/@touch-grass-ds/react', external: true },
+            { label: 'NPM · TOKENS', href: 'https://www.npmjs.com/package/@touch-grass-ds/tokens', external: true },
+            { label: 'FIGMA COMMUNITY', href: 'https://www.figma.com/community/file/1625695815996602388/touch-grass-ds', external: true },
             { label: 'CHANGELOG', href: 'https://github.com/thiagoxikota/touch-grass/blob/main/CHANGELOG.md', external: true },
             { label: 'LICENSE', href: 'https://github.com/thiagoxikota/touch-grass/blob/main/LICENSE', external: true },
           ]}
         />
         <FooterCol
-          label="AUTHOR"
+          label="AUTHOR / THIAGO XIKOTA"
           items={[
-            { label: 'THIAGOXIKOTA.COM', href: 'https://thiagoxikota.com', external: true },
-            { label: 'LINKEDIN', href: 'https://www.linkedin.com/in/thiagoxikota', external: true },
+            { label: 'PORTFOLIO', href: 'https://thiagoxikota.com', external: true },
+            { label: 'CASE STUDY', href: 'https://thiagoxikota.com/projects/touch-grass', external: true },
+            { label: 'LINKEDIN', href: 'https://br.linkedin.com/in/thiagoxikota', external: true },
             { label: 'X / TWITTER', href: 'https://x.com/thiagoxikota', external: true },
           ]}
         />
