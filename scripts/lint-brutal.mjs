@@ -4,14 +4,15 @@ import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
+// Lint only the design system source — docs-site is allowed to display
+// token values, hex codes, and forced-state previews for educational purposes.
 const DIRECTORIES_TO_LINT = [
   path.join(__dirname, '../packages/ds/src'),
-  path.join(__dirname, '../packages/docs-site/src')
 ];
 
 const BRUTAL_VIOLATIONS = [
   { regex: /rounded-((sm)|(md)|(lg)|(xl)|(2xl)|(3xl)|(full))/g, message: 'Zero rounded corners allowed. Found border-radius utility' },
-  { regex: /transition(-[a-z]+)?/g, message: 'Zero motion allowed. Found transition utility' },
+  { regex: /transition(?!-none\b)(-[a-z-]+)?/g, message: 'Zero motion allowed. Found transition utility (use transition-none to explicitly disable motion)' },
   { regex: /duration-[0-9]+/g, message: 'Zero motion allowed. Found duration utility' },
   { regex: /ease-[a-z-]+/g, message: 'Zero motion allowed. Found ease utility' },
   { regex: /#([0-9a-fA-F]{6}|[0-9a-fA-F]{3})(?![0-9a-fA-F])/g, message: 'No hex codes allowed in components. Use tokens from var(--color-*) or Tailwind utilities' }
