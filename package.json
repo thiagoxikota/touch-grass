@@ -13,7 +13,8 @@
     "test": "pnpm -r test",
     "dev": "pnpm --filter @touch-grass-ds/docs-site dev",
     "tokens": "pnpm --filter @touch-grass-ds/tokens build",
-    "generate": "node scripts/generate.mjs"
+    "generate": "node scripts/generate.mjs",
+    "release": "changeset publish"
   },
   "devDependencies": {
     "@changesets/cli": "^2.30.0",

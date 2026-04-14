@@ -30,6 +30,9 @@ jobs:
       - name: Build tokens
         run: pnpm --filter @touch-grass-ds/tokens build
 
+      - name: Lint brutalist rules
+        run: pnpm lint:brutal
+
       - name: Run tests
         run: pnpm -r test
 
