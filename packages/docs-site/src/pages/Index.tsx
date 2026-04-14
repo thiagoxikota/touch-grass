@@ -44,7 +44,7 @@ export function Index() {
       {/* Hero */}
       <header className="mb-20">
         <div className="mb-4">
-          <Eyebrow>TOUCH GRASS DS / v0.1.2 / MIT</Eyebrow>
+          <Eyebrow>TOUCH GRASS DS / v1.0.0 / MIT / ON NPM</Eyebrow>
         </div>
         <h1 className="font-black leading-[0.9] tracking-[-0.04em] mb-8 text-[56px] sm:text-[88px] md:text-[112px]">
           BRUTALIST.
@@ -72,6 +72,38 @@ export function Index() {
           </a>
         </div>
       </header>
+
+      {/* Install */}
+      <Section eyebrow="INSTALL" title="ONE COMMAND. NO SETUP.">
+        <div className="border border-[var(--color-hairline)]">
+          <div className="grid grid-cols-1 md:grid-cols-2">
+            <div className="p-6 border-b md:border-b-0 md:border-r border-[var(--color-hairline)]">
+              <div className="font-mono text-[11px] font-black uppercase tracking-[0.14em] text-[var(--color-earned)] mb-3">
+                // 01 — INSTALL
+              </div>
+              <pre className="font-mono text-[14px] font-black text-[var(--color-fg)] whitespace-pre-wrap">
+{`pnpm add \\
+  @touch-grass-ds/react \\
+  @touch-grass-ds/tokens`}
+              </pre>
+            </div>
+            <div className="p-6">
+              <div className="font-mono text-[11px] font-black uppercase tracking-[0.14em] text-[var(--color-earned)] mb-3">
+                // 02 — IMPORT
+              </div>
+              <pre className="font-mono text-[14px] font-black text-[var(--color-fg)] whitespace-pre-wrap">
+{`import '@touch-grass-ds/tokens/dist/tokens.css';
+import { Button } from '@touch-grass-ds/react';
+
+<Button>EARN IT</Button>`}
+              </pre>
+            </div>
+          </div>
+        </div>
+        <p className="font-mono text-[11px] font-black uppercase tracking-[0.14em] text-[var(--color-fg)] mt-4">
+          // REACT 19 · ESM ONLY · TREE-SHAKEABLE · MIT
+        </p>
+      </Section>
 
       {/* Stats */}
       <Section eyebrow="BY THE NUMBERS" title="REAL COUNTS FROM THE REPO">
