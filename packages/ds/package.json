@@ -5,9 +5,14 @@
   "license": "MIT",
   "private": true,
   "type": "module",
-  "main": "./src/index.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
-    ".": "./src/index.ts",
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    },
     "./styles/base.css": "./src/styles/base.css"
   },
   "keywords": [
@@ -30,7 +35,7 @@
     "directory": "packages/ds"
   },
   "scripts": {
-    "build": "echo 'shell \u2014 bundler lands in v0.2' && exit 0",
+    "build": "tsup",
     "test": "vitest run"
   },
   "dependencies": {
@@ -41,6 +46,7 @@
     "@fontsource/geist-mono": "^5.1.0"
   },
   "devDependencies": {
+    "tsup": "^8.0.0",
     "@types/react": "^19.0.0",
     "@testing-library/react": "^16.1.0",
     "@testing-library/jest-dom": "^6.6.0",
@@ -49,7 +55,8 @@
     "react-dom": "^19.0.0",
     "vitest": "^2.1.0",
     "jsdom": "^25.0.0",
-    "typescript": "^5.6.0"
+    "typescript": "^5.6.0",
+    "@playwright/experimental-ct-react": "^1.43.0"
   },
   "peerDependencies": {
     "react": "^19.0.0",

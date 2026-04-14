@@ -9,6 +9,8 @@ export { Tag, type TagProps } from './primitives/Tag';
 export { Divider, type DividerProps } from './primitives/Divider';
 export { Stat, type StatProps, type StatMeta } from './primitives/Stat';
 export { Timer, type TimerProps } from './primitives/Timer';
+export { Checkbox, type CheckboxProps } from './primitives/Checkbox';
+export { Switch, type SwitchProps } from './primitives/Switch';
 
 // Patterns
 export { LeaderboardRow, type LeaderboardRowProps, type LeaderboardRowVariant } from './patterns/LeaderboardRow';
@@ -16,3 +18,6 @@ export { FocusTimerDisplay, type FocusTimerDisplayProps } from './patterns/Focus
 export { BeRealStamp, type BeRealStampProps } from './patterns/BeRealStamp';
 export { PatternInterruptModal, type PatternInterruptModalProps, type PatternInterruptContextItem } from './patterns/PatternInterruptModal';
 export { SessionSummaryCard, type SessionSummaryCardProps } from './patterns/SessionSummaryCard';
+export { Sparkline, type SparklineProps } from './patterns/Sparkline';
+export { ToastProvider, useToast, type ToastProps } from './patterns/Toast';
+export { Field, type FieldProps } from './patterns/Field';
