@@ -1,0 +1,9 @@
+{
+  "name": "eslint-plugin-touch-grass",
+  "version": "0.1.0",
+  "main": "index.js",
+  "type": "commonjs",
+  "peerDependencies": {
+    "eslint": ">=8"
+  }
+}
