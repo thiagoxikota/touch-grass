@@ -29,6 +29,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(function Che
         />
         {/* Using a brutalist SVG path without rounding (straight strokes, sharp vectors) to simulate the 'X' cross check */}
         <svg
+          aria-hidden="true"
           className="absolute inset-0 w-full h-full pointer-events-none hidden peer-checked:block"
           viewBox="0 0 24 24"
           fill="none"

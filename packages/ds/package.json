@@ -36,8 +36,15 @@
     "url": "git+https://github.com/thiagoxikota/touch-grass.git",
     "directory": "packages/ds"
   },
+  "files": [
+    "dist",
+    "src/styles",
+    "README.md",
+    "CHANGELOG.md"
+  ],
   "scripts": {
     "build": "tsup",
+    "prepublishOnly": "tsup",
     "test": "vitest run"
   },
   "dependencies": {
