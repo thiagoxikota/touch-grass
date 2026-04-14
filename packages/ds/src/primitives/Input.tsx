@@ -10,7 +10,7 @@ const base =
   'block w-full bg-black text-white text-[16px] font-semibold ' +
   'px-4 py-3 min-h-[48px] border-2 border-white ' +
   'placeholder:text-white placeholder:font-mono placeholder:uppercase placeholder:tracking-[0.08em] ' +
-  'focus-visible:outline-2 focus-visible:outline-[var(--color-earned)] focus-visible:[outline-offset:3px] ' +
+  'focus-visible:outline-2 focus-visible:outline-earned focus-visible:[outline-offset:3px] ' +
   'disabled:cursor-not-allowed disabled:border-dashed';
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
@@ -23,9 +23,10 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
       className={cn(
         base,
         variant === 'numeric' ? 'font-mono' : 'font-sans',
-        error && 'border-[var(--color-danger)]',
+        error && 'border-danger',
         className
       )}
+      aria-invalid={error ? true : undefined}
       {...rest}
     />
   );

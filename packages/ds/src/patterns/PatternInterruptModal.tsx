@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { Button } from '../primitives/Button';
 import { cn } from '../lib/cn';
 
@@ -30,19 +29,9 @@ export function PatternInterruptModal({
   onSecondary,
   className,
 }: PatternInterruptModalProps) {
-  useEffect(() => {
-    const wordCount = headline.trim().split(/\s+/).length;
-    if (wordCount > 8) {
-      console.warn(
-        `[PatternInterruptModal] Headline exceeds 8 words (got ${wordCount}). ` +
-        `Brutalism is reduction. Cut it.`
-      );
-    }
-  }, [headline]);
-
   return (
-    <div className={cn('border-2 border-[var(--color-danger)] bg-black', className)}>
-      <div className="flex justify-between items-center px-5 py-3 bg-[var(--color-danger)] font-mono text-[14px] font-black text-white uppercase tracking-[0.14em]">
+    <div className={cn('border-2 border-danger bg-black', className)}>
+      <div className="flex justify-between items-center px-5 py-3 bg-danger font-mono text-[14px] font-black text-white uppercase tracking-[0.14em]">
         <span>INTERRUPT · {time}</span>
         <span>{status}</span>
       </div>

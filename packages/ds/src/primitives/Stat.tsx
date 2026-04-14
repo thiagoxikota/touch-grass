@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import type { ComponentProps, ReactNode } from 'react';
 import { cn } from '../lib/cn';
 
 type StatVariant = 'hero' | 'inline';
@@ -9,13 +9,12 @@ export interface StatMeta {
   v: string;
 }
 
-export interface StatProps {
+export interface StatProps extends ComponentProps<'div'> {
   variant?: StatVariant;
   size?: StatSize;
   label?: ReactNode;
   value: ReactNode;
   meta?: StatMeta[];
-  className?: string;
 }
 
 const sizeClasses: Record<StatSize, string> = {
@@ -25,26 +24,26 @@ const sizeClasses: Record<StatSize, string> = {
   xl: 'text-[96px]',
 };
 
-export function Stat({ variant = 'hero', size = 'lg', label, value, meta, className }: StatProps) {
+export function Stat({ variant = 'hero', size = 'lg', label, value, meta, className, ...rest }: StatProps) {
   if (variant === 'inline') {
     return (
-      <span className={cn('font-mono font-black text-white', sizeClasses[size === 'lg' ? 'sm' : size], className)}>
+      <span className={cn('font-mono font-black text-white', sizeClasses[size === 'lg' ? 'sm' : size], className)} {...rest}>
         {value}
       </span>
     );
   }
   return (
-    <div className={cn('block', className)}>
+    <div className={cn('block', className)} {...rest}>
       {label && (
         <div className="font-mono text-[13px] font-black uppercase tracking-[0.14em] text-white mb-3">
           {label}
         </div>
       )}
-      <div className={cn('font-mono font-black leading-[0.9] tracking-[-0.04em] text-[var(--color-earned)]', sizeClasses[size])}>
+      <div className={cn('font-mono font-black leading-[0.9] tracking-[-0.04em] text-earned', sizeClasses[size])}>
         {value}
       </div>
       {meta && meta.length > 0 && (
-        <div className="flex gap-4 mt-6 pt-5 border-t border-[var(--color-hairline)]">
+        <div className="flex gap-4 mt-6 pt-5 border-t border-hairline">
           {meta.map((m) => (
             <div key={m.k} className="flex-1">
               <div className="font-mono text-[13px] font-black uppercase tracking-[0.12em] text-white">{m.k}</div>

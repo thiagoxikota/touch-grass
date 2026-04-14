@@ -15,8 +15,8 @@ export function Divider({ variant = 'hairline', orientation = 'horizontal', clas
       aria-orientation={orientation}
       className={cn(
         isV
-          ? isStrong ? 'border-l-2 border-white h-full w-0' : 'border-l border-[var(--color-hairline)] h-full w-0'
-          : isStrong ? 'border-t-2 border-white w-full h-0' : 'border-t border-[var(--color-hairline)] w-full h-0',
+          ? isStrong ? 'border-l-2 border-white h-full w-0' : 'border-l border-hairline h-full w-0'
+          : isStrong ? 'border-t-2 border-white w-full h-0' : 'border-t border-hairline w-full h-0',
         className
       )}
       {...rest}

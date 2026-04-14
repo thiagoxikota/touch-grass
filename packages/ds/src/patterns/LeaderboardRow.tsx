@@ -42,13 +42,13 @@ export function LeaderboardRow({
   return (
     <div
       className={cn(
-        'grid grid-cols-[56px_44px_1fr_140px_100px] gap-4 px-5 py-4 border-b border-[var(--color-hairline)] items-center font-mono',
-        isYou && 'bg-[rgba(166,255,0,0.06)] border-l-4 border-[var(--color-earned)]',
+        'grid grid-cols-[56px_44px_1fr_140px_100px] gap-4 px-5 py-4 border-b border-hairline items-center font-mono',
+        isYou && 'bg-[rgba(166,255,0,0.06)] border-l-4 border-earned',
         className
       )}
       {...rest}
     >
-      <div className={cn('font-black', isTop1 ? 'text-[22px] text-[var(--color-earned)]' : 'text-[18px] text-white')}>
+      <div className={cn('font-black', isTop1 ? 'text-[22px] text-earned' : 'text-[18px] text-white')}>
         {formatRank(rank)}
       </div>
       <div className="w-10 h-10 bg-black border-2 border-white flex items-center justify-center text-[14px] font-black text-white">
@@ -62,7 +62,7 @@ export function LeaderboardRow({
           @{truncate(handle.toUpperCase(), 14)}
         </div>
       </div>
-      <div className={cn('text-right text-[22px] font-black', isTop1 ? 'text-[var(--color-earned)]' : 'text-white')}>
+      <div className={cn('text-right text-[22px] font-black', isTop1 ? 'text-earned' : 'text-white')}>
         {hours}
       </div>
       <div className="flex justify-end">

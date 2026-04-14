@@ -35,5 +35,5 @@ export function Timer({ variant = 'static', value, start, label, size = 'lg', cl
     ? formatElapsed(now - start.getTime())
     : (value ?? '00:00:00');
 
-  return <Stat variant="hero" label={label} value={display} size={size} className={className} />;
+  return <Stat role="timer" aria-live="off" variant="hero" label={label} value={display} size={size} className={className} />;
 }
