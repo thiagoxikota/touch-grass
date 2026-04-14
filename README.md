@@ -31,7 +31,7 @@ Touch Grass doesn't. It's built on a short list of hard rules:
 - **Tokens only.** Components don't know about hex codes. Spacing, color, and size come from `@touch-grass/tokens` or they don't ship.
 - **48px minimum tap target.** No exceptions.
 
-It's the system I wanted while building [Timeouts](https://timeouts.app) — an iOS app about stepping away from your screen — and couldn't find anywhere off the shelf.
+It's the system I wanted while building [Timeouts](https://timeouts.app) — a social gym for time off your phone — and couldn't find anywhere off the shelf.
 
 ## What's in here
 
