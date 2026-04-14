@@ -1,5 +1,5 @@
 {
-  "name": "@touch-grass/tokens",
+  "name": "@touch-grass-ds/tokens",
   "version": "0.1.0",
   "description": "Brutalist design tokens. CSS variables, Tailwind v4 theme, Figma W3C JSON, and Swift constants from one source.",
   "license": "MIT",

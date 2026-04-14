@@ -1,32 +1,88 @@
 import { useState } from 'react';
-import { Tag } from '@touch-grass/ds';
+import { Tag } from '@touch-grass-ds/react';
+import {
+  DocPage,
+  Section,
+  CodeBlock,
+  PropsTable,
+  RelatedLinks,
+  Preview,
+} from '../../ui/DocPage';
+
+export const title = 'TAG';
 
 const FILTERS = ['DAILY', 'WEEKLY', 'MONTHLY', 'ALL TIME'];
 
+const PROPS = [
+  { name: 'active', type: 'boolean', default: 'false', description: 'Toggled on state. Renders earned fill + black text.' },
+  { name: 'children', type: 'ReactNode', required: true, default: '—', description: 'Uppercase label. Keep under 12 characters.' },
+  { name: 'onClick', type: '(e: MouseEvent<HTMLButtonElement>) => void', default: '—', description: 'Click handler. Pair with state setter for controlled filters.' },
+];
+
+const CODE = `import { Tag } from '@touch-grass-ds/react';
+
+const [range, setRange] = useState('WEEKLY');
+
+{['DAILY', 'WEEKLY', 'MONTHLY'].map((r) => (
+  <Tag key={r} active={range === r} onClick={() => setRange(r)}>
+    {r}
+  </Tag>
+))}`;
+
 export function TagPage() {
   const [active, setActive] = useState('WEEKLY');
+
   return (
-    <div>
-      <div className="font-mono text-[13px] font-black uppercase tracking-[0.12em] text-[var(--color-earned)] border-b-2 border-[var(--color-earned)] pb-2 mb-12">
-        // PRIMITIVES / TAG
-      </div>
-      <h1 className="text-[32px] font-black tracking-[-0.02em] mb-2">TAG.</h1>
-      <p className="text-[16px] font-mono font-semibold mb-12 max-w-[60ch]">
-        Filter chip. Default white border, active green fill. Click to toggle.
-      </p>
+    <DocPage
+      eyebrow="PRIMITIVES / TAG"
+      title="TAG"
+      kicker="Filter chip. Aria-pressed when active. Used for time ranges, categories, and toggle groups. 36px tap target — smaller than Button because tags usually come in groups."
+      meta={{
+        status: 'stable',
+        version: 'v0.1.2',
+        tapTarget: '36px',
+        role: 'button',
+        importPath: '@touch-grass-ds/react',
+      }}
+    >
+      <Section eyebrow="INTERACTIVE" title="FILTER GROUP">
+        <Preview>
+          <div className="flex flex-wrap gap-2">
+            {FILTERS.map((f) => (
+              <Tag key={f} active={active === f} onClick={() => setActive(f)}>
+                {f}
+              </Tag>
+            ))}
+          </div>
+        </Preview>
+      </Section>
 
-      <h2 className="text-[24px] font-black tracking-[-0.02em] mb-4">INTERACTIVE</h2>
-      <div className="flex gap-2 mb-12">
-        {FILTERS.map((f) => (
-          <Tag key={f} active={active === f} onClick={() => setActive(f)}>{f}</Tag>
-        ))}
-      </div>
+      <Section eyebrow="STATES" title="TWO STATES">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <Preview label="DEFAULT">
+            <Tag>DEFAULT</Tag>
+          </Preview>
+          <Preview label="ACTIVE">
+            <Tag active>ACTIVE</Tag>
+          </Preview>
+        </div>
+      </Section>
 
-      <h2 className="text-[24px] font-black tracking-[-0.02em] mb-4">STATES</h2>
-      <div className="flex gap-2">
-        <Tag>DEFAULT</Tag>
-        <Tag active>ACTIVE</Tag>
-      </div>
-    </div>
+      <Section eyebrow="USAGE" title="CODE">
+        <CodeBlock code={CODE} />
+      </Section>
+
+      <Section eyebrow="API" title="PROPS">
+        <PropsTable rows={PROPS} />
+      </Section>
+
+      <RelatedLinks
+        items={[
+          { label: 'BADGE', to: '/primitives/badge', kind: 'primitive' },
+          { label: 'BUTTON', to: '/primitives/button', kind: 'primitive' },
+          { label: 'STATES', to: '/foundations/states', kind: 'foundation' },
+        ]}
+      />
+    </DocPage>
   );
 }

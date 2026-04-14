@@ -2,7 +2,7 @@
 
 ## Supported Versions
 
-Touch Grass is pre-1.0. Only the latest published version of `@touch-grass/tokens` and `@touch-grass/ds` is supported. Older versions will not receive security fixes — please upgrade.
+Touch Grass is pre-1.0. Only the latest published version of `@touch-grass-ds/tokens` and `@touch-grass-ds/react` is supported. Older versions will not receive security fixes — please upgrade.
 
 ## Reporting a Vulnerability
 

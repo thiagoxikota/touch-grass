@@ -23,8 +23,8 @@ labels: bug
 
 ## Environment
 
-- `@touch-grass/tokens` version:
-- `@touch-grass/ds` version:
+- `@touch-grass-ds/tokens` version:
+- `@touch-grass-ds/react` version:
 - React version:
 - Browser / OS:
 

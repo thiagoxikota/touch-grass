@@ -18,7 +18,7 @@ Closes #
 - [ ] No `border-radius` introduced
 - [ ] No grey or opacity-based foreground colors
 - [ ] No CSS transitions or animations
-- [ ] All colors and spacing come from `@touch-grass/tokens`
+- [ ] All colors and spacing come from `@touch-grass-ds/tokens`
 - [ ] Monospace (`Geist Mono`) for any new label, heading, or stat
 
 ## Testing

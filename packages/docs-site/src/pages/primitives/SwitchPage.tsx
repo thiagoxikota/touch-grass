@@ -1,32 +1,90 @@
 import { useState } from 'react';
-import { Switch } from '../../../../ds/src';
+import { Switch } from '@touch-grass-ds/react';
+import {
+  DocPage,
+  Section,
+  CodeBlock,
+  PropsTable,
+  RelatedLinks,
+  Preview,
+} from '../../ui/DocPage';
+
+export const title = 'SWITCH';
+
+const PROPS = [
+  { name: 'checked', type: 'boolean', default: 'false', description: 'Controlled on state.' },
+  { name: 'label', type: 'string', default: '—', description: 'Uppercase mono label, rendered inline next to the switch.' },
+  { name: 'disabled', type: 'boolean', default: 'false', description: 'Dashed border, no events.' },
+  { name: 'onChange', type: '(e: ChangeEvent<HTMLInputElement>) => void', default: '—', description: 'Native change handler.' },
+];
+
+const CODE = `import { Switch } from '@touch-grass-ds/react';
+
+const [notifications, setNotifications] = useState(false);
+
+<Switch
+  checked={notifications}
+  onChange={(e) => setNotifications(e.target.checked)}
+  label="NOTIFICATIONS"
+/>`;
 
 export function SwitchPage() {
-  const [active, setActive] = useState(false);
+  const [on, setOn] = useState(false);
 
   return (
-    <div className="p-8 max-w-2xl text-white">
-      <h1 className="font-mono text-h1 font-black text-earned uppercase mb-4 tracking-[0.12em]">SWITCH</h1>
-      <p className="font-sans text-body mb-12">
-        A brutalist switch mechanism. No sliding animations. Thumb position snaps instantly.
-      </p>
+    <DocPage
+      eyebrow="PRIMITIVES / SWITCH"
+      title="SWITCH"
+      kicker="Binary toggle. The thumb jumps — it doesn't slide. Zero motion across the track. Native input with role=switch and standard keyboard support."
+      meta={{
+        status: 'stable',
+        version: 'v0.1.2',
+        role: 'switch',
+        importPath: '@touch-grass-ds/react',
+      }}
+    >
+      <Section eyebrow="INTERACTIVE" title="TOGGLE IT">
+        <Preview>
+          <Switch
+            checked={on}
+            onChange={(e) => setOn(e.target.checked)}
+            label="NOTIFICATIONS"
+          />
+        </Preview>
+      </Section>
 
-      <div className="flex flex-col gap-8">
-        <div>
-          <h2 className="font-mono text-[13px] font-black uppercase text-hairline tracking-[0.12em] mb-4">STATES</h2>
-          <div className="flex flex-col gap-6">
-            <Switch checked={active} onChange={(e) => setActive(e.target.checked)} label="TOGGLE NOTIFICATIONS" />
-          </div>
+      <Section eyebrow="STATES" title="FOUR STATES">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <Preview label="OFF">
+            <Switch label="NOTIFICATIONS" />
+          </Preview>
+          <Preview label="ON">
+            <Switch checked readOnly label="NOTIFICATIONS" />
+          </Preview>
+          <Preview label="DISABLED · OFF">
+            <Switch disabled label="LOCKED OFF" />
+          </Preview>
+          <Preview label="DISABLED · ON">
+            <Switch disabled checked label="LOCKED ON" />
+          </Preview>
         </div>
+      </Section>
 
-        <div>
-          <h2 className="font-mono text-[13px] font-black uppercase text-hairline tracking-[0.12em] mb-4">DISABLED</h2>
-          <div className="flex gap-6">
-            <Switch disabled label="CANNOT CHANGE" />
-            <Switch disabled checked label="CANNOT DISABLE" />
-          </div>
-        </div>
-      </div>
-    </div>
+      <Section eyebrow="USAGE" title="CODE">
+        <CodeBlock code={CODE} />
+      </Section>
+
+      <Section eyebrow="API" title="PROPS">
+        <PropsTable rows={PROPS} />
+      </Section>
+
+      <RelatedLinks
+        items={[
+          { label: 'CHECKBOX', to: '/primitives/checkbox', kind: 'primitive' },
+          { label: 'INPUT', to: '/primitives/input', kind: 'primitive' },
+          { label: 'MOTION', to: '/foundations/motion', kind: 'foundation' },
+        ]}
+      />
+    </DocPage>
   );
 }

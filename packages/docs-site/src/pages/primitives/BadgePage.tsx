@@ -1,31 +1,86 @@
-import { Badge } from '@touch-grass/ds';
+import { Badge } from '@touch-grass-ds/react';
+import {
+  DocPage,
+  Section,
+  CodeBlock,
+  PropsTable,
+  RelatedLinks,
+  VariantsMatrix,
+  Preview,
+} from '../../ui/DocPage';
+
+export const title = 'BADGE';
 
 const VARIANTS = ['earned', 'neutral', 'danger'] as const;
 const SIZES = ['sm', 'md'] as const;
 
+const PROPS = [
+  { name: 'variant', type: "'earned' | 'neutral' | 'danger'", default: "'neutral'", description: 'earned for KING/TOP/WIN. Neutral for default status. Danger for errors.' },
+  { name: 'size', type: "'sm' | 'md'", default: "'md'", description: 'sm for inline/tight contexts. md for rows and cards.' },
+  { name: 'children', type: 'ReactNode', default: '—', required: true, description: 'Uppercase label. Keep under 8 characters.' },
+];
+
+const CODE = `import { Badge } from '@touch-grass-ds/react';
+
+<Badge variant="earned" size="md">KING</Badge>
+<Badge variant="neutral" size="md">MEMBER</Badge>
+<Badge variant="danger" size="sm">BROKEN</Badge>`;
+
 export function BadgePage() {
   return (
-    <div>
-      <div className="font-mono text-[13px] font-black uppercase tracking-[0.12em] text-[var(--color-earned)] border-b-2 border-[var(--color-earned)] pb-2 mb-12">
-        // PRIMITIVES / BADGE
-      </div>
-      <h1 className="text-[32px] font-black tracking-[-0.02em] mb-2">BADGE.</h1>
-      <p className="text-[16px] font-mono font-semibold mb-12 max-w-[60ch]">
-        Inline status indicator. Three variants, two sizes. Use earned for KING / TOP / WIN. Neutral by default.
-      </p>
+    <DocPage
+      eyebrow="PRIMITIVES / BADGE"
+      title="BADGE"
+      kicker="Inline status indicator. Three variants, two sizes. earned is scarce — one per row or card, never stacked."
+      meta={{
+        status: 'stable',
+        version: 'v0.1.2',
+        role: 'status',
+        importPath: '@touch-grass-ds/react',
+      }}
+    >
+      <Section eyebrow="VARIANTS × SIZES" title="SIX COMBINATIONS">
+        <VariantsMatrix
+          variants={VARIANTS}
+          states={SIZES}
+          renderCell={(v, s) => (
+            <Badge variant={v} size={s}>
+              {v === 'earned' ? 'KING' : v === 'danger' ? 'BROKEN' : 'MEMBER'}
+            </Badge>
+          )}
+          variantLabel="VARIANT"
+        />
+      </Section>
 
-      <div className="grid grid-cols-[120px_1fr_1fr] border border-[var(--color-hairline)]">
-        <div className="p-4 border-r border-b border-[var(--color-hairline)]" />
-        {SIZES.map((s) => (
-          <div key={s} className="p-4 border-r border-b border-[var(--color-hairline)] last:border-r-0 font-mono text-[13px] font-black uppercase tracking-[0.12em] text-[var(--color-earned)]">{s.toUpperCase()}</div>
-        ))}
-        {VARIANTS.map((v) => [
-          <div key={`${v}-l`} className="p-4 border-r border-b border-[var(--color-hairline)] font-mono text-[13px] font-black uppercase tracking-[0.12em] text-white">{v}</div>,
-          ...SIZES.map((s) => (
-            <div key={`${v}-${s}`} className="p-4 border-r border-b border-[var(--color-hairline)] last:border-r-0 flex items-center"><Badge variant={v} size={s}>KING</Badge></div>
-          )),
-        ])}
-      </div>
-    </div>
+      <Section eyebrow="USAGE" title="CODE">
+        <CodeBlock code={CODE} />
+      </Section>
+
+      <Section eyebrow="API" title="PROPS">
+        <PropsTable rows={PROPS} />
+      </Section>
+
+      <Preview label="LIVE CONTEXT · LEADERBOARD ROW">
+        <div className="flex flex-wrap gap-3 items-center">
+          <Badge variant="earned">KING</Badge>
+          <Badge variant="neutral">+2H</Badge>
+          <Badge variant="danger">BROKEN</Badge>
+          <Badge variant="earned" size="sm">
+            TOP
+          </Badge>
+          <Badge variant="neutral" size="sm">
+            NEW
+          </Badge>
+        </div>
+      </Preview>
+
+      <RelatedLinks
+        items={[
+          { label: 'TAG', to: '/primitives/tag', kind: 'primitive' },
+          { label: 'LEADERBOARD ROW', to: '/patterns/leaderboard-row', kind: 'pattern' },
+          { label: 'COLOR', to: '/foundations/color', kind: 'foundation' },
+        ]}
+      />
+    </DocPage>
   );
 }

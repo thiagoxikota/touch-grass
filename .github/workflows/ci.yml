@@ -28,7 +28,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build tokens
-        run: pnpm --filter @touch-grass/tokens build
+        run: pnpm --filter @touch-grass-ds/tokens build
 
       - name: Run tests
         run: pnpm -r test

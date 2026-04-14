@@ -1,27 +1,27 @@
-# @touch-grass/ds
+# @touch-grass-ds/react
 
 React 19 components for [Touch Grass](https://github.com/thiagoxikota/touch-grass) — the open-source brutalist design system. Eight primitives and five patterns. No rounded corners, no grey text, no motion, no exceptions.
 
 ## Install
 
 ```bash
-npm install @touch-grass/tokens @touch-grass/ds
+npm install @touch-grass-ds/tokens @touch-grass-ds/react
 # or
-pnpm add @touch-grass/tokens @touch-grass/ds
+pnpm add @touch-grass-ds/tokens @touch-grass-ds/react
 ```
 
-`@touch-grass/tokens` is a required peer — the components read CSS variables it defines, so the tokens stylesheet has to be imported first.
+`@touch-grass-ds/tokens` is a required peer — the components read CSS variables it defines, so the tokens stylesheet has to be imported first.
 
 ## Usage
 
 ```css
 /* your global stylesheet */
-@import "@touch-grass/tokens";
-@import "@touch-grass/ds/styles/base.css";
+@import "@touch-grass-ds/tokens";
+@import "@touch-grass-ds/react/styles/base.css";
 ```
 
 ```tsx
-import { Button, Badge, Stat } from "@touch-grass/ds";
+import { Button, Badge, Stat } from "@touch-grass-ds/react";
 
 export function Dashboard() {
   return (

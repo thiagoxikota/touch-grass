@@ -28,7 +28,7 @@ Touch Grass doesn't. It's built on a short list of hard rules:
 - **No grey text.** Foreground colors resolve to tokens — never opacity, never neutrals.
 - **No motion.** No transitions, no eased hovers, no micro-interactions. Hover is a color flip, not a slide.
 - **Mono where it counts.** `Geist Mono`, uppercase, tracked, for headings, buttons, stats, and timers. `Geist Sans` for long-form copy.
-- **Tokens only.** Components don't know about hex codes. Spacing, color, and size come from `@touch-grass/tokens` or they don't ship.
+- **Tokens only.** Components don't know about hex codes. Spacing, color, and size come from `@touch-grass-ds/tokens` or they don't ship.
 - **48px minimum tap target.** No exceptions.
 
 It's the system I wanted while building [Timeouts](https://timeouts.app) — a social gym for time off your phone — and couldn't find anywhere off the shelf.
@@ -37,11 +37,11 @@ It's the system I wanted while building [Timeouts](https://timeouts.app) — a s
 
 <table>
 <tr>
-<td><strong><a href="./packages/tokens">@touch-grass/tokens</a></strong></td>
+<td><strong><a href="./packages/tokens">@touch-grass-ds/tokens</a></strong></td>
 <td>Style Dictionary source of truth. Emits <code>tokens.css</code> (CSS variables), <code>tailwind.theme.css</code> (Tailwind v4 <code>@theme</code> block), <code>figma-tokens.json</code> (W3C Design Tokens format), and Swift constants for iOS consumers via SPM.</td>
 </tr>
 <tr>
-<td><strong><a href="./packages/ds">@touch-grass/ds</a></strong></td>
+<td><strong><a href="./packages/ds">@touch-grass-ds/react</a></strong></td>
 <td>React 19 component library. 8 primitives (Button, Input, Badge, Card, Tag, Divider, Stat, Timer) + 5 patterns (LeaderboardRow, FocusTimerDisplay, BeRealStamp, PatternInterruptModal, SessionSummaryCard).</td>
 </tr>
 <tr>
@@ -75,24 +75,24 @@ It's the system I wanted while building [Timeouts](https://timeouts.app) — a s
 
 ```bash
 # web / React
-npm install @touch-grass/tokens @touch-grass/ds
+npm install @touch-grass-ds/tokens @touch-grass-ds/react
 
 # or pnpm, or bun, or yarn
-pnpm add @touch-grass/tokens @touch-grass/ds
+pnpm add @touch-grass-ds/tokens @touch-grass-ds/react
 ```
 
 ### Use the tokens
 
 ```css
 /* app/globals.css */
-@import "@touch-grass/tokens";          /* or "@touch-grass/tokens/tailwind" */
-@import "@touch-grass/ds/styles/base.css";
+@import "@touch-grass-ds/tokens";          /* or "@touch-grass-ds/tokens/tailwind" */
+@import "@touch-grass-ds/react/styles/base.css";
 ```
 
 ### Use a component
 
 ```tsx
-import { Button } from "@touch-grass/ds";
+import { Button } from "@touch-grass-ds/react";
 
 export function Home() {
   return (
@@ -137,8 +137,8 @@ corepack pnpm dev          # http://localhost:5173
 ```text
 touch-grass/
 ├── packages/
-│   ├── tokens/             @touch-grass/tokens — design token source of truth
-│   ├── ds/                 @touch-grass/ds — React component library
+│   ├── tokens/             @touch-grass-ds/tokens — design token source of truth
+│   ├── ds/                 @touch-grass-ds/react — React component library
 │   └── docs-site/          Vite + React 19 docs (not published to npm)
 ├── brand/
 │   └── touch-grass/        DS brand assets (icon, logo)
@@ -161,7 +161,7 @@ Touch Grass is a pnpm workspace. Requires Node 22+.
 corepack enable
 corepack pnpm install
 
-corepack pnpm tokens       # build @touch-grass/tokens (CSS + JSON + Swift)
+corepack pnpm tokens       # build @touch-grass-ds/tokens (CSS + JSON + Swift)
 corepack pnpm dev          # start docs site at http://localhost:5173
 corepack pnpm -r test      # run all package tests
 corepack pnpm -r build     # build every package

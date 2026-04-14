@@ -1,35 +1,92 @@
 import { useState } from 'react';
-import { Checkbox } from '../../../../ds/src';
+import { Checkbox } from '@touch-grass-ds/react';
+import {
+  DocPage,
+  Section,
+  CodeBlock,
+  PropsTable,
+  RelatedLinks,
+  Preview,
+} from '../../ui/DocPage';
+
+export const title = 'CHECKBOX';
+
+const PROPS = [
+  { name: 'checked', type: 'boolean', default: 'false', description: 'Controlled checked state.' },
+  { name: 'label', type: 'string', default: '—', description: 'Uppercase mono label, rendered inline next to the box.' },
+  { name: 'error', type: 'boolean', default: 'false', description: 'Danger border + aria-invalid.' },
+  { name: 'disabled', type: 'boolean', default: 'false', description: 'Dashed border, no events.' },
+  { name: 'onChange', type: '(e: ChangeEvent<HTMLInputElement>) => void', default: '—', description: 'Native change handler.' },
+];
+
+const CODE = `import { Checkbox } from '@touch-grass-ds/react';
+
+const [agreed, setAgreed] = useState(false);
+
+<Checkbox
+  checked={agreed}
+  onChange={(e) => setAgreed(e.target.checked)}
+  label="AGREE TO TERMS"
+/>`;
 
 export function CheckboxPage() {
   const [checked, setChecked] = useState(false);
 
   return (
-    <div className="p-8 max-w-2xl text-white">
-      <h1 className="font-mono text-h1 font-black text-earned uppercase mb-4 tracking-[0.12em]">CHECKBOX</h1>
-      <p className="font-sans text-body mb-12">
-        A brutally honest checkbox. Hard SVG path strokes. 0 radius. 0 hover easing.
-      </p>
+    <DocPage
+      eyebrow="PRIMITIVES / CHECKBOX"
+      title="CHECKBOX"
+      kicker="Hard SVG path check. No rounded corners, no hover fades. Native input wrapped in a label for free keyboard + focus semantics."
+      meta={{
+        status: 'stable',
+        version: 'v0.1.2',
+        tapTarget: '24px + 12px gap',
+        role: 'checkbox',
+        importPath: '@touch-grass-ds/react',
+      }}
+    >
+      <Section eyebrow="INTERACTIVE" title="CLICK IT">
+        <Preview>
+          <Checkbox
+            checked={checked}
+            onChange={(e) => setChecked(e.target.checked)}
+            label="AGREE TO TERMS"
+          />
+        </Preview>
+      </Section>
 
-      <div className="flex flex-col gap-8">
-        <div>
-          <h2 className="font-mono text-[13px] font-black uppercase text-hairline tracking-[0.12em] mb-4">DEFAULT</h2>
-          <Checkbox checked={checked} onChange={(e) => setChecked(e.target.checked)} label="AGREE TO TERMS" />
-        </div>
-
-        <div>
-          <h2 className="font-mono text-[13px] font-black uppercase text-hairline tracking-[0.12em] mb-4">DISABLED</h2>
-          <div className="flex gap-6">
+      <Section eyebrow="STATES" title="FOUR STATES">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <Preview label="DEFAULT / UNCHECKED">
+            <Checkbox label="TERMS" />
+          </Preview>
+          <Preview label="CHECKED">
+            <Checkbox checked readOnly label="TERMS" />
+          </Preview>
+          <Preview label="DISABLED">
             <Checkbox disabled label="UNAVAILABLE" />
-            <Checkbox disabled checked label="PERMANENTLY CHECKED" />
-          </div>
+          </Preview>
+          <Preview label="ERROR">
+            <Checkbox error label="REQUIRED FIELD" />
+          </Preview>
         </div>
+      </Section>
 
-        <div>
-          <h2 className="font-mono text-[13px] font-black uppercase text-hairline tracking-[0.12em] mb-4">ERROR</h2>
-          <Checkbox error label="REQUIRED FIELD" />
-        </div>
-      </div>
-    </div>
+      <Section eyebrow="USAGE" title="CODE">
+        <CodeBlock code={CODE} />
+      </Section>
+
+      <Section eyebrow="API" title="PROPS">
+        <PropsTable rows={PROPS} />
+      </Section>
+
+      <RelatedLinks
+        items={[
+          { label: 'SWITCH', to: '/primitives/switch', kind: 'primitive' },
+          { label: 'INPUT', to: '/primitives/input', kind: 'primitive' },
+          { label: 'STATES', to: '/foundations/states', kind: 'foundation' },
+        ]}
+      />
+    </DocPage>
   );
 }

@@ -1,4 +1,4 @@
-# @touch-grass/tokens
+# @touch-grass-ds/tokens
 
 Design tokens for [Touch Grass](https://github.com/thiagoxikota/touch-grass) — the open-source brutalist design system. Built on [Style Dictionary 4](https://styledictionary.com/), emits one set of primitive tokens across four targets so web, Figma, and iOS stay in lockstep.
 
@@ -17,9 +17,9 @@ src/*.json                                       (source of truth, JSON)
 ## Install
 
 ```bash
-npm install @touch-grass/tokens
+npm install @touch-grass-ds/tokens
 # or
-pnpm add @touch-grass/tokens
+pnpm add @touch-grass-ds/tokens
 ```
 
 ## Usage
@@ -27,7 +27,7 @@ pnpm add @touch-grass/tokens
 ### Plain CSS
 
 ```css
-@import "@touch-grass/tokens";
+@import "@touch-grass-ds/tokens";
 
 .card {
   background: var(--color-bg);
@@ -41,7 +41,7 @@ pnpm add @touch-grass/tokens
 
 ```css
 @import "tailwindcss";
-@import "@touch-grass/tokens/tailwind";
+@import "@touch-grass-ds/tokens/tailwind";
 ```
 
 Then use token-named utilities in your markup: `bg-bg`, `text-ink`, `border-hairline`, `p-4`, etc. Tailwind reads the `@theme` block from the imported CSS.
@@ -50,7 +50,7 @@ Then use token-named utilities in your markup: `bg-bg`, `text-ink`, `border-hair
 
 ```bash
 # generate once
-pnpm --filter @touch-grass/tokens build
+pnpm --filter @touch-grass-ds/tokens build
 # import dist/figma-tokens.json into the Figma variables panel
 ```
 
@@ -73,7 +73,7 @@ let accent = TouchGrassTokens.Color.earned     // "#a6ff00"
 let spacing = TouchGrassTokens.Space.space4    // 16
 ```
 
-The Swift source is regenerated every time you run `pnpm --filter @touch-grass/tokens build`.
+The Swift source is regenerated every time you run `pnpm --filter @touch-grass-ds/tokens build`.
 
 ## Token categories
 
@@ -89,8 +89,8 @@ The Swift source is regenerated every time you run `pnpm --filter @touch-grass/t
 ## Development
 
 ```bash
-pnpm --filter @touch-grass/tokens build    # regenerate all outputs
-pnpm --filter @touch-grass/tokens test     # verify output integrity
+pnpm --filter @touch-grass-ds/tokens build    # regenerate all outputs
+pnpm --filter @touch-grass-ds/tokens test     # verify output integrity
 ```
 
 Token sources live in `src/*.json`. Edit those, then rebuild. Never hand-edit `dist/` or `Sources/`.

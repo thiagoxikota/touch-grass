@@ -1,38 +1,95 @@
-import { Divider } from '@touch-grass/ds';
+import { Divider } from '@touch-grass-ds/react';
+import {
+  DocPage,
+  Section,
+  CodeBlock,
+  PropsTable,
+  RelatedLinks,
+  Preview,
+} from '../../ui/DocPage';
+
+export const title = 'DIVIDER';
+
+const PROPS = [
+  { name: 'variant', type: "'hairline' | 'strong'", default: "'hairline'", description: 'hairline is 1px hairline token. strong is 2px fg.' },
+  { name: 'orientation', type: "'horizontal' | 'vertical'", default: "'horizontal'", description: 'Horizontal renders as a full-width border-top. Vertical as border-left.' },
+];
+
+const CODE = `import { Divider } from '@touch-grass-ds/react';
+
+<Divider />
+<Divider variant="strong" />
+<Divider orientation="vertical" />
+<Divider variant="strong" orientation="vertical" />`;
 
 export function DividerPage() {
   return (
-    <div>
-      <div className="font-mono text-[13px] font-black uppercase tracking-[0.12em] text-[var(--color-earned)] border-b-2 border-[var(--color-earned)] pb-2 mb-12">
-        // PRIMITIVES / DIVIDER
-      </div>
-      <h1 className="text-[32px] font-black tracking-[-0.02em] mb-2">DIVIDER.</h1>
-      <p className="text-[16px] font-mono font-semibold mb-12 max-w-[60ch]">
-        1px hairline or 2px strong. Horizontal or vertical. Quiet structure.
-      </p>
+    <DocPage
+      eyebrow="PRIMITIVES / DIVIDER"
+      title="DIVIDER"
+      kicker="Quiet structure. 1px hairline by default, 2px strong when the separation is important. Horizontal or vertical. Accessible as role=separator."
+      meta={{
+        status: 'stable',
+        version: 'v0.1.2',
+        role: 'separator',
+        importPath: '@touch-grass-ds/react',
+      }}
+    >
+      <Section eyebrow="HORIZONTAL" title="HAIRLINE AND STRONG">
+        <Preview label="HAIRLINE">
+          <p className="font-mono text-[14px] font-semibold text-[var(--color-fg)] mb-4">
+            Above the line.
+          </p>
+          <Divider />
+          <p className="font-mono text-[14px] font-semibold text-[var(--color-fg)] mt-4">
+            Below the line.
+          </p>
+        </Preview>
+        <div className="mt-6" />
+        <Preview label="STRONG">
+          <p className="font-mono text-[14px] font-semibold text-[var(--color-fg)] mb-4">
+            Above the line.
+          </p>
+          <Divider variant="strong" />
+          <p className="font-mono text-[14px] font-semibold text-[var(--color-fg)] mt-4">
+            Below the line.
+          </p>
+        </Preview>
+      </Section>
 
-      <h2 className="text-[24px] font-black tracking-[-0.02em] mb-4">HAIRLINE HORIZONTAL</h2>
-      <div className="mb-12">
-        <p className="font-mono text-[16px] font-semibold text-white mb-4">Above the line.</p>
-        <Divider />
-        <p className="font-mono text-[16px] font-semibold text-white mt-4">Below the line.</p>
-      </div>
+      <Section eyebrow="VERTICAL" title="SIDE BY SIDE">
+        <Preview>
+          <div className="flex items-stretch gap-6 h-20">
+            <span className="font-mono text-[14px] font-bold text-[var(--color-fg)] flex items-center">
+              LEFT
+            </span>
+            <Divider orientation="vertical" />
+            <span className="font-mono text-[14px] font-bold text-[var(--color-fg)] flex items-center">
+              CENTER
+            </span>
+            <Divider variant="strong" orientation="vertical" />
+            <span className="font-mono text-[14px] font-bold text-[var(--color-fg)] flex items-center">
+              RIGHT
+            </span>
+          </div>
+        </Preview>
+      </Section>
 
-      <h2 className="text-[24px] font-black tracking-[-0.02em] mb-4">STRONG HORIZONTAL</h2>
-      <div className="mb-12">
-        <p className="font-mono text-[16px] font-semibold text-white mb-4">Above the line.</p>
-        <Divider variant="strong" />
-        <p className="font-mono text-[16px] font-semibold text-white mt-4">Below the line.</p>
-      </div>
+      <Section eyebrow="USAGE" title="CODE">
+        <CodeBlock code={CODE} />
+      </Section>
 
-      <h2 className="text-[24px] font-black tracking-[-0.02em] mb-4">VERTICAL</h2>
-      <div className="flex items-stretch gap-6 h-24 border border-[var(--color-hairline)] p-4">
-        <p className="font-mono text-[16px] font-semibold text-white">LEFT</p>
-        <Divider orientation="vertical" />
-        <p className="font-mono text-[16px] font-semibold text-white">CENTER</p>
-        <Divider variant="strong" orientation="vertical" />
-        <p className="font-mono text-[16px] font-semibold text-white">RIGHT</p>
-      </div>
-    </div>
+      <Section eyebrow="API" title="PROPS">
+        <PropsTable rows={PROPS} />
+      </Section>
+
+      <RelatedLinks
+        items={[
+          { label: 'BORDERS', to: '/foundations/borders', kind: 'foundation' },
+          { label: 'SPACING', to: '/foundations/spacing', kind: 'foundation' },
+          { label: 'CARD', to: '/primitives/card', kind: 'primitive' },
+        ]}
+      />
+    </DocPage>
   );
 }

@@ -1,38 +1,81 @@
-import { Sparkline } from '../../../../ds/src';
+import { Sparkline } from '@touch-grass-ds/react';
+import {
+  DocPage,
+  Section,
+  CodeBlock,
+  PropsTable,
+  RelatedLinks,
+  Preview,
+} from '../../ui/DocPage';
 
-export const title = "SPARKLINE";
+export const title = 'SPARKLINE';
+
+const WEEK = [12, 45, 80, 20, 110, 50, 95];
+const MONTH = [30, 45, 60, 40, 55, 70, 90, 60, 80, 100, 85, 95, 70, 60, 40, 55, 75, 90, 105, 80, 65, 50, 35, 45, 60, 80, 95, 110, 100, 85];
+
+const PROPS = [
+  { name: 'data', type: 'number[]', required: true, default: '—', description: 'Raw values. Bars auto-scale against the max.' },
+  { name: 'dangerThreshold', type: 'number', default: '—', description: 'Optional threshold — values >= it paint in danger instead of earned.' },
+  { name: 'height', type: 'number', default: '64', description: 'Max bar height in pixels. The container fixes to this height.' },
+];
+
+const CODE = `import { Sparkline } from '@touch-grass-ds/react';
+
+const week = [12, 45, 80, 20, 110, 50, 95];
+
+<Sparkline data={week} />
+<Sparkline data={week} dangerThreshold={90} />`;
 
 export function SparklinePage() {
-  const mockWeek = [12, 45, 80, 20, 110, 50, 95];
-  
   return (
-    <div className="p-8 max-w-2xl text-white">
-      <h1 className="font-mono text-h1 font-black text-earned uppercase mb-4 tracking-[0.12em]">
-        SPARKLINE
-      </h1>
-      <p className="font-sans text-body mb-12 border-l-4 border-earned pl-4">
-        A brutalist implementation of Data-Viz. No heavy SVGs. No animated paths. Pure DOM blocks scaling linearly.
-      </p>
-
-      <div className="flex flex-col gap-12">
-        <div>
-          <h2 className="font-mono text-[13px] font-black uppercase text-hairline tracking-[0.12em] mb-4">
-            WEEKLY FOCUS (MINUTES)
-          </h2>
-          <div className="border border-hairline p-4 w-64 bg-black">
-             <Sparkline data={mockWeek} />
-          </div>
+    <DocPage
+      eyebrow="PATTERNS / SPARKLINE"
+      title="SPARKLINE"
+      kicker="Brutalist data-viz. No SVG paths, no animated strokes — pure DOM blocks scaling linearly against the max. Paint danger values above an optional threshold."
+      meta={{
+        status: 'stable',
+        version: 'v0.1.2',
+        role: 'img',
+        importPath: '@touch-grass-ds/react',
+      }}
+    >
+      <Section eyebrow="LIVE" title="WEEKLY + MONTHLY">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <Preview label="// WEEKLY FOCUS (MINUTES)">
+            <div className="border border-[var(--color-hairline)] p-4 bg-[var(--color-bg)]">
+              <Sparkline data={WEEK} />
+            </div>
+          </Preview>
+          <Preview label="// WITH DANGER THRESHOLD · 90">
+            <div className="border border-[var(--color-hairline)] p-4 bg-[var(--color-bg)]">
+              <Sparkline data={WEEK} dangerThreshold={90} />
+            </div>
+          </Preview>
         </div>
-
-        <div>
-          <h2 className="font-mono text-[13px] font-black uppercase text-hairline tracking-[0.12em] mb-4">
-            WITH DANGER THRESHOLD
-          </h2>
-          <div className="border border-hairline p-4 w-64 bg-black">
-             <Sparkline data={mockWeek} dangerThreshold={90} />
-          </div>
+        <div className="mt-6">
+          <Preview label="// MONTHLY · 30 BARS">
+            <div className="border border-[var(--color-hairline)] p-4 bg-[var(--color-bg)]">
+              <Sparkline data={MONTH} height={96} />
+            </div>
+          </Preview>
         </div>
-      </div>
-    </div>
+      </Section>
+
+      <Section eyebrow="USAGE" title="CODE">
+        <CodeBlock code={CODE} />
+      </Section>
+
+      <Section eyebrow="API" title="PROPS">
+        <PropsTable rows={PROPS} />
+      </Section>
+
+      <RelatedLinks
+        items={[
+          { label: 'STAT', to: '/primitives/stat', kind: 'primitive' },
+          { label: 'COLOR', to: '/foundations/color', kind: 'foundation' },
+          { label: 'MOTION', to: '/foundations/motion', kind: 'foundation' },
+        ]}
+      />
+    </DocPage>
   );
 }

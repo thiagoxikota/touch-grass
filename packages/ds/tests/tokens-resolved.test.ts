@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 describe('ds token integration', () => {
-  it('re-exports tokens.css from @touch-grass/tokens', () => {
+  it('re-exports tokens.css from @touch-grass-ds/tokens', () => {
     const tokensCss = readFileSync(
       resolve(__dirname, '../../tokens/dist/tokens.css'),
       'utf8'

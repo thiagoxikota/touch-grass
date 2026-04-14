@@ -1,11 +1,11 @@
 ---
-"@touch-grass/tokens": minor
-"@touch-grass/ds": minor
+"@touch-grass-ds/tokens": minor
+"@touch-grass-ds/react": minor
 ---
 
 First public release of the Touch Grass design system on npm.
 
-**@touch-grass/tokens**
+**@touch-grass-ds/tokens**
 - Six core color tokens (bg, fg, earned, danger, hairline, bg-alt) as CSS
   variables, Tailwind v4 theme, W3C Figma tokens, and auto-generated Swift
   constants via Style Dictionary.
@@ -17,7 +17,7 @@ First public release of the Touch Grass design system on npm.
   `/js` and `/preset` for Tailwind preset consumption.
 - SPM package at the repo root for iOS/macOS consumers.
 
-**@touch-grass/ds**
+**@touch-grass-ds/react**
 - Eight brutalist primitives: Button (3×5 matrix), Input, Badge (3×2),
   Card, Tag, Divider, Stat, Timer, Checkbox, Switch — all `forwardRef`,
   token-only colors via the Tailwind preset, 48px tap targets, hard-halo

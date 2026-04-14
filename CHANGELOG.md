@@ -14,12 +14,12 @@ First public release.
 
 ### Added
 
-- **`@touch-grass/tokens`** — Style Dictionary 4 source of truth. Emits:
+- **`@touch-grass-ds/tokens`** — Style Dictionary 4 source of truth. Emits:
   - `tokens.css` — CSS custom properties
   - `tailwind.theme.css` — Tailwind v4 `@theme` block
   - `figma-tokens.json` — W3C Design Tokens format for Figma
   - `Sources/TouchGrassTokens/TouchGrassTokens.swift` — Swift constants for iOS consumers via SPM
-- **`@touch-grass/ds`** — React 19 component library:
+- **`@touch-grass-ds/react`** — React 19 component library:
   - 8 primitives: `Button`, `Input`, `Badge`, `Card`, `Stat`, `Timer`, `Tag`, `Divider`
   - 5 patterns: `LeaderboardRow`, `FocusTimerDisplay`, `BeRealStamp`, `PatternInterruptModal`, `SessionSummaryCard`
   - Base styles, `cn()` helper, forwardRef throughout

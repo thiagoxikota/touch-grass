@@ -8,7 +8,7 @@
 @import '@fontsource/geist-mono/800.css';
 @import '@fontsource/geist-mono/900.css';
 
-@import '@touch-grass/tokens/css';
+@import '@touch-grass-ds/tokens/css';
 
 *, *::before, *::after {
   box-sizing: border-box;

@@ -11,8 +11,8 @@
     "build": "pnpm -r build",
     "lint:brutal": "node scripts/lint-brutal.mjs",
     "test": "pnpm -r test",
-    "dev": "pnpm --filter @touch-grass/docs-site dev",
-    "tokens": "pnpm --filter @touch-grass/tokens build",
+    "dev": "pnpm --filter @touch-grass-ds/docs-site dev",
+    "tokens": "pnpm --filter @touch-grass-ds/tokens build",
     "generate": "node scripts/generate.mjs"
   },
   "devDependencies": {

@@ -1,4 +1,4 @@
 @import 'tailwindcss';
-@import '@touch-grass/tokens/light';
-@import '@touch-grass/tokens/tailwind';
-@import '@touch-grass/ds/styles/base.css';
+@import '@touch-grass-ds/tokens/light';
+@import '@touch-grass-ds/tokens/tailwind';
+@import '@touch-grass-ds/react/styles/base.css';

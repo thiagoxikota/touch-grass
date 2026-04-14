@@ -1,42 +1,182 @@
-import { Button } from '@touch-grass/ds';
+import { Button } from '@touch-grass-ds/react';
+import {
+  DocPage,
+  Section,
+  Preview,
+  CodeBlock,
+  PropsTable,
+  RelatedLinks,
+  VariantsMatrix,
+} from '../../ui/DocPage';
+
+export const title = 'BUTTON';
 
 const VARIANTS = ['primary', 'ghost', 'danger'] as const;
+const STATES = ['default', 'hover', 'focus', 'disabled', 'loading'] as const;
 
-export function ButtonPage() {
-  return (
-    <div>
-      <div className="font-mono text-[13px] font-black uppercase tracking-[0.12em] text-[var(--color-earned)] border-b-2 border-[var(--color-earned)] pb-2 mb-12">
-        // PRIMITIVES / BUTTON
-      </div>
-      <h1 className="text-[32px] font-black tracking-[-0.02em] mb-2">BUTTON.</h1>
-      <p className="text-[16px] font-mono font-semibold mb-12 max-w-[60ch]">
-        Three variants. Five states. 48px tap target floor. Loading uses block characters, never spinners.
-      </p>
+const PROPS = [
+  {
+    name: 'variant',
+    type: "'primary' | 'ghost' | 'danger'",
+    default: "'primary'",
+    description: 'Visual variant. Primary for the main CTA, ghost for secondary, danger for destructive.',
+  },
+  {
+    name: 'loading',
+    type: 'boolean',
+    default: 'false',
+    description: 'Renders block-character loader "█▌" prefixed to loadingLabel. Disables the button.',
+  },
+  {
+    name: 'loadingLabel',
+    type: 'string',
+    default: "'LOADING'",
+    description: 'Label shown during loading. Use verb-ing form: SYNCING, STARTING, ENDING.',
+  },
+  {
+    name: 'disabled',
+    type: 'boolean',
+    default: 'false',
+    description: 'Dashed border, cursor-not-allowed. Looks broken on purpose.',
+  },
+  {
+    name: 'children',
+    type: 'ReactNode',
+    default: '—',
+    required: true,
+    description: 'Button label. Use verbs in imperative form: START, CANCEL, END SESSION.',
+  },
+];
 
-      <h2 className="text-[24px] font-black tracking-[-0.02em] mb-4">VARIANTS × STATES</h2>
-      <div className="grid grid-cols-[120px_1fr_1fr_1fr_1fr_1fr] border border-[var(--color-hairline)]">
-        <div className="p-4 border-r border-b border-[var(--color-hairline)]" />
-        {['DEFAULT', 'HOVER', 'FOCUS', 'DISABLED', 'LOADING'].map((s) => (
-          <div key={s} className="p-4 border-r border-b border-[var(--color-hairline)] last:border-r-0 font-mono text-[13px] font-black uppercase tracking-[0.12em] text-[var(--color-earned)]">{s}</div>
-        ))}
-        {VARIANTS.map((v) => [
-          <div key={`${v}-label`} className="p-4 border-r border-b border-[var(--color-hairline)] font-mono text-[13px] font-black uppercase tracking-[0.12em] text-white">{v}</div>,
-          <div key={`${v}-default`} className="p-4 border-r border-b border-[var(--color-hairline)] flex items-center"><Button variant={v}>START</Button></div>,
-          <div key={`${v}-hover`} className="p-4 border-r border-b border-[var(--color-hairline)] flex items-center"><Button variant={v} className="[box-shadow:inset_0_0_0_2px_#000]">START</Button></div>,
-          <div key={`${v}-focus`} className="p-4 border-r border-b border-[var(--color-hairline)] flex items-center"><Button variant={v} className="outline-2 outline-white [outline-offset:3px] outline-solid">START</Button></div>,
-          <div key={`${v}-disabled`} className="p-4 border-r border-b border-[var(--color-hairline)] flex items-center"><Button variant={v} disabled>START</Button></div>,
-          <div key={`${v}-loading`} className="p-4 border-b border-[var(--color-hairline)] flex items-center"><Button variant={v} loading loadingLabel="SYNCING">START</Button></div>,
-        ])}
-      </div>
-
-      <h2 className="text-[24px] font-black tracking-[-0.02em] mt-16 mb-4">USAGE</h2>
-      <pre className="border border-[var(--color-hairline)] p-6 font-mono text-[13px] text-white overflow-x-auto">{`import { Button } from '@touch-grass/ds';
+const CODE = `import { Button } from '@touch-grass-ds/react';
 
 <Button>START FOCUS</Button>
 <Button variant="ghost">CANCEL</Button>
 <Button variant="danger">END SESSION</Button>
 <Button loading loadingLabel="SYNCING">START FOCUS</Button>
-<Button disabled>START FOCUS</Button>`}</pre>
-    </div>
+<Button disabled>START FOCUS</Button>`;
+
+function renderCell(variant: (typeof VARIANTS)[number], state: (typeof STATES)[number]) {
+  switch (state) {
+    case 'default':
+      return <Button variant={variant}>START</Button>;
+    case 'hover':
+      return (
+        <Button
+          variant={variant}
+          className="[box-shadow:inset_0_0_0_2px_var(--color-bg)]"
+        >
+          START
+        </Button>
+      );
+    case 'focus':
+      return (
+        <Button
+          variant={variant}
+          className="outline outline-2 outline-[var(--color-fg)] [outline-offset:3px]"
+        >
+          START
+        </Button>
+      );
+    case 'disabled':
+      return (
+        <Button variant={variant} disabled>
+          START
+        </Button>
+      );
+    case 'loading':
+      return (
+        <Button variant={variant} loading loadingLabel="SYNCING">
+          START
+        </Button>
+      );
+  }
+}
+
+export function ButtonPage() {
+  return (
+    <DocPage
+      eyebrow="PRIMITIVES / BUTTON"
+      title="BUTTON"
+      kicker="The interaction primitive. Three variants, five states, 48px tap target floor. Loading is a block-character prefix — never a spinner."
+      meta={{
+        status: 'stable',
+        version: 'v0.1.2',
+        tapTarget: '48px',
+        role: 'button',
+        importPath: '@touch-grass-ds/react',
+      }}
+    >
+      <Section eyebrow="VARIANTS × STATES" title="THE FULL MATRIX">
+        <VariantsMatrix
+          variants={VARIANTS}
+          states={STATES}
+          renderCell={renderCell}
+        />
+      </Section>
+
+      <Section eyebrow="USAGE" title="CODE">
+        <CodeBlock code={CODE} />
+      </Section>
+
+      <Section eyebrow="API" title="PROPS">
+        <PropsTable rows={PROPS} />
+      </Section>
+
+      <Section eyebrow="ACCESSIBILITY" title="WHAT BUTTON GUARANTEES">
+        <ul className="border border-[var(--color-hairline)]">
+          {[
+            ['NATIVE ELEMENT', 'Renders a real <button>, not a div. Keyboard, focus, and click semantics come free.'],
+            ['TAP TARGET ≥ 48PX', 'min-h-[48px] enforced. Meets WCAG 2.5.5 Level AAA target size.'],
+            ['FOCUS RING', '2px outline at 3px offset. Visible on focus-visible — never clipped, never animated.'],
+            ['LOADING ARIA', 'Sets aria-busy when loading. Screen readers announce the loadingLabel.'],
+            ['DISABLED NATIVELY', 'Uses the disabled attribute, not aria-disabled. Receives no events, no focus.'],
+          ].map(([k, v], i, arr) => (
+            <li
+              key={k}
+              className={`grid grid-cols-[120px_1fr] md:grid-cols-[220px_1fr] ${
+                i < arr.length - 1 ? 'border-b border-[var(--color-hairline)]' : ''
+              }`}
+            >
+              <div className="p-5 font-mono text-[12px] md:text-[13px] font-black uppercase tracking-[0.12em] text-[var(--color-earned)] border-r border-[var(--color-hairline)]">
+                {k}
+              </div>
+              <div className="p-5 font-mono text-[13px] md:text-[14px] font-semibold text-[var(--color-fg)] leading-relaxed">
+                {v}
+              </div>
+            </li>
+          ))}
+        </ul>
+      </Section>
+
+      <Section eyebrow="COMPOSED IN" title="WHERE BUTTON SHOWS UP">
+        <p className="font-mono text-[13px] font-semibold max-w-[62ch] text-[var(--color-fg)]">
+          Button is consumed by <strong className="text-[var(--color-earned)]">FocusTimerDisplay</strong>,{' '}
+          <strong className="text-[var(--color-earned)]">PatternInterruptModal</strong>,{' '}
+          <strong className="text-[var(--color-earned)]">SessionSummaryCard</strong>, and used
+          directly on the <strong className="text-[var(--color-earned)]">Timeouts.app</strong> landing.
+        </p>
+      </Section>
+
+      <RelatedLinks
+        items={[
+          { label: 'INPUT', to: '/primitives/input', kind: 'primitive' },
+          { label: 'STATES', to: '/foundations/states', kind: 'foundation' },
+          { label: 'FOCUS TIMER DISPLAY', to: '/patterns/focus-timer-display', kind: 'pattern' },
+        ]}
+      />
+
+      <Preview label="LIVE PREVIEW">
+        <div className="flex flex-wrap gap-4">
+          <Button>START FOCUS</Button>
+          <Button variant="ghost">CANCEL</Button>
+          <Button variant="danger">END SESSION</Button>
+          <Button loading loadingLabel="SYNCING">
+            START
+          </Button>
+          <Button disabled>START</Button>
+        </div>
+      </Preview>
+    </DocPage>
   );
 }

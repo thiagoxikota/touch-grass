@@ -10,7 +10,7 @@ Before touching anything, know that Touch Grass has a few non-negotiables:
 - **Zero grey text.** Foreground colors are resolved from tokens, never opacity or neutral greys.
 - **Zero motion.** No transitions, no easing, no micro-animations. Hover is a color flip, not a slide.
 - **Mono everywhere it counts.** Headings, buttons, stats, timers — `Geist Mono`, uppercase, tracked.
-- **Tokens only.** No hex codes in components. No raw pixel values for spacing. Everything goes through `@touch-grass/tokens`.
+- **Tokens only.** No hex codes in components. No raw pixel values for spacing. Everything goes through `@touch-grass-ds/tokens`.
 - **One primitive per concept.** If `Badge` exists, don't add `Tag` unless it's semantically different (it is — Tag is dismissible, Badge isn't).
 
 If a contribution breaks any of these, it won't merge — not because the PR is bad, but because the system stops being what it is.
@@ -20,8 +20,8 @@ If a contribution breaks any of these, it won't merge — not because the PR is 
 ```
 touch-grass/
 ├── packages/
-│   ├── tokens/        @touch-grass/tokens — Style Dictionary source of truth
-│   ├── ds/            @touch-grass/ds — React component library
+│   ├── tokens/        @touch-grass-ds/tokens — Style Dictionary source of truth
+│   ├── ds/            @touch-grass-ds/react — React component library
 │   └── docs-site/     Vite + React 19 docs (private, not published)
 ├── brand/             Touch Grass own brand assets (icon, logo)
 ├── docs/              Specs and implementation plans
