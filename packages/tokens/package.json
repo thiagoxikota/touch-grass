@@ -8,6 +8,7 @@
   "exports": {
     ".": "./dist/tokens.css",
     "./css": "./dist/tokens.css",
+    "./light": "./dist/light.css",
     "./tailwind": "./dist/tailwind.theme.css",
     "./figma": "./dist/figma-tokens.json",
     "./js": "./dist/tokens.js",

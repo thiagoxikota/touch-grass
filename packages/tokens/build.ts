@@ -5,8 +5,18 @@ import { dirname, join } from 'node:path';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export async function build() {
+  // Main build: exclude color-light.json (handled separately below as a
+  // light-mode override). Globbing all *.json would pull both into one set
+  // and cause duplicate/contradictory --color-* declarations in tokens.css.
   const sd = new StyleDictionary({
-    source: [join(__dirname, 'src/**/*.json')],
+    source: [
+      join(__dirname, 'src/color.json'),
+      join(__dirname, 'src/border.json'),
+      join(__dirname, 'src/grid.json'),
+      join(__dirname, 'src/motion.json'),
+      join(__dirname, 'src/space.json'),
+      join(__dirname, 'src/type.json'),
+    ],
     platforms: {
       css: {
         transformGroup: 'css',

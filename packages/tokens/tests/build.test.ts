@@ -17,7 +17,7 @@ describe('token build', () => {
     expect(css).toContain('--color-bg: #000000');
     expect(css).toContain('--color-fg: #ffffff');
     expect(css).toContain('--color-earned: #a6ff00');
-    expect(css).toContain('--color-danger: #ff3b3b');
+    expect(css).toContain('--color-danger: #ff6b6b');
     expect(css).toContain('--color-hairline: #1a1a1a');
     expect(css).toContain('--color-bg-alt: #0a0a0a');
   });
