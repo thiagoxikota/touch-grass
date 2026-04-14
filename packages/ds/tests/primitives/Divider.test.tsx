@@ -7,7 +7,7 @@ describe('Divider', () => {
     render(<Divider data-testid="d" />);
     const el = screen.getByTestId('d');
     expect(el.className).toContain('border-t');
-    expect(el.className).toContain('border-[var(--color-hairline)]');
+    expect(el.className).toContain('border-hairline');
   });
   it('strong variant uses white 2px', () => {
     render(<Divider variant="strong" data-testid="d" />);

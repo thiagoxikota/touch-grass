@@ -25,7 +25,7 @@ describe('Input', () => {
   it('error state has red border', () => {
     render(<Input error placeholder="x" />);
     const input = screen.getByPlaceholderText('x');
-    expect(input.className).toContain('border-[var(--color-danger)]');
+    expect(input.className).toContain('border-danger');
   });
 
   it('disabled state has dashed border', () => {

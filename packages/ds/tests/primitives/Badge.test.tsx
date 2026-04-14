@@ -17,13 +17,13 @@ describe('Badge', () => {
   it('earned variant uses green bg + black text', () => {
     render(<Badge variant="earned">x</Badge>);
     const el = screen.getByText('x');
-    expect(el.className).toContain('bg-[var(--color-earned)]');
+    expect(el.className).toContain('bg-earned');
     expect(el.className).toContain('text-black');
   });
   it('danger variant uses red bg + white text', () => {
     render(<Badge variant="danger">x</Badge>);
     const el = screen.getByText('x');
-    expect(el.className).toContain('bg-[var(--color-danger)]');
+    expect(el.className).toContain('bg-danger');
   });
   it('sm size uses 11px', () => {
     render(<Badge size="sm">x</Badge>);

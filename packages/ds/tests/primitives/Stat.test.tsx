@@ -11,7 +11,7 @@ describe('Stat', () => {
   it('hero value uses earned color and 80px (lg default)', () => {
     render(<Stat variant="hero" label="x" value="00:00" />);
     const v = screen.getByText('00:00');
-    expect(v.className).toContain('text-[var(--color-earned)]');
+    expect(v.className).toContain('text-earned');
     expect(v.className).toContain('text-[80px]');
   });
   it('hero size md uses 64px', () => {

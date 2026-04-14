@@ -34,13 +34,13 @@ describe('LeaderboardRow', () => {
   it('top1 hours use earned color', () => {
     render(<LeaderboardRow {...base} variant="top1" rank={1} hours="62:14:08" />);
     const hours = screen.getByText('62:14:08');
-    expect(hours.className).toContain('text-[var(--color-earned)]');
+    expect(hours.className).toContain('text-earned');
   });
 
   it('you variant has green left border', () => {
     render(<LeaderboardRow {...base} variant="you" data-testid="row" />);
     expect(screen.getByTestId('row').className).toContain('border-l-4');
-    expect(screen.getByTestId('row').className).toContain('border-[var(--color-earned)]');
+    expect(screen.getByTestId('row').className).toContain('border-earned');
   });
 
   it('truncates names longer than 16 chars', () => {

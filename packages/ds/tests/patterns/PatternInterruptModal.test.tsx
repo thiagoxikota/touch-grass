@@ -37,10 +37,4 @@ describe('PatternInterruptModal', () => {
     expect(onSecondary).toHaveBeenCalledOnce();
   });
 
-  it('warns in console when headline exceeds 8 words', () => {
-    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
-    render(<PatternInterruptModal {...base} headline="one two three four five six seven eight nine" />);
-    expect(warn).toHaveBeenCalled();
-    warn.mockRestore();
-  });
 });

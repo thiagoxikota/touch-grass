@@ -11,7 +11,7 @@ describe('Button', () => {
   it('defaults to primary variant', () => {
     render(<Button>x</Button>);
     const btn = screen.getByRole('button');
-    expect(btn.className).toContain('bg-[var(--color-earned)]');
+    expect(btn.className).toContain('bg-earned');
     expect(btn.className).toContain('text-black');
   });
 
@@ -26,7 +26,7 @@ describe('Button', () => {
   it('applies danger variant', () => {
     render(<Button variant="danger">x</Button>);
     const btn = screen.getByRole('button');
-    expect(btn.className).toContain('bg-[var(--color-danger)]');
+    expect(btn.className).toContain('bg-danger');
     expect(btn.className).toContain('text-white');
   });
 

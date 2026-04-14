@@ -12,7 +12,7 @@ describe('Tag', () => {
   it('active state uses green bg + black text', () => {
     render(<Tag active>WEEKLY</Tag>);
     const el = screen.getByText('WEEKLY');
-    expect(el.className).toContain('bg-[var(--color-earned)]');
+    expect(el.className).toContain('bg-earned');
     expect(el.className).toContain('text-black');
   });
 });
