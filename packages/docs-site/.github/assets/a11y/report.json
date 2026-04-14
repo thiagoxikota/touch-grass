@@ -1,0 +1,174 @@
+{
+  "tool": "axe-core",
+  "base": "http://localhost:5173",
+  "ranAt": "2026-04-14T19:12:29.020Z",
+  "pages": [
+    {
+      "slug": "home",
+      "path": "/",
+      "violations": [],
+      "passes": 23
+    },
+    {
+      "slug": "foundations-color",
+      "path": "/foundations/color",
+      "violations": [],
+      "passes": 24
+    },
+    {
+      "slug": "foundations-typography",
+      "path": "/foundations/typography",
+      "violations": [],
+      "passes": 24
+    },
+    {
+      "slug": "foundations-spacing",
+      "path": "/foundations/spacing",
+      "violations": [],
+      "passes": 24
+    },
+    {
+      "slug": "foundations-borders",
+      "path": "/foundations/borders",
+      "violations": [],
+      "passes": 24
+    },
+    {
+      "slug": "foundations-grid",
+      "path": "/foundations/grid",
+      "violations": [],
+      "passes": 24
+    },
+    {
+      "slug": "foundations-motion",
+      "path": "/foundations/motion",
+      "violations": [],
+      "passes": 24
+    },
+    {
+      "slug": "foundations-states",
+      "path": "/foundations/states",
+      "violations": [],
+      "passes": 24
+    },
+    {
+      "slug": "foundations-brand",
+      "path": "/foundations/brand",
+      "violations": [],
+      "passes": 24
+    },
+    {
+      "slug": "foundations-accessibility",
+      "path": "/foundations/accessibility",
+      "violations": [],
+      "passes": 24
+    },
+    {
+      "slug": "primitive-button",
+      "path": "/primitives/button",
+      "violations": [],
+      "passes": 26
+    },
+    {
+      "slug": "primitive-input",
+      "path": "/primitives/input",
+      "violations": [],
+      "passes": 28
+    },
+    {
+      "slug": "primitive-badge",
+      "path": "/primitives/badge",
+      "violations": [],
+      "passes": 26
+    },
+    {
+      "slug": "primitive-card",
+      "path": "/primitives/card",
+      "violations": [],
+      "passes": 26
+    },
+    {
+      "slug": "primitive-stat",
+      "path": "/primitives/stat",
+      "violations": [],
+      "passes": 26
+    },
+    {
+      "slug": "primitive-checkbox",
+      "path": "/primitives/checkbox",
+      "violations": [],
+      "passes": 28
+    },
+    {
+      "slug": "primitive-switch",
+      "path": "/primitives/switch",
+      "violations": [],
+      "passes": 28
+    },
+    {
+      "slug": "primitive-tag",
+      "path": "/primitives/tag",
+      "violations": [],
+      "passes": 26
+    },
+    {
+      "slug": "primitive-divider",
+      "path": "/primitives/divider",
+      "violations": [],
+      "passes": 26
+    },
+    {
+      "slug": "primitive-timer",
+      "path": "/primitives/timer",
+      "violations": [],
+      "passes": 26
+    },
+    {
+      "slug": "pattern-leaderboard-row",
+      "path": "/patterns/leaderboard-row",
+      "violations": [],
+      "passes": 26
+    },
+    {
+      "slug": "pattern-focus-timer-display",
+      "path": "/patterns/focus-timer-display",
+      "violations": [],
+      "passes": 26
+    },
+    {
+      "slug": "pattern-bereal-stamp",
+      "path": "/patterns/bereal-stamp",
+      "violations": [],
+      "passes": 26
+    },
+    {
+      "slug": "pattern-pattern-interrupt-modal",
+      "path": "/patterns/pattern-interrupt-modal",
+      "violations": [],
+      "passes": 26
+    },
+    {
+      "slug": "pattern-session-summary-card",
+      "path": "/patterns/session-summary-card",
+      "violations": [],
+      "passes": 26
+    },
+    {
+      "slug": "pattern-sparkline",
+      "path": "/patterns/sparkline",
+      "violations": [],
+      "passes": 26
+    },
+    {
+      "slug": "pattern-toast",
+      "path": "/patterns/toast",
+      "violations": [],
+      "passes": 26
+    }
+  ],
+  "totals": {
+    "pages": 27,
+    "violations": 0,
+    "passes": 687
+  }
+}
