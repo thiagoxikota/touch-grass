@@ -1,5 +1,7 @@
 import { FocusTimerDisplay } from '@touch-grass/ds';
 
+export const title = "FOCUS TIMER";
+
 export function FocusTimerDisplayPage() {
   return (
     <div>

@@ -1,70 +1,84 @@
 import { NavLink } from 'react-router-dom';
 import TouchGrassLogo from '@brand/touch-grass/logo.svg?react';
 
+// Use eager loading to access module.title without async boundary
+const foundationsGlob = import.meta.glob('../pages/foundations/*.tsx', { eager: true }) as Record<string, any>;
+const primitivesGlob = import.meta.glob('../pages/primitives/*.tsx', { eager: true }) as Record<string, any>;
+const patternsGlob = import.meta.glob('../pages/patterns/*.tsx', { eager: true }) as Record<string, any>;
+
+function getLinkInfo(path: string, category: string, module: any) {
+  const name = path.split('/').pop()!.replace('.tsx', '');
+  
+  const label = module.title || name.replace('Page', '').replace(/([A-Z])/g, ' $1').trim().toUpperCase();
+  const slug = module.slug || (name === 'BeRealStampPage' ? 'bereal-stamp' : name.replace('Page', '').replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase());
+  
+  return { label, href: `/${category}/${slug}` };
+}
+
 const foundations = [
-  { label: 'OVERVIEW',  href: '/' },
-  { label: 'BRAND',     href: '/foundations/brand' },
-  { label: 'COLOR',     href: '/foundations/color' },
-  { label: 'TYPE',      href: '/foundations/typography' },
-  { label: 'SPACING',   href: '/foundations/spacing' },
-  { label: 'BORDERS',   href: '/foundations/borders' },
-  { label: 'GRID',      href: '/foundations/grid' },
-  { label: 'MOTION',    href: '/foundations/motion' },
-  { label: 'STATES',    href: '/foundations/states' },
+  { label: 'OVERVIEW', href: '/' },
+  ...Object.entries(foundationsGlob).map(([p, m]) => getLinkInfo(p, 'foundations', m))
 ];
-
-const primitives = [
-  { label: 'BUTTON',  href: '/primitives/button'  },
-  { label: 'INPUT',   href: '/primitives/input'   },
-  { label: 'BADGE',   href: '/primitives/badge'   },
-  { label: 'CARD',    href: '/primitives/card'    },
-  { label: 'TAG',     href: '/primitives/tag'     },
-  { label: 'DIVIDER', href: '/primitives/divider' },
-  { label: 'STAT',    href: '/primitives/stat'    },
-  { label: 'TIMER',   href: '/primitives/timer'   },
-];
-
-const patterns = [
-  { label: 'LEADERBOARD ROW', href: '/patterns/leaderboard-row' },
-  { label: 'FOCUS TIMER',     href: '/patterns/focus-timer-display' },
-  { label: 'BEREAL STAMP',    href: '/patterns/bereal-stamp' },
-  { label: 'INTERRUPT',       href: '/patterns/pattern-interrupt-modal' },
-  { label: 'SESSION SUMMARY', href: '/patterns/session-summary-card' },
-];
+const primitives = Object.entries(primitivesGlob).map(([p, m]) => getLinkInfo(p, 'primitives', m));
+const patterns = Object.entries(patternsGlob).map(([p, m]) => getLinkInfo(p, 'patterns', m));
 
 const linkClass = ({ isActive }: { isActive: boolean }) =>
-  `block px-6 py-4 font-mono text-[13px] font-black uppercase tracking-[0.12em] border-b border-[var(--color-hairline)] ${
-    isActive ? 'bg-[var(--color-earned)] text-black' : 'text-white hover:bg-[var(--color-bg-alt)]'
+  `block px-6 py-4 font-mono text-[13px] font-black uppercase tracking-[0.12em] border-b border-hairline ${
+    isActive ? 'bg-earned text-black' : 'text-white hover:bg-bg-alt'
   }`;
 
-const sectionClass = 'px-6 py-3 border-b border-[var(--color-hairline)] font-mono text-[11px] font-black uppercase tracking-[0.14em] text-[var(--color-earned)]';
+const sectionClass = 'px-6 py-3 border-b border-hairline font-mono text-[11px] font-black uppercase tracking-[0.14em] text-earned';
+
+import { useEffect } from 'react';
 
 export function Nav() {
+  useEffect(() => {
+    const saved = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const theme = saved || (prefersDark ? 'dark' : 'light');
+    document.documentElement.dataset.theme = theme;
+  }, []);
+
+  const toggleTheme = () => {
+    const root = document.documentElement;
+    const newTheme = root.dataset.theme === 'light' ? 'dark' : 'light';
+    root.dataset.theme = newTheme;
+    localStorage.setItem('theme', newTheme);
+  };
+
   return (
-    <nav className="border-r border-[var(--color-hairline)] w-[240px] flex-shrink-0">
-      <div className="p-6 border-b border-[var(--color-hairline)] font-mono text-[11px] font-black uppercase tracking-[0.12em]">
+    <nav className="border-r border-hairline w-[240px] flex-shrink-0">
+      <div className="p-6 border-b border-hairline font-mono text-[11px] font-black uppercase tracking-[0.12em]">
         <TouchGrassLogo
           className="block w-full mb-4"
           style={{ color: 'var(--color-earned)' }}
         />
-        <span className="text-[var(--color-earned)]">// V0.0.3</span>
+        <div className="flex items-center justify-between">
+          <span className="text-earned">// V0.0.3</span>
+          <button 
+            onClick={toggleTheme} 
+            className="border-2 border-hairline px-2 py-1 hover:bg-fg hover:text-bg transition-none text-[9px] cursor-pointer"
+          >
+            THEME
+          </button>
+        </div>
       </div>
       <div className={sectionClass}>FOUNDATIONS</div>
       <ul className="list-none m-0 p-0">
         {foundations.map(({ label, href }) => (
-          <li key={href}><NavLink to={href} end className={linkClass}>{label}</NavLink></li>
+          <li key={label}><NavLink to={href} end className={linkClass}>{label}</NavLink></li>
         ))}
       </ul>
       <div className={sectionClass}>PRIMITIVES</div>
       <ul className="list-none m-0 p-0">
         {primitives.map(({ label, href }) => (
-          <li key={href}><NavLink to={href} end className={linkClass}>{label}</NavLink></li>
+          <li key={label}><NavLink to={href} end className={linkClass}>{label}</NavLink></li>
         ))}
       </ul>
       <div className={sectionClass}>PATTERNS</div>
       <ul className="list-none m-0 p-0">
         {patterns.map(({ label, href }) => (
-          <li key={href}><NavLink to={href} end className={linkClass}>{label}</NavLink></li>
+          <li key={label}><NavLink to={href} end className={linkClass}>{label}</NavLink></li>
         ))}
       </ul>
     </nav>

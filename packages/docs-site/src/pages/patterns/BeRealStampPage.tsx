@@ -1,5 +1,7 @@
 import { BeRealStamp } from '@touch-grass/ds';
 
+export const title = "BEREAL STAMP";
+
 export function BeRealStampPage() {
   return (
     <div>

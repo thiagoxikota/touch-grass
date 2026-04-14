@@ -11,6 +11,8 @@ const sizes = [
   { token: 'label',    size: 13, family: 'mono', sample: 'UNTETHERED TODAY' },
 ];
 
+export const title = "TYPE";
+
 export function Typography() {
   return (
     <div>

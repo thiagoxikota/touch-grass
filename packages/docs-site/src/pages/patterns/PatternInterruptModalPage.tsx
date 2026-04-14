@@ -1,5 +1,7 @@
 import { PatternInterruptModal } from '@touch-grass/ds';
 
+export const title = "INTERRUPT";
+
 export function PatternInterruptModalPage() {
   return (
     <div>

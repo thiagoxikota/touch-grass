@@ -1,5 +1,7 @@
 import { LeaderboardRow } from '@touch-grass/ds';
 
+export const title = "LEADERBOARD ROW";
+
 export function LeaderboardRowPage() {
   return (
     <div>

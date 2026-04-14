@@ -1,5 +1,7 @@
 import { SessionSummaryCard } from '@touch-grass/ds';
 
+export const title = "SESSION SUMMARY";
+
 export function SessionSummaryCardPage() {
   return (
     <div>

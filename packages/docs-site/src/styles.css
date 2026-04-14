@@ -1,3 +1,4 @@
 @import 'tailwindcss';
+@import '@touch-grass/tokens/dist/light.css';
 @import '@touch-grass/tokens/tailwind';
 @import '@touch-grass/ds/styles/base.css';
