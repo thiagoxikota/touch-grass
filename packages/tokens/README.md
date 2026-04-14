@@ -31,7 +31,7 @@ pnpm add @touch-grass/tokens
 
 .card {
   background: var(--color-bg);
-  color: var(--color-ink);
+  color: var(--color-fg);
   padding: var(--space-4);
   border: 1px solid var(--color-hairline);
 }
@@ -79,7 +79,7 @@ The Swift source is regenerated every time you run `pnpm --filter @touch-grass/t
 
 | Category | What it covers |
 |---|---|
-| `color` | 4 primary colors (`bg`, `ink`, `earned`, `danger`) + 2 structural (`hairline`, `muted-ink`) |
+| `color` | 4 primary colors (`bg`, `fg`, `earned`, `danger`) + 2 structural (`hairline`, `bg-alt`) |
 | `space` | `0, 1, 2, 3, 4, 6, 8, 12, 16` — no speculative scale, just what's used |
 | `size` | Fixed sizes (tap target 48, icon 16/20/24, hairline 1/2) |
 | `radius` | Exactly one token: `0`. Intentional. |

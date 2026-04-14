@@ -60,7 +60,7 @@ Component conventions:
 - Props spread into the root element, `className` merged via `cn()`
 - Uppercase mono for any human-readable label
 - 48px minimum tap target for interactive elements
-- Dashed border for `disabled` state, hard-halo (`box-shadow: 0 0 0 2px var(--color-ink)`) for focus
+- Dashed border for `disabled` state, hard-halo (`box-shadow: 0 0 0 2px var(--color-fg)`) for focus
 - Loading state uses block characters (`█ ▓ ▒ ░`), never spinners
 
 Tests should cover every variant × state combination. Look at `packages/ds/tests/primitives/Button.test.tsx` for the reference pattern.

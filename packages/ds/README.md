@@ -70,7 +70,7 @@ Every component follows the same rules:
 - **Token-only** — no hex codes, no raw pixel values
 - **Uppercase mono** for any human-readable label (buttons, stats, headings)
 - **48px minimum tap target** for anything interactive
-- **Dashed border** for disabled state; **hard-halo** (`box-shadow: 0 0 0 2px var(--color-ink)`) for focus
+- **Dashed border** for disabled state; **hard-halo** (`box-shadow: 0 0 0 2px var(--color-fg)`) for focus
 - **Block-character** loading states (`█ ▓ ▒ ░`), never spinners
 
 See [CONTRIBUTING.md](../../CONTRIBUTING.md) in the monorepo root for the full component-adding workflow.
