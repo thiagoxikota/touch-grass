@@ -46,6 +46,28 @@ export async function build() {
             imports: ['UIKit']
           }
         }]
+      },
+      js: {
+        transformGroup: 'js',
+        buildPath: join(__dirname, 'dist/'),
+        files: [
+          {
+            destination: 'tokens.js',
+            format: 'javascript/es6'
+          },
+          {
+            destination: 'tokens.d.ts',
+            format: 'typescript/es6-declarations'
+          }
+        ]
+      },
+      twPreset: {
+        transformGroup: 'css',
+        buildPath: join(__dirname, 'dist/'),
+        files: [{
+          destination: 'tailwind-preset.js',
+          format: 'tailwind/preset'
+        }]
       }
     }
   });
@@ -69,8 +91,47 @@ export async function build() {
     }
   });
 
+  sd.registerFormat({
+    name: 'tailwind/preset',
+    format: ({ dictionary }) => {
+      const colors: Record<string, string> = {};
+      for (const token of dictionary.allTokens) {
+        if (token.type === 'color') {
+          const name = token.path.slice(1).join('-');
+          colors[name] = `var(--${token.name})`;
+        }
+      }
+      const preset = {
+        theme: {
+          extend: {
+            colors
+          }
+        }
+      };
+      return `module.exports = ${JSON.stringify(preset, null, 2)};`;
+    }
+  });
+
   await sd.cleanAllPlatforms();
   await sd.buildAllPlatforms();
+
+  const sdLight = new StyleDictionary({
+    source: [join(__dirname, 'src/color-light.json')],
+    platforms: {
+      cssLight: {
+        transformGroup: 'css',
+        buildPath: join(__dirname, 'dist/'),
+        files: [{
+          destination: 'light.css',
+          format: 'css/variables',
+          options: { selector: '[data-theme="light"]' }
+        }]
+      }
+    }
+  });
+
+  await sdLight.cleanAllPlatforms();
+  await sdLight.buildAllPlatforms();
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {

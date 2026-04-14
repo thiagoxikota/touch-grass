@@ -9,7 +9,9 @@
     ".": "./dist/tokens.css",
     "./css": "./dist/tokens.css",
     "./tailwind": "./dist/tailwind.theme.css",
-    "./figma": "./dist/figma-tokens.json"
+    "./figma": "./dist/figma-tokens.json",
+    "./js": "./dist/tokens.js",
+    "./preset": "./dist/tailwind-preset.js"
   },
   "keywords": [
     "design-system",
