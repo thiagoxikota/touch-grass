@@ -1,0 +1,69 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+const DIRECTORIES_TO_LINT = [
+  path.join(__dirname, '../packages/ds/src'),
+  path.join(__dirname, '../packages/docs-site/src')
+];
+
+const BRUTAL_VIOLATIONS = [
+  { regex: /rounded-((sm)|(md)|(lg)|(xl)|(2xl)|(3xl)|(full))/g, message: 'Zero rounded corners allowed. Found border-radius utility' },
+  { regex: /transition(-[a-z]+)?/g, message: 'Zero motion allowed. Found transition utility' },
+  { regex: /duration-[0-9]+/g, message: 'Zero motion allowed. Found duration utility' },
+  { regex: /ease-[a-z-]+/g, message: 'Zero motion allowed. Found ease utility' },
+  { regex: /#([0-9a-fA-F]{6}|[0-9a-fA-F]{3})(?![0-9a-fA-F])/g, message: 'No hex codes allowed in components. Use tokens from var(--color-*) or Tailwind utilities' }
+];
+
+let hasViolations = false;
+
+function scanFile(filePath) {
+  const ext = path.extname(filePath);
+  if (!['.tsx', '.ts'].includes(ext)) return;
+
+  const content = fs.readFileSync(filePath, 'utf-8');
+  const lines = content.split('\n');
+
+  lines.forEach((line, index) => {
+    BRUTAL_VIOLATIONS.forEach(rule => {
+      let match;
+      // create a new regex instance for stateful global matching without bleeding
+      const localRegex = new RegExp(rule.regex.source, rule.regex.flags);
+      while ((match = localRegex.exec(line)) !== null) {
+        // Exclude matching comments naively
+        if (line.includes('//') && line.indexOf('//') < match.index) continue;
+        
+        console.error(`❌ Brutalism Violation:`);
+        console.error(`   File: ${filePath.split('touch-grass/')[1] || filePath}:${index + 1}`);
+        console.error(`   Match: "${match[0]}"`);
+        console.error(`   Reason: ${rule.message}\n`);
+        hasViolations = true;
+      }
+    });
+  });
+}
+
+function scanDir(dir) {
+  if (!fs.existsSync(dir)) return;
+  const files = fs.readdirSync(dir);
+  for (const file of files) {
+    const fullPath = path.join(dir, file);
+    if (fs.statSync(fullPath).isDirectory()) {
+      scanDir(fullPath);
+    } else {
+      scanFile(fullPath);
+    }
+  }
+}
+
+console.log('⚔️  Running Brutal Linter...');
+DIRECTORIES_TO_LINT.forEach(scanDir);
+
+if (hasViolations) {
+  console.error('🛑 Linter failed. Fix the violations above to maintain brutalism.');
+  process.exit(1);
+} else {
+  console.log('✅ Brutal Linter passing. Zero motion, zero rounding, zero hex codes.');
+}

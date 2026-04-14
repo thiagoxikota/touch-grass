@@ -45,14 +45,21 @@ pnpm is invoked via `corepack pnpm` to avoid PATH activation quirks on macOS. Ba
 
 ## Adding a component
 
-New primitives go in `packages/ds/src/primitives/`. New patterns go in `packages/ds/src/patterns/`. Both follow a six-file lockstep:
+You don't need to manually scaffold files anymore. Rote-work is automated.
+Run the CLI generator from the root:
 
-1. The component file (`.tsx`) — `forwardRef`, `cn()` helper, token-only classes
-2. The test file (`.test.tsx`) — vitest + React Testing Library, variants and states
-3. The barrel export (`src/index.ts`)
-4. The docs-site demo page (`packages/docs-site/src/pages/primitives/Foo.tsx` or `patterns/Foo.tsx`)
-5. The nav entry (`packages/docs-site/src/layout/Nav.tsx`)
-6. The route wiring (`packages/docs-site/src/App.tsx`)
+```bash
+pnpm run generate primitive ComponentName
+# or
+pnpm run generate pattern ComponentName
+```
+
+This will automatically create:
+1. The brutalist component file (`packages/ds/src/...`)
+2. The vitest test file (`packages/ds/tests/...`)
+3. The Docs demo page (`packages/docs-site/src/pages/...`)
+
+**Important:** You only need to manually export your new component in the barrel file (`packages/ds/src/index.ts`). The Docs site navigation and routing will automatically pick up your new page using `import.meta.glob`.
 
 Component conventions:
 
