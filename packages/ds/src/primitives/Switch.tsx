@@ -26,12 +26,20 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(function Switch(
           className={base}
           {...rest}
         />
-        {/* Zero motion thumb. Uses pure layout jump based on peer-checked to flip sides */}
-        <div 
+        {/*
+          Zero-motion thumb. Position flips on peer-checked, color flips too:
+          OFF = white thumb, left side, black track with white border.
+          ON  = black thumb with lime 2px border, right side, black track with lime border.
+          Black-on-lime is 9.1:1; the thumb is visibly distinct from the surrounding
+          track regardless of position, fixing the perceptibility bug where the old
+          "lime thumb on lime border" rendered as a single lime block.
+        */}
+        <div
           className={cn(
-            'pointer-events-none absolute w-[calc(50%-4px)] h-[calc(100%-8px)] top-1 bg-white border-white',
-            'left-1 peer-checked:left-[calc(50%+2px)] peer-checked:bg-earned peer-checked:border-earned',
-            'peer-disabled:bg-white peer-disabled:peer-checked:bg-white'
+            'pointer-events-none absolute w-[calc(50%-4px)] h-[calc(100%-8px)] top-1 border-2',
+            'bg-white border-white',
+            'left-1 peer-checked:left-[calc(50%+2px)] peer-checked:bg-black peer-checked:border-earned',
+            'peer-disabled:bg-white peer-disabled:peer-checked:bg-white peer-disabled:peer-checked:border-white',
           )}
         />
       </div>
