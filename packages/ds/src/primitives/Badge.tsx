@@ -12,7 +12,7 @@ const base = 'inline-flex items-center font-mono font-black uppercase tracking-[
 const variants = {
   earned:  'bg-earned text-black border-earned',
   neutral: 'bg-black text-white border-white',
-  danger:  'bg-danger text-white border-danger',
+  danger:  'bg-danger text-black border-danger',
 };
 
 const sizes = {

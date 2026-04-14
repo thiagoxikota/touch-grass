@@ -31,7 +31,7 @@ export function PatternInterruptModal({
 }: PatternInterruptModalProps) {
   return (
     <div className={cn('border-2 border-danger bg-black', className)}>
-      <div className="flex justify-between items-center px-5 py-3 bg-danger font-mono text-[14px] font-black text-white uppercase tracking-[0.14em]">
+      <div className="flex justify-between items-center px-5 py-3 bg-danger font-mono text-[14px] font-black text-black uppercase tracking-[0.14em]">
         <span>INTERRUPT · {time}</span>
         <span>{status}</span>
       </div>

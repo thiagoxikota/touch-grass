@@ -26,7 +26,7 @@ const variants: Record<ButtonVariant, string> = {
     'bg-black text-white border-white ' +
     'disabled:border-dashed disabled:hover:shadow-none',
   danger:
-    'bg-danger text-white border-danger ' +
+    'bg-danger text-black border-danger ' +
     'disabled:bg-black disabled:text-white disabled:border-white disabled:border-dashed disabled:hover:shadow-none',
 };
 

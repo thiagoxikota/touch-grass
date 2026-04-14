@@ -32,7 +32,7 @@ export function Field({ label, description, error, children, className }: FieldP
         {label}
       </label>
       {description && (
-        <span id={descriptionId} className="font-sans text-[14px] text-hairline">
+        <span id={descriptionId} className="font-sans text-[14px] text-muted">
           {description}
         </span>
       )}

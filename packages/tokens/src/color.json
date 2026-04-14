@@ -4,6 +4,7 @@
     "fg":       { "value": "#FFFFFF",  "type": "color", "comment": "All text. Always." },
     "earned":   { "value": "#A6FF00",  "type": "color", "comment": "Earned/success/active. Bloomberg lime." },
     "danger":   { "value": "#FF6B6B",  "type": "color", "comment": "Danger/loss. WCAG AAA on black." },
+    "muted":    { "value": "#B3B3B3",  "type": "color", "comment": "Secondary/Muted text. >7:1 on black." },
     "hairline": { "value": "#1A1A1A",  "type": "color", "comment": "Border, divider. Never text." },
     "bgAlt":    { "value": "#0A0A0A",  "type": "color", "comment": "Inset surface. Never text." }
   }
