@@ -7,5 +7,6 @@
   "access": "public",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
-  "ignore": ["@touch-grass-ds/docs-site"]
+  "ignore": ["@touch-grass-ds/docs-site"],
+  "privatePackages": { "version": false, "tag": false }
 }
