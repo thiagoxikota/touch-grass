@@ -7,9 +7,9 @@ export interface InputProps extends ComponentProps<'input'> {
 }
 
 const base =
-  'block w-full bg-black text-white text-[16px] font-semibold ' +
-  'px-4 py-3 min-h-[48px] border-2 border-white ' +
-  'placeholder:text-white placeholder:font-mono placeholder:uppercase placeholder:tracking-[0.08em] ' +
+  'block w-full bg-black text-white text-[15px] font-semibold leading-none ' +
+  'px-5 py-3 min-h-12 border-2 border-white ' +
+  'placeholder:text-white placeholder:font-mono placeholder:uppercase placeholder:tracking-[0.08em] placeholder:text-[13px] ' +
   'focus-visible:outline-2 focus-visible:outline-earned focus-visible:[outline-offset:3px] ' +
   'disabled:cursor-not-allowed disabled:border-dashed';
 

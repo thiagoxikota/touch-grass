@@ -469,7 +469,7 @@ export function VariantsMatrix<V extends string, S extends string>({
                 {states.map((s, si) => (
                   <td
                     key={`${v}-${s}`}
-                    className={`p-4 align-middle ${
+                    className={`p-6 align-middle ${
                       si < states.length - 1 ? 'border-r' : ''
                     } ${!isLastRow ? 'border-b' : ''} border-[var(--color-hairline)] bg-[var(--color-bg-alt)]`}
                   >

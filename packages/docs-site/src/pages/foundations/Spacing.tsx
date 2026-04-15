@@ -36,6 +36,26 @@ const RULES: [string, string][] = [
   ['CONTENT MAX-WIDTH 1280PX', 'Never bleed past 1280px except for full-bleed hero bars.'],
 ];
 
+// Component tier table — locks the spacing contract so future components don't drift.
+// Every value here is on the scale. Add a new component → snap to one of these rows.
+interface TierRow {
+  tier: string;
+  role: string;
+  height: string;
+  paddingX: string;
+  paddingY: string;
+  text: string;
+  border: string;
+}
+
+const TIERS: TierRow[] = [
+  { tier: 'BUTTON',   role: 'Primary action',   height: 'min-h-12 (48)',                    paddingX: 'px-6 (24)',  paddingY: 'py-3 (12)', text: '14px',  border: '2px' },
+  { tier: 'INPUT',    role: 'Text entry',        height: 'min-h-12 (48)',                    paddingX: 'px-5 (20)',  paddingY: 'py-3 (12)', text: '15px',  border: '2px' },
+  { tier: 'TAG',      role: 'Filter chip',       height: 'min-h-8 (32) + 48px hit area',     paddingX: 'px-3 (12)',  paddingY: 'py-2 (8)',  text: '12px',  border: '1px' },
+  { tier: 'BADGE MD', role: 'Static label',      height: 'min-h-6 (24)',                     paddingX: 'px-2 (8)',   paddingY: 'py-1 (4)',  text: '11px',  border: '2px' },
+  { tier: 'BADGE SM', role: 'Static label',      height: 'min-h-4 (16)',                     paddingX: 'px-2 (8)',   paddingY: 'py-1 (4)',  text: '10px',  border: '2px' },
+];
+
 export function Spacing() {
   return (
     <DocPage
@@ -104,6 +124,46 @@ export function Spacing() {
             </div>
           </div>
         </div>
+      </Section>
+
+      <Section eyebrow="TIERS" title="HOW THE SCALE BECOMES COMPONENTS">
+        <p className="font-mono text-[13px] font-semibold text-[var(--color-fg)] max-w-[68ch] mb-6 leading-relaxed">
+          Every interactive primitive is one of these five tiers. The dimensions
+          below are the contract — when you add a new component, snap it to a row.
+          Tiers cascade in authority: Button is loudest, Badge is quietest. The
+          jumps are deliberately wide so two adjacent tiers never read as siblings.
+        </p>
+        <div className="border border-[var(--color-hairline)] overflow-x-auto">
+          <table className="w-full border-collapse font-mono text-[12px] min-w-[720px]">
+            <thead>
+              <tr className="border-b border-[var(--color-hairline)] bg-[var(--color-bg-alt)]">
+                {['TIER', 'ROLE', 'HEIGHT', 'PADDING-X', 'PADDING-Y', 'TEXT', 'BORDER'].map((h) => (
+                  <th key={h} className="text-left p-4 font-black uppercase tracking-[0.14em] text-[var(--color-earned)] text-[11px]">
+                    {h}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {TIERS.map((t) => (
+                <tr key={t.tier} className="border-b border-[var(--color-hairline)] last:border-b-0 align-top">
+                  <td className="p-4 font-black text-[var(--color-fg)]">{t.tier}</td>
+                  <td className="p-4 text-[var(--color-fg)] font-semibold">{t.role}</td>
+                  <td className="p-4 text-[var(--color-earned)]">{t.height}</td>
+                  <td className="p-4 text-[var(--color-earned)]">{t.paddingX}</td>
+                  <td className="p-4 text-[var(--color-earned)]">{t.paddingY}</td>
+                  <td className="p-4 text-[var(--color-fg)]">{t.text}</td>
+                  <td className="p-4 text-[var(--color-fg)]">{t.border}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="font-mono text-[12px] font-semibold text-[var(--color-muted)] max-w-[68ch] mt-4 leading-relaxed">
+          // 48px is the WCAG 2.5.5 tap-target floor. Tag and Badge live below 48
+          but Tag wraps a transparent 48px hit zone via :before so the visible chip
+          stays small. Badge is non-interactive, so the rule doesn't apply.
+        </p>
       </Section>
 
       <Section eyebrow="RULES" title="FIVE NON-NEGOTIABLES">

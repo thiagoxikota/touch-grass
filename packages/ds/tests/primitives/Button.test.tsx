@@ -54,4 +54,14 @@ describe('Button', () => {
     render(<Button data-testid="x" type="submit">x</Button>);
     expect(screen.getByTestId('x')).toHaveAttribute('type', 'submit');
   });
+
+  it('enforces tier dimensions: 48px tap floor + 128px min-width', () => {
+    // Spacing tier contract: Button is the most authoritative tier.
+    // min-h-12 = 48px (WCAG tap target), min-w-32 = 128px (prevents square buttons on short labels).
+    render(<Button>GO</Button>);
+    const btn = screen.getByRole('button');
+    expect(btn.className).toContain('min-h-12');
+    expect(btn.className).toContain('min-w-32');
+    expect(btn.className).toContain('px-6');
+  });
 });

@@ -12,7 +12,8 @@ describe('Badge', () => {
     const el = screen.getByText('x');
     expect(el.className).toContain('bg-black');
     expect(el.className).toContain('border-white');
-    expect(el.className).toContain('text-[13px]');
+    expect(el.className).toContain('text-[11px]');
+    expect(el.className).toContain('min-h-6');
   });
   it('earned variant uses green bg + black text', () => {
     render(<Badge variant="earned">x</Badge>);
@@ -25,9 +26,10 @@ describe('Badge', () => {
     const el = screen.getByText('x');
     expect(el.className).toContain('bg-danger');
   });
-  it('sm size uses 11px', () => {
+  it('sm size uses 10px and tighter min-h', () => {
     render(<Badge size="sm">x</Badge>);
     const el = screen.getByText('x');
-    expect(el.className).toContain('text-[11px]');
+    expect(el.className).toContain('text-[10px]');
+    expect(el.className).toContain('min-h-4');
   });
 });

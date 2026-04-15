@@ -14,7 +14,9 @@ export interface BadgeProps extends ComponentProps<'span'> {
   children: ReactNode;
 }
 
-const base = 'inline-flex items-center font-mono font-black uppercase tracking-[0.1em] border-2';
+// Badges are STATIC decoration — no tap target rule applies. They sit clearly
+// below Tag (32px chip) so the tier order is unmistakable: Badge < Tag < Button.
+const base = 'inline-flex items-center font-mono font-black uppercase tracking-[0.1em] border-2 leading-none';
 
 const variants = {
   earned:  'bg-earned text-black border-earned',
@@ -23,8 +25,8 @@ const variants = {
 };
 
 const sizes = {
-  sm: 'text-[11px] px-1.5 py-1',
-  md: 'text-[13px] px-2.5 py-1.5',
+  sm: 'text-[10px] px-2 py-1 min-h-4',
+  md: 'text-[11px] px-2 py-1 min-h-6',
 };
 
 export const Badge = forwardRef<HTMLSpanElement, BadgeProps>(function Badge(

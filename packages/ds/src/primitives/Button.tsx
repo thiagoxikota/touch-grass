@@ -21,8 +21,8 @@ export interface ButtonProps extends Omit<ComponentProps<'button'>, 'children'> 
 }
 
 const base =
-  'inline-flex items-center justify-center min-h-[48px] px-4 py-3 ' +
-  'font-mono text-[15px] font-black uppercase tracking-[0.1em] ' +
+  'inline-flex items-center justify-center gap-2 min-h-12 min-w-32 px-6 py-3 ' +
+  'font-mono text-[14px] font-black uppercase tracking-[0.12em] leading-none ' +
   'border-2 cursor-pointer ' +
   'disabled:cursor-not-allowed ' +
   'hover:shadow-[inset_0_0_0_2px_var(--color-bg)] ' +

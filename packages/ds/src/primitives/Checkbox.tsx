@@ -17,23 +17,26 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(function Che
   ref
 ) {
   return (
-    <label className={cn('inline-flex items-center gap-3', disabled && 'cursor-not-allowed', className)}>
+    // Label wraps the input so the entire row is the click target. min-h-12 gives the
+    // 48px WCAG tap floor without inflating the visible 24px box.
+    <label className={cn('inline-flex items-center gap-3 min-h-12 cursor-pointer', disabled && 'cursor-not-allowed', className)}>
       <div className="relative flex items-center">
         <input
           type="checkbox"
           ref={ref}
           disabled={disabled}
           className={cn(base, error && 'border-danger')}
-          aria-invalid={error ? true : undefined}
+          aria-invalid={error || undefined}
           {...rest}
         />
-        {/* Using a brutalist SVG path without rounding (straight strokes, sharp vectors) to simulate the 'X' cross check */}
+        {/* Brutalist X-check: straight strokes, sharp vectors, no rounding.
+            stroke uses currentColor so the SVG inherits text color from the parent — no hardcoded hex. */}
         <svg
           aria-hidden="true"
-          className="absolute inset-0 w-full h-full pointer-events-none hidden peer-checked:block"
+          className="absolute inset-0 w-full h-full pointer-events-none hidden peer-checked:block text-black"
           viewBox="0 0 24 24"
           fill="none"
-          stroke="black"
+          stroke="currentColor"
           strokeWidth="3"
           strokeLinecap="square"
           strokeLinejoin="miter"
@@ -42,7 +45,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(function Che
         </svg>
       </div>
       {label && (
-        <span className="font-mono text-[14px] font-black uppercase text-white tracking-[0.1em]">
+        <span className="font-mono text-[13px] font-black uppercase text-white tracking-[0.1em]">
           {label}
         </span>
       )}

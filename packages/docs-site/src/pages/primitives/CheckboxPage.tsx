@@ -40,7 +40,7 @@ export function CheckboxPage() {
       meta={{
         status: 'stable',
         version: 'v0.1.2',
-        tapTarget: '24px + 12px gap',
+        tapTarget: '24px box + 48px row',
         role: 'checkbox',
         importPath: '@touch-grass-ds/react',
       }}

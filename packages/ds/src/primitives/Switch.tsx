@@ -16,7 +16,9 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(function Switch(
   ref
 ) {
   return (
-    <label className={cn('inline-flex items-center gap-3', disabled && 'cursor-not-allowed', className)}>
+    // Label wraps the input so the entire row is the click target. min-h-12 gives the
+    // 48px WCAG tap floor without inflating the visible 56×32 control.
+    <label className={cn('inline-flex items-center gap-3 min-h-12 cursor-pointer', disabled && 'cursor-not-allowed', className)}>
       <div className="relative flex items-center">
         <input
           type="checkbox"
@@ -44,7 +46,7 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(function Switch(
         />
       </div>
       {label && (
-        <span className="font-mono text-[14px] font-black uppercase text-white tracking-[0.1em]">
+        <span className="font-mono text-[13px] font-black uppercase text-white tracking-[0.1em]">
           {label}
         </span>
       )}

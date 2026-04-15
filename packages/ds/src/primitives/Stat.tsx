@@ -35,7 +35,7 @@ export function Stat({ variant = 'hero', size = 'lg', label, value, meta, classN
   return (
     <div className={cn('block', className)} {...rest}>
       {label && (
-        <div className="font-mono text-[13px] font-black uppercase tracking-[0.14em] text-white mb-3">
+        <div className="font-mono text-[13px] font-black uppercase tracking-[0.14em] text-white mb-4">
           {label}
         </div>
       )}
@@ -43,11 +43,11 @@ export function Stat({ variant = 'hero', size = 'lg', label, value, meta, classN
         {value}
       </div>
       {meta && meta.length > 0 && (
-        <div className="flex gap-4 mt-6 pt-5 border-t border-hairline">
+        <div className="flex gap-4 mt-6 pt-6 border-t border-hairline">
           {meta.map((m) => (
             <div key={m.k} className="flex-1">
               <div className="font-mono text-[13px] font-black uppercase tracking-[0.12em] text-white">{m.k}</div>
-              <div className="font-mono text-[22px] font-black text-white mt-1">{m.v}</div>
+              <div className="font-mono text-[22px] font-black text-white mt-2">{m.v}</div>
             </div>
           ))}
         </div>

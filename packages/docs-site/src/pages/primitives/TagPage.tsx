@@ -36,11 +36,11 @@ export function TagPage() {
     <DocPage
       eyebrow="PRIMITIVES / TAG"
       title="TAG"
-      kicker="Filter chip. Aria-pressed when active. Used for time ranges, categories, and toggle groups. 36px tap target — smaller than Button because tags usually come in groups."
+      kicker="Filter chip. Aria-pressed when active. Used for time ranges, categories, and toggle groups. 32px visual chip with an invisible 48px hit area — visually de-escalated from Button, accessibility intact."
       meta={{
         status: 'stable',
         version: 'v0.1.2',
-        tapTarget: '36px',
+        tapTarget: '32px chip + 48px hit',
         role: 'button',
         importPath: '@touch-grass-ds/react',
       }}

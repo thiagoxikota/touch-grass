@@ -40,4 +40,15 @@ describe('Input', () => {
     render(<Input ref={(el) => { ref = el; }} />);
     expect(ref).toBeInstanceOf(HTMLInputElement);
   });
+
+  it('enforces tier dimensions: 48px tap floor + 20px horizontal padding', () => {
+    // Spacing tier contract: Input shares Button's height tier but with tighter
+    // horizontal padding to make room for content. leading-none ensures the
+    // caret centers vertically inside the 48px box without floating.
+    render(<Input placeholder="x" />);
+    const input = screen.getByPlaceholderText('x');
+    expect(input.className).toContain('min-h-12');
+    expect(input.className).toContain('px-5');
+    expect(input.className).toContain('leading-none');
+  });
 });

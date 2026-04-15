@@ -17,7 +17,7 @@ export function Card({ variant = 'default', header, children, className, ...rest
       {...rest}
     >
       {header && (
-        <div className="px-5 py-4 border-b border-hairline font-mono text-[13px] font-black uppercase tracking-[0.12em] text-white">
+        <div className="p-6 border-b border-hairline font-mono text-[13px] font-black uppercase tracking-[0.12em] text-white">
           {header}
         </div>
       )}
