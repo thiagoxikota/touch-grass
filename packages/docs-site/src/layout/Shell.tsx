@@ -7,7 +7,9 @@ export function Shell({ children }: { children: ReactNode }) {
       <Nav />
       <div className="flex-1 flex flex-col min-w-0">
         <main className="flex-1">
-          <div className="max-w-[1280px] mx-auto px-6 md:px-12 py-12">{children}</div>
+          <div className="max-w-[1280px] mx-auto px-6 md:px-12 py-12">
+            <div className="[&_p]:max-w-[66ch] [&_li]:max-w-[66ch]">{children}</div>
+          </div>
         </main>
         <Footer />
       </div>
