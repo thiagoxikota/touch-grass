@@ -46,13 +46,14 @@ All values live in `packages/tokens/src/*.json` and compile to CSS variables. **
 | `color.bg` | `#000000` | Background. Pure black. | `--color-bg` |
 | `color.fg` | `#FFFFFF` | All text. Always. | `--color-fg` |
 | `color.earned` | `#A6FF00` | Earned / active / success. Bloomberg lime. | `--color-earned` |
-| `color.danger` | `#FF3B3B` | Danger / loss. WCAG AA on black @ 16px+. | `--color-danger` |
+| `color.danger` | `#FF6B6B` | Danger / loss. WCAG AAA on black (7.57:1). | `--color-danger` |
+| `color.muted` | `#B3B3B3` | Secondary text hierarchy. WCAG AAA on black (10.02:1). The ONE sanctioned reduced-emphasis color. | `--color-muted` |
 | `color.hairline` | `#1A1A1A` | Borders, dividers. **Never text.** | `--color-hairline` |
 | `color.bg-alt` | `#0A0A0A` | Inset surface. **Never text.** | `--color-bg-alt` |
 
 Light mode exists (`color-light.json`) but the primary canonical experience is dark. All screenshots for portfolio and Figma hero shots must be dark mode.
 
-**Forbidden colors:** anything grey-on-black for text, any shade of blue, any radius-implying gradient, any drop shadow.
+**Forbidden colors:** arbitrary greys (opacity tricks, unlisted hex values) for text, any shade of blue, any radius-implying gradient, any drop shadow. `--color-muted` is the only sanctioned reduced-emphasis text color — see `docs/contract.md` §1.2.
 
 ### 2.2 Typography
 
@@ -247,7 +248,7 @@ Every node links to every other node at least once. No dead ends.
 
 - **Don't** add a "delightful" animation because "just this one won't hurt". It will.
 - **Don't** soften a hairline to "look cleaner". The edges are the design.
-- **Don't** add a grey `text-muted` class. Muted = not shown.
+- **Don't** add arbitrary grey text classes. Use `--color-muted` (the token) for secondary text hierarchy. Unlisted greys and opacity-based dimming are banned.
 - **Don't** invent a new radius for "the illustrations folder". The illustrations also have 0 radius.
 - **Don't** add decorative emoji in headings "for scan-ability". The mono label IS the scan-ability.
 - **Don't** write copy that says the word "beautiful", "modern", "clean", "intuitive". Show, don't adjective.
