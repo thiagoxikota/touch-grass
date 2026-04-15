@@ -90,8 +90,34 @@ Use tokens in Swift:
 ```swift
 import TouchGrassTokens
 
-let accent = TouchGrassTokens.Color.earned
+let accent = TouchGrassTokens.colorEarned
 ```
+
+Use the native iOS UI layer (SwiftUI primitives + social patterns):
+
+```swift
+import TouchGrassUI
+
+let screen = TGCompetitionLoopScreen(
+  state: .content(
+    TGCompetitionLoopData(
+      entries: [
+        TGLeaderboardEntry(id: "you", rank: 1, displayName: "You", focusMinutes: 420, deltaMinutes: -35, streakDays: 9, isCurrentUser: true)
+      ],
+      streakDays: 9,
+      sessionsCompleted: 22,
+      screenTimeSavedMinutes: 420,
+      challengeTitle: "Beat your record",
+      challengeFriend: "Alex",
+      challengePeriod: "This week"
+    )
+  )
+)
+```
+
+`TouchGrassUI` ships state-ready screens (`loading`, `offline`, `empty`, `content`), DEBUG SwiftUI previews for all key states, rendered leaderboard snapshot-hash tests, and accessibility labels tuned for VoiceOver.
+
+For golden snapshot updates in iOS tests, run `UPDATE_TG_GOLDENS=1 swift test` on a working Swift/Xcode toolchain, copy the printed hashes into `packages/ios/Tests/TouchGrassUITests/Fixtures/leaderboard-snapshot-hashes.json`, then re-run `swift test`.
 
 ## Documentation
 
@@ -122,6 +148,7 @@ touch-grass/
 ├── packages/
 │   ├── tokens/       @touch-grass-ds/tokens
 │   ├── ds/           @touch-grass-ds/react
+│   ├── ios/          TouchGrassUI (SwiftUI components + tests)
 │   └── docs-site/    docs app
 ├── brand/            brand assets
 ├── docs/             specs + superpowers

@@ -14,12 +14,29 @@ let package = Package(
         .library(
             name: "TouchGrassTokens",
             targets: ["TouchGrassTokens"]
+        ),
+        .library(
+            name: "TouchGrassUI",
+            targets: ["TouchGrassUI"]
         )
     ],
     targets: [
         .target(
             name: "TouchGrassTokens",
             path: "packages/tokens/Sources/TouchGrassTokens"
+        ),
+        .target(
+            name: "TouchGrassUI",
+            dependencies: ["TouchGrassTokens"],
+            path: "packages/ios/Sources/TouchGrassUI"
+        ),
+        .testTarget(
+            name: "TouchGrassUITests",
+            dependencies: ["TouchGrassUI"],
+            path: "packages/ios/Tests/TouchGrassUITests",
+            resources: [
+                .process("Fixtures")
+            ]
         )
     ]
 )

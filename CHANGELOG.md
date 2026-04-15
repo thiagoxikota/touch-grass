@@ -2,6 +2,20 @@
 
 All notable changes to Touch Grass are documented in this file. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+
+- **TouchGrassUI (SwiftUI)** — New SPM product and target with iOS-first primitives (`TGButton`, `TGCard`, `TGBadge`, `TGStat`, `TGTimer`), social patterns (`TGLeaderboardRow`, `TGFriendChallengeCard`, `TGWeeklyRankChange`, `TGStreakProofCard`), and a state-ready `TGCompetitionLoopScreen` (`loading`, `offline`, `empty`, `content`).
+- **iOS previews + snapshot tests** — Added DEBUG SwiftUI previews for primitive and competition states plus rendered leaderboard snapshot-hash coverage for tied-rank/current-user cases.
+
+### Changed
+
+- **Swift token generation** — `TouchGrassTokens.swift` now includes non-color design tokens (spacing, border widths, font sizes, type weight, breakpoints, motion, radius) via a custom Style Dictionary Swift formatter.
+- **Accessibility + token wiring in TouchGrassUI** — Components now use non-color token values for layout/typography and ship stronger VoiceOver labels/values across leaderboard and social-proof patterns.
+- **Package platform compatibility** — Restored `.macOS(.v12)` in `Package.swift` alongside iOS support.
+- **Golden snapshot fixture flow** — Added fixture-backed rendered hash assertions and `UPDATE_TG_GOLDENS=1` workflow for refreshing leaderboard golden hashes.
+
 ## [0.1.1] — 2026-04-13
 
 ### Changed
