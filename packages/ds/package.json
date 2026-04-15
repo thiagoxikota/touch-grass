@@ -1,6 +1,6 @@
 {
   "name": "@touch-grass-ds/react",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "React 19 component library for Touch Grass — brutalist primitives and patterns. Zero rounded corners, zero motion, tokens only.",
   "license": "MIT",
   "type": "module",
