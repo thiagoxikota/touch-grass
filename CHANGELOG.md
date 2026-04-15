@@ -8,6 +8,7 @@ All notable changes to Touch Grass are documented in this file. The format follo
 
 - **TouchGrassUI (SwiftUI)** — New SPM product and target with iOS-first primitives (`TGButton`, `TGCard`, `TGBadge`, `TGStat`, `TGTimer`), social patterns (`TGLeaderboardRow`, `TGFriendChallengeCard`, `TGWeeklyRankChange`, `TGStreakProofCard`), and a state-ready `TGCompetitionLoopScreen` (`loading`, `offline`, `empty`, `content`).
 - **iOS previews + snapshot tests** — Added DEBUG SwiftUI previews for primitive and competition states plus rendered leaderboard snapshot-hash coverage for tied-rank/current-user cases.
+- **Governance docs** — Added `docs/ios-parity.md` and `docs/release-checklist.md` to track cross-platform parity and release discipline.
 
 ### Changed
 
@@ -15,6 +16,8 @@ All notable changes to Touch Grass are documented in this file. The format follo
 - **Accessibility + token wiring in TouchGrassUI** — Components now use non-color token values for layout/typography and ship stronger VoiceOver labels/values across leaderboard and social-proof patterns.
 - **Package platform compatibility** — Restored `.macOS(.v12)` in `Package.swift` alongside iOS support.
 - **Golden snapshot fixture flow** — Added fixture-backed rendered hash assertions and `UPDATE_TG_GOLDENS=1` workflow for refreshing leaderboard golden hashes.
+- **Snapshot maintenance** — `UPDATE_TG_GOLDENS=1` now writes fixture updates directly to the JSON file instead of requiring manual copy/paste.
+- **CI coverage** — Added a macOS Swift package check job to CI.
 
 ## [0.1.1] — 2026-04-13
 

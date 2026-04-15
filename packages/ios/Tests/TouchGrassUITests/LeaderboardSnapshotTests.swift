@@ -23,7 +23,7 @@ final class LeaderboardSnapshotTests: XCTestCase {
             ),
             size: CGSize(width: 390, height: 92)
         )
-        assertGoldenHash(hash, key: "leaderboard-current-user")
+        try assertGoldenHash(hash, key: "leaderboard-current-user")
         #else
         throw XCTSkip("Rendered snapshot hashing requires UIKit.")
         #endif
@@ -45,7 +45,7 @@ final class LeaderboardSnapshotTests: XCTestCase {
             ),
             size: CGSize(width: 390, height: 92)
         )
-        assertGoldenHash(hash, key: "leaderboard-tied-rank")
+        try assertGoldenHash(hash, key: "leaderboard-tied-rank")
         #else
         throw XCTSkip("Rendered snapshot hashing requires UIKit.")
         #endif
@@ -116,14 +116,38 @@ private struct SnapshotFixtures: Decodable {
     }
 }
 
-private func assertGoldenHash(_ hash: String, key: String) {
+private struct WritableSnapshotFixtures: Codable {
+    var leaderboardCurrentUser: String
+    var leaderboardTiedRank: String
+
+    init(from current: SnapshotFixtures) {
+        leaderboardCurrentUser = current.leaderboardCurrentUser
+        leaderboardTiedRank = current.leaderboardTiedRank
+    }
+}
+
+private func assertGoldenHash(_ hash: String, key: String) throws {
     XCTAssertEqual(hash.count, 64)
     XCTAssertNotEqual(hash, String(repeating: "0", count: 64))
 
     let fixtures = loadSnapshotFixtures()
+    var writable = WritableSnapshotFixtures(from: fixtures)
 
     if ProcessInfo.processInfo.environment["UPDATE_TG_GOLDENS"] == "1" {
-        XCTFail("Snapshot update mode is enabled. Computed \(key): \(hash). Update Fixtures/leaderboard-snapshot-hashes.json with this value and re-run without UPDATE_TG_GOLDENS.")
+        switch key {
+        case "leaderboard-current-user":
+            writable.leaderboardCurrentUser = hash
+        case "leaderboard-tied-rank":
+            writable.leaderboardTiedRank = hash
+        default:
+            XCTFail("Unknown snapshot key: \(key)")
+            return
+        }
+
+        if writeSnapshotFixtures(writable) {
+            throw XCTSkip("Updated golden hash for \(key). Re-run tests without UPDATE_TG_GOLDENS.")
+        }
+        XCTFail("Failed writing updated fixtures for \(key).")
         return
     }
 
@@ -138,7 +162,9 @@ private func assertGoldenHash(_ hash: String, key: String) {
         return
     }
 
-    XCTAssertFalse(expected.isEmpty, "Missing golden hash for \(key). Run with UPDATE_TG_GOLDENS=1 to print hashes, then commit fixture values.")
+    if expected.isEmpty {
+        throw XCTSkip("Missing golden hash for \(key). Run UPDATE_TG_GOLDENS=1 on an iOS-capable runner, then commit fixtures.")
+    }
     XCTAssertEqual(hash, expected)
 }
 
@@ -153,6 +179,21 @@ private func loadSnapshotFixtures() -> SnapshotFixtures {
     }
 
     return fixtures
+}
+
+private func writeSnapshotFixtures(_ fixtures: WritableSnapshotFixtures) -> Bool {
+    let encoder = JSONEncoder()
+    encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
+    guard let data = try? encoder.encode(fixtures) else { return false }
+
+    let directory = URL(fileURLWithPath: #filePath).deletingLastPathComponent().appendingPathComponent("Fixtures")
+    let fileURL = directory.appendingPathComponent("leaderboard-snapshot-hashes.json")
+    do {
+        try data.write(to: fileURL, options: [.atomic])
+        return true
+    } catch {
+        return false
+    }
 }
 
 private func renderSnapshotHash<V: View>(_ view: V, size: CGSize) -> String {

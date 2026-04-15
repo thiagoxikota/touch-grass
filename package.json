@@ -11,6 +11,7 @@
     "build": "pnpm -r build",
     "lint:brutal": "node scripts/lint-brutal.mjs",
     "test": "pnpm -r test",
+    "validate:all": "pnpm tokens && pnpm lint:brutal && pnpm test && pnpm build && swift test",
     "dev": "pnpm --filter @touch-grass-ds/docs-site dev",
     "tokens": "pnpm --filter @touch-grass-ds/tokens build",
     "generate": "node scripts/generate.mjs",

@@ -125,6 +125,10 @@ Full docs: [**timeouts.app/touch-grass**](https://timeouts.app/touch-grass)
 
 **Design system contract:** [`docs/contract.md`](./docs/contract.md) — the normative specification covering color rules, motion bans, state model, accessibility, typography, `asChild` semantics, and enforcement. Uses MUST/SHOULD/MAY language per RFC 2119.
 
+**Cross-platform parity tracker:** [`docs/ios-parity.md`](./docs/ios-parity.md) — current iOS vs web component coverage and accepted gaps.
+
+**Release checklist:** [`docs/release-checklist.md`](./docs/release-checklist.md) — validation, snapshot fixture updates, parity updates, and release hygiene.
+
 ## Local dev
 
 ```bash
@@ -139,6 +143,7 @@ Workspace commands:
 ```bash
 corepack pnpm -r test
 corepack pnpm -r build
+corepack pnpm validate:all
 ```
 
 ## Repo layout
