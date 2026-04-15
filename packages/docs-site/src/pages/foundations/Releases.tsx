@@ -53,8 +53,8 @@ const RELEASES: Release[] = [
     packages: ['@touch-grass-ds/tokens', '@touch-grass-ds/react'],
     highlights: [
       {
-        title: 'DANGER CONTRAST + MUTED TOKEN',
-        body: 'Replaced --color-muted with --color-fg-muted and --color-fg-subtle for 3-tier text hierarchy. Added --color-hairline-strong for emphasis borders. Flipped danger text to black for AAA contrast. Regenerated Swift constants.',
+        title: '3-TIER TEXT HIERARCHY + HAIRLINE-STRONG',
+        body: 'Replaced --color-muted with --color-fg-muted and --color-fg-subtle for 3-tier text hierarchy. Added --color-hairline-strong for emphasis borders. Regenerated Swift constants.',
       },
       {
         title: 'SWITCH PERCEPTIBILITY FIX',
