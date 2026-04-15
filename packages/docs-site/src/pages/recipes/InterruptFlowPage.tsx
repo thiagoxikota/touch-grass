@@ -65,7 +65,7 @@ export function InterruptFlowPage() {
           </SectionHeading>
           <p className="font-mono text-[14px] font-semibold text-[var(--color-fg)] leading-relaxed">
             Streak, session count, and rank are shown inline so the user sees what
-            they&apos;re about to lose. The 2px white border around the context block
+            they&apos;re about to lose. The 2px fg-colored border around the context block
             makes it feel like a data readout — structural, not decorative.
           </p>
         </div>
