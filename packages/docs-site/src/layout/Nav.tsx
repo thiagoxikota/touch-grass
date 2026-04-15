@@ -7,6 +7,7 @@ import { DS_VERSION } from '../lib/version';
 const foundationsGlob = import.meta.glob('../pages/foundations/*.tsx', { eager: true }) as Record<string, { title?: string; slug?: string }>;
 const primitivesGlob = import.meta.glob('../pages/primitives/*.tsx', { eager: true }) as Record<string, { title?: string; slug?: string }>;
 const patternsGlob = import.meta.glob('../pages/patterns/*.tsx', { eager: true }) as Record<string, { title?: string; slug?: string }>;
+const recipesGlob = import.meta.glob('../pages/recipes/*.tsx', { eager: true }) as Record<string, { title?: string; slug?: string }>;
 
 interface LinkInfo {
   label: string;
@@ -30,6 +31,12 @@ const foundations: LinkInfo[] = [
 ];
 const primitives: LinkInfo[] = Object.entries(primitivesGlob).map(([p, m]) => getLinkInfo(p, 'primitives', m));
 const patterns: LinkInfo[] = Object.entries(patternsGlob).map(([p, m]) => getLinkInfo(p, 'patterns', m));
+const recipes: LinkInfo[] = [
+  { label: 'ALL RECIPES', href: '/recipes' },
+  ...Object.entries(recipesGlob)
+    .filter(([p]) => !p.endsWith('/Index.tsx'))
+    .map(([p, m]) => getLinkInfo(p, 'recipes', m)),
+];
 
 const linkClass = ({ isActive }: { isActive: boolean }) =>
   `block pl-5 pr-4 py-3 font-mono text-[12px] font-black uppercase tracking-[0.12em] border-b border-[var(--color-hairline)] border-l-2 ${
@@ -125,6 +132,17 @@ export function Nav() {
         <SectionHeader label="PATTERNS" count={patterns.length} />
         <ul>
           {patterns.map(({ label, href }) => (
+            <li key={href}>
+              <NavLink to={href} end className={linkClass} onClick={() => setOpen(false)}>
+                {label}
+              </NavLink>
+            </li>
+          ))}
+        </ul>
+
+        <SectionHeader label="RECIPES" count={recipes.length} />
+        <ul>
+          {recipes.map(({ label, href }) => (
             <li key={href}>
               <NavLink to={href} end className={linkClass} onClick={() => setOpen(false)}>
                 {label}
