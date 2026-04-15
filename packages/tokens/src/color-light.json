@@ -11,7 +11,5 @@
     "hairline": { "value": "#CCCCCC" },
     "hairlineStrong": { "value": "#999999" },
     "bgAlt": { "value": "#E0E0E0" }
-    "hairline-strong": { "value": "#999999" },
-    "bg-alt": { "value": "#E0E0E0" }
   }
 }

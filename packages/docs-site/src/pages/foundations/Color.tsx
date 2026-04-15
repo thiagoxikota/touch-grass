@@ -34,8 +34,6 @@ const SWATCHES: Swatch[] = [
   {
     token: '--color-fg',
     hex: '#FFFFFF',
-    role: 'PRIMARY TEXT',
-    usage: 'Body copy, headings. The default for all reading text.',
     role: 'TEXT (ALWAYS)',
     usage: 'Every text node. Use --color-muted for secondary hierarchy. No opacity greys.',
     onLight: true,
@@ -134,7 +132,6 @@ const SWATCHES: Swatch[] = [
 
 const RULES: [string, string][] = [
   ['NO OPACITY HIERARCHY', 'Hierarchy uses neutral tokens (fg, fg-muted, fg-subtle) — never opacity or rgba() alpha. If it\'s muted, it\'s a token.'],
-  ['RED IS BG ONLY', 'Bare red text on black is banned. White text always sits on red.'],
   ['NO ARBITRARY GREYS', 'Hierarchy is size + weight + --color-muted (the token). Opacity tricks, #666, #999, unlisted hex greys — banned. See docs/contract.md §1.2.'],
   ['RED IS BG ONLY', 'Bare red text on black is banned. Black text always sits on red backgrounds.'],
   ['GREEN IS SCARCE', 'Max one green hit per component. Stacking greens is banned.'],
@@ -249,8 +246,6 @@ export function Color() {
   return (
     <DocPage
       eyebrow="FOUNDATIONS / COLOR"
-      title="COLORS + HIERARCHY"
-      kicker="Two structural (bg, fg). Two expressive (earned, danger). Three text tiers (fg, fg-muted, fg-subtle). Two border weights (hairline, hairline-strong). One surface variant (bg-alt). Hierarchy is built from tokens — never from opacity or rgba() alpha."
       title="SEVEN TOKENS"
       kicker="Two structural (bg, fg). Two expressive (earned, danger). One hierarchy (muted). Two surface-only (hairline, bg-alt). No arbitrary greys, no tertiaries, no brand secondaries. Hierarchy is built from size, weight, and --color-muted — not from opacity."
       meta={{

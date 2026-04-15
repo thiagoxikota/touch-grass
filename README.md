@@ -95,7 +95,7 @@ let accent = TouchGrassTokens.Color.earned
 
 ## Documentation
 
-Full docs: [**timeouts.app/touch-grass**](https://timeouts.app/touch-grass) *(coming soon)*
+Full docs: [**timeouts.app/touch-grass**](https://timeouts.app/touch-grass)
 
 **Design system contract:** [`docs/contract.md`](./docs/contract.md) — the normative specification covering color rules, motion bans, state model, accessibility, typography, `asChild` semantics, and enforcement. Uses MUST/SHOULD/MAY language per RFC 2119.
 

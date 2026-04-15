@@ -27,7 +27,7 @@ describe('Button', () => {
     render(<Button variant="danger">x</Button>);
     const btn = screen.getByRole('button');
     expect(btn.className).toContain('bg-danger');
-    expect(btn.className).toContain('text-white');
+    expect(btn.className).toContain('text-black');
   });
 
   it('shows loading state with verb-ing label and block prefix', () => {

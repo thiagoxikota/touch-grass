@@ -85,7 +85,7 @@ corepack pnpm dev
 # visit http://localhost:5173
 ```
 
-Published docs at [`timeouts.app/touch-grass`](https://timeouts.app/touch-grass) *(coming soon)*.
+Published docs at [`timeouts.app/touch-grass`](https://timeouts.app/touch-grass).
 
 ## License
 

@@ -71,16 +71,16 @@ Each layer ships as both Figma library entries and React components with shared 
 | `--color-bg` | `#000000` | Background. Pure black. |
 | `--color-fg` | `#FFFFFF` | All text. Always. |
 | `--color-earned` | `#A6FF00` | Earned/success/active. Bloomberg lime. |
-| `--color-danger` | `#FF3B3B` | Danger/loss. Brightened from #E10600 for WCAG AA on black. |
+| `--color-danger` | `#FF6B6B` | Danger/loss. Brightened from #E10600 for WCAG AAA on black. |
 | `--color-hairline` | `#1a1a1a` | Border, divider. Never text. |
 | `--color-bg-alt` | `#0a0a0a` | Inset/recessed surfaces. Never text. |
 
 **Hard rules:**
 
 1. **No grey text. Ever.** Hierarchy comes from size + weight, not from dimming. `#666`, `#999`, `#444`, `rgba(255,255,255,0.6)` and similar are banned.
-2. **Red is structural, not textual.** Red exists only as background or border. White text always sits on red. Bare red text on black is banned.
+2. **Red is structural, not textual.** Red exists only as background or border. Black text always sits on red. Bare red text on black is banned.
 3. **Green is earned and scarce.** Max **one green hit per component instance**. Stacking green (e.g., green border + green text + green badge on the same row) is banned.
-4. **Black-on-green and white-on-red** are the only allowed reverse pairings.
+4. **Black-on-green and black-on-red** are the only allowed reverse pairings.
 5. **No opacity for hierarchy.** `rgba` is allowed only for the `you` row highlight on leaderboards (`rgba(166,255,0,0.06)`) and similar background tints — never on text.
 
 ### 4.2 Typography
@@ -138,7 +138,7 @@ This includes avatars (which become square ID-badge style), modals, buttons, inp
 | `--border-hairline` | 1px | `#1a1a1a` | Default structure (panels, dividers, table rows) |
 | `--border-strong` | 2px | `#FFFFFF` | Important boundaries (inputs, secondary buttons, avatars, ctx blocks) |
 | `--border-active` | 2px | `#A6FF00` | Active/selected state, focused row left-border |
-| `--border-danger` | 2px | `#FF3B3B` | Danger surfaces (interrupt modal frame) |
+| `--border-danger` | 2px | `#FF6B6B` | Danger surfaces (interrupt modal frame) |
 | `--border-disabled` | 2px dashed | `#FFFFFF` | Disabled buttons (dashed = honestly broken) |
 
 ### 4.6 Motion
@@ -301,12 +301,12 @@ All decisions below were made during brainstorming on 2026-04-13.
 | 1 | Where DS lives | Figma library + matching code, kept in sync |
 | 2 | Scope | Foundations + primitives + app-specific patterns (Layer A+B+C) |
 | 3 | Code stack | React + Tailwind v4 + CSS variables |
-| 4 | Color palette | Bloomberg Trader: `#A6FF00` / `#FF3B3B` / `#FFF` / `#000` |
+| 4 | Color palette | Bloomberg Trader: `#A6FF00` / `#FF6B6B` / `#FFF` / `#000` |
 | 5 | Typography | Geist + Geist Mono |
 | 6a | Spacing base | 4px |
 | 6b | Radius | Zero everywhere, including avatars |
 | 6c | Borders | 1px `#1a1a1a` hairline + 2px white/active variants |
 | 6d | Motion | Zero animation |
 | 6e | Iconography | Lucide React, 1.5px stroke |
-| 7 | Contrast/size feedback | No grey text. 16px body floor, 13px label floor. Red brightened to `#FF3B3B`, demoted from text to background/border. |
+| 7 | Contrast/size feedback | No grey text. 16px body floor, 13px label floor. Red brightened to `#FF6B6B`, demoted from text to background/border. |
 | 8 | Critique fixes | Max one green hit per component; neutral delta chips; honest LIVE label dropped; 80px stat hero with seconds; 6-word interrupt headlines; full state matrix; block-character loading; truncation rules; 12/8/4 grid. |

@@ -20,6 +20,7 @@ const PROPS = [
   { name: 'secondaryLabel', type: 'string', required: true, default: '—', description: 'Secondary CTA (danger variant). Typically a delay option.' },
   { name: 'onPrimary', type: '() => void', default: '—', description: 'Primary click handler.' },
   { name: 'onSecondary', type: '() => void', default: '—', description: 'Secondary click handler.' },
+  { name: 'onEscape', type: '() => void', default: 'onSecondary', description: 'Called when Escape is pressed. Falls back to onSecondary when omitted.' },
 ];
 
 const CODE = `import { PatternInterruptModal } from '@touch-grass-ds/react';
@@ -35,6 +36,7 @@ const CODE = `import { PatternInterruptModal } from '@touch-grass-ds/react';
   ]}
   primaryLabel="PUT IT DOWN. START FOCUS."
   secondaryLabel="5 MORE MIN"
+  onEscape={() => {}}
 />`;
 
 export function PatternInterruptModalPage() {

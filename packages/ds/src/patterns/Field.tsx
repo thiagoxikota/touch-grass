@@ -38,7 +38,7 @@ export function Field({ label, description, error, children, className }: FieldP
       )}
       {clonedChild}
       {error && (
-        <span id={errorId} className="font-mono text-[12px] font-black uppercase text-danger mt-1 tracking-[0.05em]" role="alert">
+        <span id={errorId} className="font-mono text-[13px] font-black uppercase text-danger mt-1 tracking-[0.05em]" role="alert">
           {error}
         </span>
       )}
