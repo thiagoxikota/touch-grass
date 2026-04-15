@@ -1,0 +1,96 @@
+{
+  "name": "touch-grass-figma-code-bridge",
+  "version": "1.0.0",
+  "intent": "Display-ready data model for AI-driven case studies that explain code-to-figma and figma-to-code flow.",
+  "loop": {
+    "code_to_figma": [
+      {
+        "stage": "tokens_compile",
+        "source": "packages/tokens/src/*.json",
+        "transform": "style-dictionary build",
+        "target": [
+          "packages/tokens/dist/tokens.css",
+          "packages/tokens/dist/figma-tokens.json",
+          "packages/tokens/Sources/TouchGrassTokens/TouchGrassTokens.swift"
+        ],
+        "proof": "One semantic token contract across web, figma, and iOS"
+      },
+      {
+        "stage": "component_mirror",
+        "source": "packages/ds/src/**/*.{ts,tsx}",
+        "transform": "props/states mapped into variant axes",
+        "target": "Figma component sets on P* and X* pages",
+        "proof": "Variant/state parity between React API and Figma variants"
+      },
+      {
+        "stage": "brand_import",
+        "source": "brand/**/*.svg",
+        "transform": "figma.createNodeFromSvg + token-bound recolor",
+        "target": "F8 · BRAND and related foundation cards",
+        "proof": "Brand visuals remain token-driven and theme-safe"
+      }
+    ],
+    "figma_to_code": [
+      {
+        "stage": "parity_audit",
+        "source": "Figma variables + component sets + narrative pages",
+        "transform": "detect drift and missing mappings",
+        "target": "delta list for code patches",
+        "proof": "No design-only fix is accepted without a corresponding code action when parity is broken"
+      },
+      {
+        "stage": "code_patch",
+        "source": "delta list",
+        "transform": "edit token/component source and tests",
+        "target": "git changes in tokens/ds/docs",
+        "proof": "Changes are reviewable, reproducible, and releasable"
+      },
+      {
+        "stage": "rebuild_resync",
+        "source": "updated source tree",
+        "transform": "regenerate outputs and mirror back to Figma",
+        "target": "restored parity",
+        "proof": "Round-trip closes with no unresolved drift"
+      }
+    ]
+  },
+  "translation_contract": [
+    {
+      "code": "--color-bg",
+      "figma": "color/bg with WEB syntax var(--color-bg)",
+      "rule": "Figma variable codeSyntax must match CSS variable names exactly"
+    },
+    {
+      "code": "Button variant/state props",
+      "figma": "Variant and State axes in Button component set",
+      "rule": "Property=Value naming drives combineAsVariants behavior"
+    },
+    {
+      "code": "Disabled/focus class logic",
+      "figma": "DISABLED and FOCUS visual states",
+      "rule": "State semantics must be explicit on both surfaces"
+    },
+    {
+      "code": "brand/touch-grass/*.svg",
+      "figma": "Imported vectors bound to semantic color vars",
+      "rule": "No literal fills/strokes after import"
+    }
+  ],
+  "case_study_payload": {
+    "narrative_pages": [
+      "02 · GENESIS · THE BRIEF",
+      "03 · PIPELINE · CODE → FIGMA",
+      "04 · DECISION LOG"
+    ],
+    "evidence_types": [
+      "token parity",
+      "component parity",
+      "state parity",
+      "brand parity"
+    ],
+    "core_question": "Can this design system prove implementation and design stay in lockstep?",
+    "references": [
+      "https://blog.bytebytego.com/p/figma-design-to-code-code-to-design"
+    ]
+  }
+}
