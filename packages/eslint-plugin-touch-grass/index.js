@@ -3,7 +3,9 @@ const BRUTAL_VIOLATIONS = [
   { regex: /transition(?!-none\b)(-[a-z-]+)?/g, message: 'Zero motion allowed. Found transition utility (use transition-none to explicitly disable motion)' },
   { regex: /duration-[0-9]+/g, message: 'Zero motion allowed. Found duration utility' },
   { regex: /ease-[a-z-]+/g, message: 'Zero motion allowed. Found ease utility' },
-  { regex: /#([0-9a-fA-F]{6}|[0-9a-fA-F]{3})(?![0-9a-fA-F])/g, message: 'No hex codes allowed in components. Use tokens from var(--color-*) or Tailwind utilities' }
+  { regex: /animate-(?!none)[a-z-]+/g, message: 'Zero motion allowed. Found animate utility' },
+  { regex: /#([0-9a-fA-F]{6}|[0-9a-fA-F]{3})(?![0-9a-fA-F])/g, message: 'No hex codes allowed in components. Use tokens from var(--color-*) or Tailwind utilities' },
+  { regex: /text-[a-z]+\/[0-9]+/g, message: 'No opacity text allowed. Use --color-muted token for text hierarchy, not opacity modifiers' }
 ];
 
 module.exports = {

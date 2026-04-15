@@ -38,4 +38,44 @@ describe('ds token integration', () => {
     );
     expect(baseCss).toContain('transition-duration: 0ms !important');
   });
+
+  it('base.css kills all animations', () => {
+    const baseCss = readFileSync(
+      resolve(__dirname, '../src/styles/base.css'),
+      'utf8'
+    );
+    expect(baseCss).toContain('animation-duration: 0ms !important');
+  });
+
+  it('base.css defines hard-halo focus ring', () => {
+    const baseCss = readFileSync(
+      resolve(__dirname, '../src/styles/base.css'),
+      'utf8'
+    );
+    expect(baseCss).toContain(':focus-visible');
+    expect(baseCss).toContain('outline: 2px solid var(--color-fg)');
+    expect(baseCss).toContain('outline-offset: 3px');
+  });
+
+  it('tokens.css emits all 7 color tokens', () => {
+    const tokensCss = readFileSync(
+      resolve(__dirname, '../../tokens/dist/tokens.css'),
+      'utf8'
+    );
+    expect(tokensCss).toContain('--color-bg:');
+    expect(tokensCss).toContain('--color-fg:');
+    expect(tokensCss).toContain('--color-earned:');
+    expect(tokensCss).toContain('--color-danger:');
+    expect(tokensCss).toContain('--color-muted:');
+    expect(tokensCss).toContain('--color-hairline:');
+    expect(tokensCss).toContain('--color-bg-alt:');
+  });
+
+  it('tokens.css emits zero-motion duration', () => {
+    const tokensCss = readFileSync(
+      resolve(__dirname, '../../tokens/dist/tokens.css'),
+      'utf8'
+    );
+    expect(tokensCss).toContain('--motion-duration-instant: 0ms');
+  });
 });
