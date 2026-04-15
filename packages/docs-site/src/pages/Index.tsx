@@ -14,6 +14,7 @@ import {
   StatGrid,
   RelatedLinks,
 } from '../ui/DocPage';
+import { DS_VERSION } from '../lib/version';
 
 /* ------------------------------------------------------------------ *
  * Home — the docs-site hero. First thing a recruiter / designer
@@ -44,7 +45,7 @@ export function Index() {
       {/* Hero */}
       <header className="mb-20">
         <div className="mb-4">
-          <Eyebrow>TOUCH GRASS DS / v1.0.0 / MIT / ON NPM</Eyebrow>
+          <Eyebrow>TOUCH GRASS DS / {DS_VERSION} / MIT / ON NPM</Eyebrow>
         </div>
         <h1 className="font-black leading-[0.9] tracking-[-0.04em] mb-8 text-[56px] sm:text-[88px] md:text-[112px]">
           BRUTALIST.

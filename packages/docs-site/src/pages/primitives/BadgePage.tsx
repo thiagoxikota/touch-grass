@@ -8,6 +8,7 @@ import {
   VariantsMatrix,
   Preview,
 } from '../../ui/DocPage';
+import { DS_VERSION } from '../../lib/version';
 
 export const title = 'BADGE';
 
@@ -34,7 +35,7 @@ export function BadgePage() {
       kicker="Inline status indicator. Three variants, two sizes. earned is scarce — one per row or card, never stacked."
       meta={{
         status: 'stable',
-        version: 'v0.1.2',
+        version: DS_VERSION,
         role: 'status',
         importPath: '@touch-grass-ds/react',
       }}

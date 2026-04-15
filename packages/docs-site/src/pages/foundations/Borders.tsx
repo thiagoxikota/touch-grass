@@ -1,4 +1,5 @@
 import { DocPage, Section, RelatedLinks } from '../../ui/DocPage';
+import { DS_VERSION } from '../../lib/version';
 
 export const title = 'BORDERS';
 
@@ -58,7 +59,7 @@ export function Borders() {
       kicker="Every boundary in the DS is one of these five tokens. Radius is locked at zero — forever. Including avatars. The square avatar is a brand signature."
       meta={{
         status: 'stable',
-        version: 'v0.1.2',
+        version: DS_VERSION,
         role: 'token-layer',
         importPath: '@touch-grass-ds/tokens',
       }}

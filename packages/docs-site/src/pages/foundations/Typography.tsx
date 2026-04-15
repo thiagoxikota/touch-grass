@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { DocPage, Section, RelatedLinks } from '../../ui/DocPage';
+import { DS_VERSION } from '../../lib/version';
 
 /* ------------------------------------------------------------------ *
  * Typography foundation — the 10-step scale, weight ladder, copy-on-
@@ -143,7 +144,7 @@ export function Typography() {
       kicker="Two families — Geist Sans for speech, Geist Mono for data. Eleven sizes on the scale, four weights on the ladder. Numbers ≥18px are always mono. Body floors at 16px."
       meta={{
         status: 'stable',
-        version: 'v0.1.2',
+        version: DS_VERSION,
         role: 'token-layer',
         importPath: '@touch-grass-ds/tokens',
       }}

@@ -7,6 +7,7 @@ import {
   RelatedLinks,
   Preview,
 } from '../../ui/DocPage';
+import { DS_VERSION } from '../../lib/version';
 
 export const title = 'BEREAL STAMP';
 export const slug = 'bereal-stamp';
@@ -35,7 +36,7 @@ export function BeRealStampPage() {
       kicker="Three-layer overlay system for raw photos. Top-left: verify badge. Bottom-left: timestamp. Bottom-right: hours flex block — the part the eye sees first. No rounded corners. No filters."
       meta={{
         status: 'stable',
-        version: 'v0.1.2',
+        version: DS_VERSION,
         role: 'figure',
         importPath: '@touch-grass-ds/react',
       }}

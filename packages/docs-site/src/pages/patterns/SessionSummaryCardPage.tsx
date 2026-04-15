@@ -7,6 +7,7 @@ import {
   RelatedLinks,
   Preview,
 } from '../../ui/DocPage';
+import { DS_VERSION } from '../../lib/version';
 
 export const title = 'SESSION SUMMARY';
 
@@ -36,7 +37,7 @@ export function SessionSummaryCardPage() {
       kicker="Post-session retro for the social feed. Card + md Stat + meta grid. Composes two primitives — the quietest pattern in the system."
       meta={{
         status: 'stable',
-        version: 'v0.1.2',
+        version: DS_VERSION,
         role: 'article',
         importPath: '@touch-grass-ds/react',
       }}

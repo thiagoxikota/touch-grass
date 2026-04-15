@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import TouchGrassLogo from '@brand/touch-grass/logo.svg?react';
+import { DS_VERSION } from '../lib/version';
 
 // Eager glob — no async boundary, page modules expose optional `title`/`slug`.
 const foundationsGlob = import.meta.glob('../pages/foundations/*.tsx', { eager: true }) as Record<string, { title?: string; slug?: string }>;
@@ -87,7 +88,7 @@ export function Nav() {
           <TouchGrassLogo className="block w-full mb-4" style={{ color: 'var(--color-earned)' }} />
           <div className="flex items-center justify-between">
             <span className="font-mono text-[11px] font-black uppercase tracking-[0.14em] text-[var(--color-earned)]">
-              // V0.1.2
+              // {DS_VERSION.toUpperCase()}
             </span>
             <button
               type="button"

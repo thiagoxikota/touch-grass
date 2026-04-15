@@ -1,4 +1,5 @@
 import { DocPage, Section, RelatedLinks } from '../../ui/DocPage';
+import { DS_VERSION } from '../../lib/version';
 
 export const title = 'GRID';
 
@@ -33,7 +34,7 @@ export function Grid() {
       kicker="Twelve columns on desktop. Eight on tablet. Four on mobile. 4px base gutter. Content caps at 1280px. Asymmetry is required — don't default to centered three-column grids."
       meta={{
         status: 'stable',
-        version: 'v0.1.2',
+        version: DS_VERSION,
         role: 'layout-contract',
       }}
     >

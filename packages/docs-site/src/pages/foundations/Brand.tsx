@@ -1,6 +1,7 @@
 import TouchGrassLogo from '@brand/touch-grass/logo.svg?react';
 import TouchGrassIcon from '@brand/touch-grass/icon.svg?react';
 import { DocPage, Section, RelatedLinks } from '../../ui/DocPage';
+import { DS_VERSION } from '../../lib/version';
 
 export const title = 'BRAND';
 
@@ -23,7 +24,7 @@ export function Brand() {
       kicker="Touch Grass is a product-agnostic design system. The only brand mark shipped inside this repo is the Touch Grass mark itself. Products built on top of the DS (Timeouts, future apps) keep their own brand assets in their own repos."
       meta={{
         status: 'stable',
-        version: 'v0.1.2',
+        version: DS_VERSION,
         role: 'brand-layer',
       }}
     >

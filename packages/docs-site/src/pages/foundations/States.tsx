@@ -1,5 +1,6 @@
 import { Button } from '@touch-grass-ds/react';
 import { DocPage, Section, RelatedLinks, Preview } from '../../ui/DocPage';
+import { DS_VERSION } from '../../lib/version';
 
 export const title = 'STATES';
 
@@ -45,7 +46,7 @@ export function States() {
       kicker="Every interactive component must define all five, explicitly. No implicit opacity tricks, no default fallbacks. If a component doesn't define its disabled state, it doesn't ship."
       meta={{
         status: 'stable',
-        version: 'v0.1.2',
+        version: DS_VERSION,
         role: 'interaction-contract',
       }}
     >

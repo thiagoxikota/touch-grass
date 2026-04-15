@@ -8,6 +8,7 @@ import {
   RelatedLinks,
   Preview,
 } from '../../ui/DocPage';
+import { DS_VERSION } from '../../lib/version';
 
 export const title = 'TIMER';
 
@@ -38,7 +39,7 @@ export function TimerPage() {
       kicker="Static or live. Composes Stat under the hood. The digits don't tween — they jump. No animation. Pair with the live variant when you want the number to count up in real time."
       meta={{
         status: 'stable',
-        version: 'v0.1.2',
+        version: DS_VERSION,
         role: 'timer',
         importPath: '@touch-grass-ds/react',
       }}

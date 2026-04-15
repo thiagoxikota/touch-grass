@@ -1,4 +1,5 @@
 import { DocPage, Section, RelatedLinks } from '../../ui/DocPage';
+import { DS_VERSION } from '../../lib/version';
 
 export const title = 'ACCESSIBILITY';
 
@@ -18,7 +19,7 @@ export function Accessibility() {
       kicker="We build digital interfaces for everyone. The brutalist nature of Touch Grass demands sheer clarity. Massive contrast, zero visual noise, strict semantic trees. This is AAA or nothing."
       meta={{
         status: 'stable',
-        version: 'v0.1.2',
+        version: DS_VERSION,
         role: 'a11y-layer',
       }}
     >

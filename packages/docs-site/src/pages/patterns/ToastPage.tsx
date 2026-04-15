@@ -7,6 +7,7 @@ import {
   RelatedLinks,
   Preview,
 } from '../../ui/DocPage';
+import { DS_VERSION } from '../../lib/version';
 
 export const title = 'TOAST';
 
@@ -50,7 +51,7 @@ export function ToastPage() {
         kicker="Brutalist notification system. Pop-in and pop-out are instant — zero animation on the track. Three variants: default (hairline), danger (red), success (earned). Auto-dismiss after 3 seconds."
         meta={{
           status: 'stable',
-          version: 'v0.1.2',
+          version: DS_VERSION,
           role: 'status / alert',
           importPath: '@touch-grass-ds/react',
         }}

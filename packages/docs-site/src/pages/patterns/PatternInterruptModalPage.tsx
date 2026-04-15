@@ -7,6 +7,7 @@ import {
   RelatedLinks,
   Preview,
 } from '../../ui/DocPage';
+import { DS_VERSION } from '../../lib/version';
 
 export const title = 'INTERRUPT';
 
@@ -44,7 +45,7 @@ export function PatternInterruptModalPage() {
       kicker="The bullying notification. A 56px headline that names what you're losing, a context grid that shows the stakes, and a primary/secondary button row. Self-contained block — wrap in a real modal portal at integration time."
       meta={{
         status: 'stable',
-        version: 'v0.1.2',
+        version: DS_VERSION,
         role: 'alertdialog',
         importPath: '@touch-grass-ds/react',
       }}

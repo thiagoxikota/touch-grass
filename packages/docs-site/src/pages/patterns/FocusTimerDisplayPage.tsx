@@ -7,6 +7,7 @@ import {
   RelatedLinks,
   Preview,
 } from '../../ui/DocPage';
+import { DS_VERSION } from '../../lib/version';
 
 export const title = 'FOCUS TIMER';
 
@@ -44,7 +45,7 @@ export function FocusTimerDisplayPage() {
       kicker="The home screen's primary surface in Timeouts. Card + Stat + meta strip + full-width Button. Composes three primitives — the canonical proof of how the DS assembles."
       meta={{
         status: 'stable',
-        version: 'v0.1.2',
+        version: DS_VERSION,
         role: 'region',
         importPath: '@touch-grass-ds/react',
       }}

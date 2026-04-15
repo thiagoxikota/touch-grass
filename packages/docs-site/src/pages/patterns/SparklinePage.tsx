@@ -7,6 +7,7 @@ import {
   RelatedLinks,
   Preview,
 } from '../../ui/DocPage';
+import { DS_VERSION } from '../../lib/version';
 
 export const title = 'SPARKLINE';
 
@@ -34,7 +35,7 @@ export function SparklinePage() {
       kicker="Brutalist data-viz. No SVG paths, no animated strokes — pure DOM blocks scaling linearly against the max. Paint danger values above an optional threshold."
       meta={{
         status: 'stable',
-        version: 'v0.1.2',
+        version: DS_VERSION,
         role: 'img',
         importPath: '@touch-grass-ds/react',
       }}

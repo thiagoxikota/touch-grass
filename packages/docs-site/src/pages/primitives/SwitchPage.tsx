@@ -8,6 +8,7 @@ import {
   RelatedLinks,
   Preview,
 } from '../../ui/DocPage';
+import { DS_VERSION } from '../../lib/version';
 
 export const title = 'SWITCH';
 
@@ -38,7 +39,7 @@ export function SwitchPage() {
       kicker="Binary toggle. The thumb jumps — it doesn't slide. Zero motion across the track. Native input with role=switch and standard keyboard support."
       meta={{
         status: 'stable',
-        version: 'v0.1.2',
+        version: DS_VERSION,
         role: 'switch',
         importPath: '@touch-grass-ds/react',
       }}

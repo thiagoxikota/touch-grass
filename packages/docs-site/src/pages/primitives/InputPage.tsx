@@ -1,5 +1,6 @@
 import { Input } from '@touch-grass-ds/react';
 import { DocPage, Section, Preview, CodeBlock, PropsTable, RelatedLinks } from '../../ui/DocPage';
+import { DS_VERSION } from '../../lib/version';
 
 export const title = 'INPUT';
 
@@ -25,7 +26,7 @@ export function InputPage() {
       kicker="Text or numeric. 2px fg border default. Earned hard-halo on focus. Dashed when disabled. Danger border on error. Placeholders are uppercase mono."
       meta={{
         status: 'stable',
-        version: 'v0.1.2',
+        version: DS_VERSION,
         tapTarget: '48px',
         role: 'textbox',
         importPath: '@touch-grass-ds/react',

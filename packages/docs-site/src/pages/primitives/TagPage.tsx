@@ -8,6 +8,7 @@ import {
   RelatedLinks,
   Preview,
 } from '../../ui/DocPage';
+import { DS_VERSION } from '../../lib/version';
 
 export const title = 'TAG';
 
@@ -39,7 +40,7 @@ export function TagPage() {
       kicker="Filter chip. Aria-pressed when active. Used for time ranges, categories, and toggle groups. 32px visual chip with an invisible 48px hit area — visually de-escalated from Button, accessibility intact."
       meta={{
         status: 'stable',
-        version: 'v0.1.2',
+        version: DS_VERSION,
         tapTarget: '32px chip + 48px hit',
         role: 'button',
         importPath: '@touch-grass-ds/react',

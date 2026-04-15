@@ -1,4 +1,5 @@
 import { DocPage, Section, RelatedLinks } from '../../ui/DocPage';
+import { DS_VERSION } from '../../lib/version';
 
 export const title = 'MOTION';
 
@@ -25,7 +26,7 @@ export function Motion() {
       kicker="Instant state changes. No fades. No slides. No easing. No stagger. The product's emotional register is discipline, not delight — and phones already have enough delight."
       meta={{
         status: 'stable',
-        version: 'v0.1.2',
+        version: DS_VERSION,
         role: 'token-layer',
       }}
     >

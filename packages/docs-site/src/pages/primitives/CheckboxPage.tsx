@@ -8,6 +8,7 @@ import {
   RelatedLinks,
   Preview,
 } from '../../ui/DocPage';
+import { DS_VERSION } from '../../lib/version';
 
 export const title = 'CHECKBOX';
 
@@ -39,7 +40,7 @@ export function CheckboxPage() {
       kicker="Hard SVG path check. No rounded corners, no hover fades. Native input wrapped in a label for free keyboard + focus semantics."
       meta={{
         status: 'stable',
-        version: 'v0.1.2',
+        version: DS_VERSION,
         tapTarget: '24px box + 48px row',
         role: 'checkbox',
         importPath: '@touch-grass-ds/react',

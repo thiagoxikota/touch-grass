@@ -7,6 +7,7 @@ import {
   RelatedLinks,
   Preview,
 } from '../../ui/DocPage';
+import { DS_VERSION } from '../../lib/version';
 
 export const title = 'DIVIDER';
 
@@ -30,7 +31,7 @@ export function DividerPage() {
       kicker="Quiet structure. 1px hairline by default, 2px strong when the separation is important. Horizontal or vertical. Accessible as role=separator."
       meta={{
         status: 'stable',
-        version: 'v0.1.2',
+        version: DS_VERSION,
         role: 'separator',
         importPath: '@touch-grass-ds/react',
       }}

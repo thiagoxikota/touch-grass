@@ -7,6 +7,7 @@ import {
   RelatedLinks,
   Preview,
 } from '../../ui/DocPage';
+import { DS_VERSION } from '../../lib/version';
 
 export const title = 'CARD';
 
@@ -34,7 +35,7 @@ export function CardPage() {
       kicker="Container with hairline border. Optional mono-uppercase header slot. Inset variant uses bg-alt for nested content — use sparingly."
       meta={{
         status: 'stable',
-        version: 'v0.1.2',
+        version: DS_VERSION,
         role: 'container',
         importPath: '@touch-grass-ds/react',
       }}

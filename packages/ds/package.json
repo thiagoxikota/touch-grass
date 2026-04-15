@@ -15,7 +15,8 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
-    "./styles/base.css": "./src/styles/base.css"
+    "./styles/base.css": "./src/styles/base.css",
+    "./package.json": "./package.json"
   },
   "keywords": [
     "design-system",

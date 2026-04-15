@@ -7,6 +7,7 @@ import {
   RelatedLinks,
   Preview,
 } from '../../ui/DocPage';
+import { DS_VERSION } from '../../lib/version';
 
 export const title = 'LEADERBOARD ROW';
 
@@ -34,7 +35,7 @@ export function LeaderboardRowPage() {
       kicker="One row in the social ranking. Three variants — top1, default, you. The row that carries Timeouts' core social loop. Names truncate at 16 chars, handles at 14."
       meta={{
         status: 'stable',
-        version: 'v0.1.2',
+        version: DS_VERSION,
         role: 'listitem',
         importPath: '@touch-grass-ds/react',
       }}

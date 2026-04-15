@@ -21,7 +21,7 @@ export function Breadcrumb() {
   return (
     <nav
       aria-label="Breadcrumb"
-      className="font-mono text-[11px] font-black uppercase tracking-[0.14em] text-[var(--color-fg)] border-b border-[var(--color-hairline)] pb-3 mb-8 flex flex-wrap items-center gap-2"
+      className="font-mono text-[10px] font-black uppercase tracking-[0.16em] text-[var(--color-muted)] pb-3 mb-10 flex flex-wrap items-center gap-2"
     >
       {crumbs.map((c, i) => (
         <span key={c.href} className="flex items-center gap-2">
@@ -121,13 +121,13 @@ function MetaRow({ meta }: { meta: DocPageMeta }) {
   const present = items.filter(([, v]) => !!v) as [string, string][];
   if (present.length === 0) return null;
   return (
-    <div className="grid grid-cols-2 md:grid-cols-5 border border-[var(--color-hairline)] border-r-0">
+    <div className="grid grid-cols-2 md:grid-cols-5 border-2 border-[var(--color-fg)] border-r-0">
       {present.map(([k, v]) => (
-        <div key={k} className="p-4 border-r border-[var(--color-hairline)]">
-          <div className="font-mono text-[11px] font-black uppercase tracking-[0.14em] text-[var(--color-earned)] mb-1">
-            {k}
+        <div key={k} className="p-5 border-r-2 border-[var(--color-fg)]">
+          <div className="font-mono text-[10px] font-black uppercase tracking-[0.16em] text-[var(--color-earned)] mb-2">
+            // {k}
           </div>
-          <div className="font-mono text-[13px] font-black uppercase tracking-[0.06em] text-[var(--color-fg)] break-all">
+          <div className="font-mono text-[14px] font-black uppercase tracking-[0.04em] text-[var(--color-fg)] break-all leading-tight">
             {v}
           </div>
         </div>
@@ -216,19 +216,20 @@ export function CodeBlock({
   };
   return (
     <div className="border border-[var(--color-hairline)]">
-      <div className="flex items-center justify-between border-b border-[var(--color-hairline)] px-4 py-2">
+      <div className="flex items-center justify-between border-b border-[var(--color-hairline)] px-5 py-3 bg-[var(--color-bg-alt)]">
         <span className="font-mono text-[11px] font-black uppercase tracking-[0.14em] text-[var(--color-earned)]">
           // {language.toUpperCase()}
         </span>
         <button
           type="button"
           onClick={copy}
-          className="font-mono text-[11px] font-black uppercase tracking-[0.14em] text-[var(--color-fg)] border border-[var(--color-hairline)] px-2 py-1 hover:bg-[var(--color-fg)] hover:text-[var(--color-bg)] cursor-pointer"
+          aria-label={copied ? 'Code copied to clipboard' : 'Copy code to clipboard'}
+          className="font-mono text-[11px] font-black uppercase tracking-[0.14em] text-[var(--color-fg)] border-2 border-[var(--color-hairline)] px-3 py-1.5 hover:bg-[var(--color-fg)] hover:text-[var(--color-bg)] focus-visible:outline-2 focus-visible:outline-[var(--color-earned)] focus-visible:[outline-offset:3px] cursor-pointer"
         >
-          {copied ? 'COPIED' : 'COPY'}
+          {copied ? 'COPIED ✓' : 'COPY'}
         </button>
       </div>
-      <pre className="p-6 font-mono text-[13px] text-[var(--color-fg)] overflow-x-auto leading-relaxed">
+      <pre className="p-6 font-mono text-[14px] text-[var(--color-fg)] overflow-x-auto leading-relaxed">
         {code}
       </pre>
     </div>
@@ -247,36 +248,44 @@ export interface PropRow {
 
 export function PropsTable({ rows }: { rows: PropRow[] }) {
   return (
-    <div className="border border-[var(--color-hairline)] overflow-x-auto">
-      <table className="w-full border-collapse font-mono text-[13px] min-w-[640px]">
-        <thead>
-          <tr className="border-b border-[var(--color-hairline)] bg-[var(--color-bg-alt)]">
-            {['PROP', 'TYPE', 'DEFAULT', 'DESCRIPTION'].map((h) => (
-              <th
-                key={h}
-                className="text-left p-4 font-black uppercase tracking-[0.14em] text-[var(--color-earned)] text-[11px]"
-              >
-                {h}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {rows.map((r) => (
-            <tr key={r.name} className="border-b border-[var(--color-hairline)] last:border-b-0 align-top">
-              <td className="p-4 font-black text-[var(--color-fg)]">
-                {r.name}
-                {r.required && <span className="text-[var(--color-danger)]">*</span>}
-              </td>
-              <td className="p-4 text-[var(--color-earned)]">{r.type}</td>
-              <td className="p-4 text-[var(--color-fg)]">{r.default ?? '—'}</td>
-              <td className="p-4 text-[var(--color-fg)] font-semibold max-w-[40ch]">
-                {r.description}
-              </td>
+    <div className="border border-[var(--color-hairline)]">
+      <div className="overflow-x-auto">
+        <table className="w-full border-collapse font-mono text-[13px] min-w-[640px]">
+          <thead>
+            <tr className="border-b border-[var(--color-hairline)] bg-[var(--color-bg-alt)]">
+              {['PROP', 'TYPE', 'DEFAULT', 'DESCRIPTION'].map((h) => (
+                <th
+                  key={h}
+                  className="text-left p-5 font-black uppercase tracking-[0.14em] text-[var(--color-earned)] text-[11px]"
+                >
+                  // {h}
+                </th>
+              ))}
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {rows.map((r) => (
+              <tr key={r.name} className="border-b border-[var(--color-hairline)] last:border-b-0 align-top hover:bg-[var(--color-bg-alt)]">
+                <td className="p-5 font-black text-[var(--color-fg)] text-[14px]">
+                  {r.name}
+                  {r.required && <span className="text-[var(--color-danger)]" aria-label="required">*</span>}
+                </td>
+                <td className="p-5 text-[var(--color-earned)]">{r.type}</td>
+                <td className="p-5 text-[var(--color-fg)]">{r.default ?? '—'}</td>
+                <td className="p-5 text-[var(--color-fg)] font-semibold max-w-[44ch] leading-relaxed">
+                  {r.description}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p
+        aria-hidden="true"
+        className="md:hidden font-mono text-[10px] font-black uppercase tracking-[0.14em] text-[var(--color-muted)] border-t border-[var(--color-hairline)] px-5 py-2 bg-[var(--color-bg-alt)]"
+      >
+        // SCROLL HORIZONTALLY →
+      </p>
     </div>
   );
 }

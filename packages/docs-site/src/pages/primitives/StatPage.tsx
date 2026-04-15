@@ -7,6 +7,7 @@ import {
   RelatedLinks,
   Preview,
 } from '../../ui/DocPage';
+import { DS_VERSION } from '../../lib/version';
 
 export const title = 'STAT';
 
@@ -38,7 +39,7 @@ export function StatPage() {
       kicker="The headline number — the typographic flex of the DS. Four sizes: sm (inline) through xl (full-bleed hero). The number itself is always Geist Mono and always earned-colored on hero."
       meta={{
         status: 'stable',
-        version: 'v0.1.2',
+        version: DS_VERSION,
         role: 'display',
         importPath: '@touch-grass-ds/react',
       }}

@@ -1,4 +1,5 @@
 import { DocPage, Section, RelatedLinks } from '../../ui/DocPage';
+import { DS_VERSION } from '../../lib/version';
 
 /* ------------------------------------------------------------------ *
  * Spacing foundation — 4px base, 11-step scale, visual ruler,
@@ -64,7 +65,7 @@ export function Spacing() {
       kicker="Eleven values on the scale. Nothing in between. Density is the brand — and off-grid values are what softens a page first."
       meta={{
         status: 'stable',
-        version: 'v0.1.2',
+        version: DS_VERSION,
         role: 'token-layer',
         importPath: '@touch-grass-ds/tokens',
       }}

@@ -8,6 +8,7 @@ import {
   RelatedLinks,
   VariantsMatrix,
 } from '../../ui/DocPage';
+import { DS_VERSION } from '../../lib/version';
 
 export const title = 'BUTTON';
 
@@ -101,7 +102,7 @@ export function ButtonPage() {
       kicker="The interaction primitive. Three variants, five states, 48px tap target floor. Loading is a block-character prefix — never a spinner."
       meta={{
         status: 'stable',
-        version: 'v0.1.2',
+        version: DS_VERSION,
         tapTarget: '48px',
         role: 'button',
         importPath: '@touch-grass-ds/react',

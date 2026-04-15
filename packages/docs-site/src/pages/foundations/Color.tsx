@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { DocPage, Section, RelatedLinks } from '../../ui/DocPage';
+import { DS_VERSION } from '../../lib/version';
 
 /* ------------------------------------------------------------------ *
  * Color foundation — swatches with honest contrast ratios, copy-on-
@@ -206,7 +207,7 @@ export function Color() {
       kicker="Two structural (bg, fg). Two expressive (earned, danger). Two surface-only (hairline, bg-alt). No greys, no tertiaries, no brand secondaries. Hierarchy is built from size and weight — not from dimming."
       meta={{
         status: 'stable',
-        version: 'v0.1.2',
+        version: DS_VERSION,
         role: 'token-layer',
         importPath: '@touch-grass-ds/tokens',
       }}
