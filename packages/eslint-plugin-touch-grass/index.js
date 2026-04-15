@@ -3,7 +3,9 @@ const BRUTAL_VIOLATIONS = [
   { regex: /transition(?!-none\b)(-[a-z-]+)?/g, message: 'Zero motion allowed. Found transition utility (use transition-none to explicitly disable motion)' },
   { regex: /duration-[0-9]+/g, message: 'Zero motion allowed. Found duration utility' },
   { regex: /ease-[a-z-]+/g, message: 'Zero motion allowed. Found ease utility' },
-  { regex: /#([0-9a-fA-F]{6}|[0-9a-fA-F]{3})(?![0-9a-fA-F])/g, message: 'No hex codes allowed in components. Use tokens from var(--color-*) or Tailwind utilities' }
+  { regex: /#([0-9a-fA-F]{6}|[0-9a-fA-F]{3})(?![0-9a-fA-F])/g, message: 'No hex codes allowed in components. Use tokens from var(--color-*) or Tailwind utilities' },
+  { regex: /(?<![a-zA-Z-])opacity-(?!0\b)\d+/g, message: 'No opacity-based hierarchy. Use fg / fg-muted / fg-subtle tokens instead of opacity utilities' },
+  { regex: /rgba\([^)]+,\s*0\.\d+\)/g, message: 'No alpha rgba() in DS styles. Use neutral tokens (fg-muted, fg-subtle) for hierarchy' }
 ];
 
 module.exports = {
@@ -12,7 +14,7 @@ module.exports = {
       meta: {
         type: 'problem',
         docs: {
-          description: 'Enforce brutalist design strictness by forbidding motion, rounding, and hardcoded hex.',
+          description: 'Enforce brutalist design strictness by forbidding motion, rounding, hardcoded hex, opacity hierarchy, and alpha rgba().',
           category: 'Stylistic Issues',
           recommended: true
         },

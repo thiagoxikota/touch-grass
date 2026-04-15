@@ -46,7 +46,7 @@ export function Stat({ variant = 'hero', size = 'lg', label, value, meta, classN
         <div className="flex gap-4 mt-6 pt-6 border-t border-hairline">
           {meta.map((m) => (
             <div key={m.k} className="flex-1">
-              <div className="font-mono text-[13px] font-black uppercase tracking-[0.12em] text-white">{m.k}</div>
+              <div className="font-mono text-[13px] font-black uppercase tracking-[0.12em] text-[var(--color-fg-muted)]">{m.k}</div>
               <div className="font-mono text-[22px] font-black text-white mt-2">{m.v}</div>
             </div>
           ))}

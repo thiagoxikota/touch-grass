@@ -3,7 +3,7 @@
 # Touch Grass
 
 **Open-source brutalist design system.**
-Zero rounded corners. Zero grey text. Zero animation. Geist Mono everywhere it counts.
+Zero rounded corners. Zero animation. Token-driven neutral hierarchy. Geist Mono everywhere it counts.
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-000000?style=flat-square&labelColor=a6ff00&color=000000)](./LICENSE)
 [![Node](https://img.shields.io/badge/node-%E2%89%A522-000000?style=flat-square&labelColor=a6ff00&color=000000)](./package.json)
@@ -30,7 +30,7 @@ Most design systems apologize. They round the corners, soften the type, add a 15
 Touch Grass doesn't. It's built on a short list of hard rules:
 
 - **No rounded corners.** `border-radius: 0` everywhere. Sharp is a feature.
-- **No grey text.** Foreground colors resolve to tokens — never opacity, never neutrals.
+- **No opacity hierarchy.** Text hierarchy uses neutral tokens (`fg`, `fg-muted`, `fg-subtle`) — never `opacity` or `rgba()` alpha.
 - **No motion.** No transitions, no eased hovers, no micro-interactions. Hover is a color flip, not a slide.
 - **Mono where it counts.** `Geist Mono`, uppercase, tracked, for headings, buttons, stats, and timers. `Geist Sans` for long-form copy.
 - **Tokens only.** Components don't know about hex codes. Spacing, color, and size come from `@touch-grass-ds/tokens` or they don't ship.
@@ -63,7 +63,7 @@ It's the system I wanted while building [Timeouts](https://timeouts.app) — a s
 <td width="50%"><img src=".github/assets/primitives-button.png" alt="Primitives / Button — full variant and state matrix" /></td>
 </tr>
 <tr>
-<td width="50%"><strong>Foundations / Color</strong><br/>Four colors. Two structural. No greys.</td>
+<td width="50%"><strong>Foundations / Color</strong><br/>Nine tokens. Three text tiers. No opacity hierarchy.</td>
 <td width="50%"><strong>Primitives / Button</strong><br/>3 variants × 5 states. Uppercase mono. 48px tap target.</td>
 </tr>
 <tr>

@@ -12,6 +12,9 @@ describe('ds token integration', () => {
       'utf8'
     );
     expect(tokensCss).toContain('--color-earned: #a6ff00');
+    expect(tokensCss).toContain('--color-fg-muted: #b3b3b3');
+    expect(tokensCss).toContain('--color-fg-subtle: #808080');
+    expect(tokensCss).toContain('--color-hairline-strong: #333333');
   });
 
   it('base.css references tokens via var()', () => {

@@ -160,7 +160,7 @@ export function Spacing() {
             </tbody>
           </table>
         </div>
-        <p className="font-mono text-[12px] font-semibold text-[var(--color-muted)] max-w-[68ch] mt-4 leading-relaxed">
+        <p className="font-mono text-[12px] font-semibold text-[var(--color-fg-muted)] max-w-[68ch] mt-4 leading-relaxed">
           // 48px is the WCAG 2.5.5 tap-target floor. Tag and Badge live below 48
           but Tag wraps a transparent 48px hit zone via :before so the visible chip
           stays small. Badge is non-interactive, so the rule doesn't apply.

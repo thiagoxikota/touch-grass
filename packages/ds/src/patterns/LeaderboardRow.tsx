@@ -43,7 +43,7 @@ export function LeaderboardRow({
     <div
       className={cn(
         'grid grid-cols-[56px_44px_1fr_140px_100px] gap-4 px-5 py-4 border-b border-hairline items-center font-mono',
-        isYou && 'bg-[rgba(166,255,0,0.06)] border-l-4 border-earned',
+        isYou && 'bg-[var(--color-bg-alt)] border-l-4 border-earned',
         className
       )}
       {...rest}
@@ -58,7 +58,7 @@ export function LeaderboardRow({
         <div className="text-[18px] font-bold text-white" style={{ fontFamily: 'Geist, sans-serif' }}>
           {truncate(name, 16)}
         </div>
-        <div className="text-[13px] font-semibold text-white uppercase tracking-[0.08em] mt-1">
+        <div className="text-[13px] font-semibold text-[var(--color-fg-muted)] uppercase tracking-[0.08em] mt-1">
           @{truncate(handle.toUpperCase(), 14)}
         </div>
       </div>

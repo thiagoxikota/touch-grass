@@ -5,7 +5,7 @@ export const title = 'ACCESSIBILITY';
 
 const RULES: [string, string][] = [
   ['WCAG 2.1 AAA', 'We aim for strict 7.0:1 contrast ratios for text. No excuses. If it\'s unreadable, it\'s unfinished.'],
-  ['ZERO SHADES OF GRAY', 'The design uses pure black (--color-bg) and flat colors. Text must use --color-fg (White), black text, or our high-contrast --color-muted. We avoid thin decorative colors for structural text.'],
+  ['ZERO SHADES OF GRAY', 'The design uses pure black (--color-bg) and flat colors. Text uses --color-fg (primary), --color-fg-muted (secondary), or --color-fg-subtle (metadata only). No opacity-based hierarchy — use the neutral tokens instead.'],
   ['DANGER CONTRAST', 'Our danger red (--color-danger / #FF6B6B) pairs strictly with black text. Do not use white text over the red danger background; it fails WCAG.'],
   ['FOCUS HALOS', 'Every interactive element forces a 2px rigid white outline structure with a 3px offset. It screams focus. It cannot be disabled.'],
   ['SEMANTIC STRICTNESS', 'Use pure HTML5 whenever possible. Custom components (like our brutalist SVG toggles) rely heavily on aria-hidden="true" to keep screen readers clean and loud.'],

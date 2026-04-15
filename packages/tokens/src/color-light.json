@@ -2,9 +2,12 @@
   "color": {
     "bg": { "value": "#F4F5F4" },
     "fg": { "value": "#0A0B0A" },
+    "fgMuted": { "value": "#4A4A4A" },
+    "fgSubtle": { "value": "#6E6E6E" },
     "earned": { "value": "#18B019" },
     "danger": { "value": "#D11010" },
     "hairline": { "value": "#CCCCCC" },
+    "hairlineStrong": { "value": "#999999" },
     "bg-alt": { "value": "#E0E0E0" }
   }
 }

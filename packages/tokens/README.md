@@ -79,7 +79,7 @@ The Swift source is regenerated every time you run `pnpm --filter @touch-grass-d
 
 | Category | What it covers |
 |---|---|
-| `color` | 4 primary colors (`bg`, `fg`, `earned`, `danger`) + 2 structural (`hairline`, `bg-alt`) |
+| `color` | 3 text tiers (`fg`, `fg-muted`, `fg-subtle`) + 2 accents (`earned`, `danger`) + 2 borders (`hairline`, `hairline-strong`) + 2 surfaces (`bg`, `bg-alt`) |
 | `space` | `0, 1, 2, 3, 4, 6, 8, 12, 16` — no speculative scale, just what's used |
 | `size` | Fixed sizes (tap target 48, icon 16/20/24, hairline 1/2) |
 | `radius` | Exactly one token: `0`. Intentional. |
