@@ -47,11 +47,11 @@ It's the system I wanted while building [Timeouts](https://timeouts.app) — a s
 </tr>
 <tr>
 <td><strong><a href="./packages/ds">@touch-grass-ds/react</a></strong></td>
-<td>React 19 component library. 8 primitives (Button, Input, Badge, Card, Tag, Divider, Stat, Timer) + 5 patterns (LeaderboardRow, FocusTimerDisplay, BeRealStamp, PatternInterruptModal, SessionSummaryCard).</td>
+<td>React 19 component library. 10 primitives (Button, Input, Badge, Card, Tag, Divider, Stat, Timer, Checkbox, Switch) + 8 patterns (LeaderboardRow, FocusTimerDisplay, BeRealStamp, PatternInterruptModal, SessionSummaryCard, Field, Sparkline, Toast).</td>
 </tr>
 <tr>
 <td><strong><a href="./packages/docs-site">packages/docs-site</a></strong></td>
-<td>Vite + React 19 documentation site. Foundations, primitives, patterns. Runs at <code>localhost:5173</code>. Will ship at <code>timeouts.app/touch-grass</code>.</td>
+<td>Vite + React 19 documentation site. Foundations, primitives, patterns. Runs at <code>localhost:5173</code>. Live at <a href="https://timeouts.app/touch-grass/"><code>timeouts.app/touch-grass</code></a>.</td>
 </tr>
 </table>
 
@@ -178,10 +178,9 @@ New to the codebase? Read [CONTRIBUTING.md](./CONTRIBUTING.md) first — especia
 
 ## Roadmap
 
-- [x] **v0.1.0** — Tokens, 8 primitives, 5 patterns, docs site, Swift package
-- [ ] **v0.2.0** — Figma library with Code Connect, more primitives (Checkbox, Switch, Select)
-- [ ] **v0.3.0** — Dark-on-black chart primitives, animation-free data viz
-- [ ] **v1.0.0** — API stability, public docs at `timeouts.app/touch-grass`, first npm release
+- [x] **v0.1.x** — Tokens, 8 primitives, 5 patterns, docs site, Swift package
+- [x] **v1.0.0** — Stable API, 10 primitives + 8 patterns, Checkbox/Switch/Toast/Sparkline/Field, Figma community library with Code Connect, public docs at `timeouts.app/touch-grass`, first npm release of `@touch-grass-ds/tokens` and `@touch-grass-ds/react`
+- [ ] **v1.1.0** — Select / Combobox primitive, dark-on-black chart primitives (animation-free data viz), expanded foundations docs
 
 See [CHANGELOG.md](./CHANGELOG.md) for released versions.
 

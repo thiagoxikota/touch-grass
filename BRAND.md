@@ -162,7 +162,7 @@ These five appear on **every** surface as proof-of-system. They are the face of 
 5. Cross-link to Figma node + link to "used in Timeouts at …".
 6. "Related" footer linking to 2–3 sibling components.
 
-**Nav:** sidebar with counts per section (`FOUNDATIONS / 8`, `PRIMITIVES / 10`, `PATTERNS / 7`) and an active-page border-left indicator (`border-l-2 border-earned`).
+**Nav:** sidebar with counts per section (`FOUNDATIONS / 9`, `PRIMITIVES / 10`, `PATTERNS / 8`) and an active-page border-left indicator (`border-l-2 border-earned`).
 
 ### 5.2 `timeouts.app` (landing)
 

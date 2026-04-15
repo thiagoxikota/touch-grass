@@ -1,6 +1,6 @@
 # @touch-grass-ds/react
 
-React 19 components for [Touch Grass](https://github.com/thiagoxikota/touch-grass) — the open-source brutalist design system. Eight primitives and five patterns. No rounded corners, no grey text, no motion, no exceptions.
+React 19 components for [Touch Grass](https://github.com/thiagoxikota/touch-grass) — the open-source brutalist design system. Ten primitives and eight patterns. No rounded corners, no grey text, no motion, no exceptions.
 
 ## Install
 

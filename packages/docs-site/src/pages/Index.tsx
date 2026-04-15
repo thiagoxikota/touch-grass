@@ -112,7 +112,7 @@ import { Button } from '@touch-grass-ds/react';
             { label: 'PRIMITIVES', value: '10', sub: 'REACT 19 · FORWARDREF · TOKENS ONLY' },
             { label: 'PATTERNS', value: '08', sub: 'COMPOSED FROM PRIMITIVES' },
             { label: 'TOKEN FILES', value: '07', sub: 'COLOR · TYPE · SPACE · BORDER · GRID · MOTION' },
-            { label: 'VITEST SUITES', value: '17', sub: 'REACT TESTING LIBRARY + PLAYWRIGHT CT' },
+            { label: 'VITEST SUITES', value: '19', sub: 'REACT TESTING LIBRARY + PLAYWRIGHT CT' },
           ]}
         />
         <p className="font-mono text-[11px] font-black uppercase tracking-[0.14em] text-[var(--color-fg)] mt-4">
