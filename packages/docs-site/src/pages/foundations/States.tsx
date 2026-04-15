@@ -24,17 +24,27 @@ const STATES: StateRow[] = [
   {
     name: 'FOCUS',
     cls: 'text-[var(--color-earned)]',
-    desc: '2px fg outline at 3px offset. Hard halo. Never a glow.',
+    desc: '2px fg outline at 3px offset. Hard halo. Never a glow. Appears on :focus-visible only.',
+  },
+  {
+    name: 'ACTIVE',
+    cls: 'text-[var(--color-earned)]',
+    desc: 'Mouse-down / touch. Stronger inset or border-weight shift. Instant. No easing.',
+  },
+  {
+    name: 'SELECTED',
+    cls: 'text-[var(--color-earned)]',
+    desc: 'Toggled on / checked. Earned accent via border-left, fill, or checkmark. Required for Checkbox, Switch, Tag.',
   },
   {
     name: 'DISABLED',
     cls: 'text-[var(--color-danger)]',
-    desc: '2px DASHED fg border, bg black, text fg. Looks broken on purpose — dashed is honesty.',
+    desc: '2px DASHED fg border, bg black, text fg. cursor: not-allowed. Looks broken on purpose — dashed is honesty.',
   },
   {
     name: 'LOADING',
     cls: 'text-[var(--color-earned)]',
-    desc: 'Label replaced with "█▌ VERB-ING". 2px solid fg border. No spinner.',
+    desc: 'Label replaced with "█▌ VERB-ING". 2px solid fg border. aria-busy="true". No spinner.',
   },
 ];
 
@@ -42,15 +52,15 @@ export function States() {
   return (
     <DocPage
       eyebrow="FOUNDATIONS / STATES"
-      title="FIVE STATES"
-      kicker="Every interactive component must define all five, explicitly. No implicit opacity tricks, no default fallbacks. If a component doesn't define its disabled state, it doesn't ship."
+      title="SEVEN STATES"
+      kicker="Every interactive component must define all applicable states, explicitly. No implicit opacity tricks, no default fallbacks. If a component doesn't define its disabled state, it doesn't ship. See docs/contract.md §3."
       meta={{
         status: 'stable',
         version: DS_VERSION,
         role: 'interaction-contract',
       }}
     >
-      <Section eyebrow="CONTRACT" title="THE FIVE STATES AND THEIR SIGNALS">
+      <Section eyebrow="CONTRACT" title="THE SEVEN STATES AND THEIR SIGNALS">
         <div className="border border-[var(--color-hairline)]">
           {STATES.map((s, i) => (
             <div

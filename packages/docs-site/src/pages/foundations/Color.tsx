@@ -36,6 +36,8 @@ const SWATCHES: Swatch[] = [
     hex: '#FFFFFF',
     role: 'PRIMARY TEXT',
     usage: 'Body copy, headings. The default for all reading text.',
+    role: 'TEXT (ALWAYS)',
+    usage: 'Every text node. Use --color-muted for secondary hierarchy. No opacity greys.',
     onLight: true,
     contrastOnBg: '21:1',
     pairs: [
@@ -80,14 +82,25 @@ const SWATCHES: Swatch[] = [
   },
   {
     token: '--color-danger',
-    hex: '#FF3B3B',
+    hex: '#FF6B6B',
     role: 'DANGER · BG ONLY',
-    usage: 'Danger state backgrounds. Never danger-colored text on bg directly.',
+    usage: 'Danger state backgrounds. Never danger-colored text on bg directly. WCAG AAA on black (7.57:1).',
     onLight: false,
-    contrastOnBg: '5.96:1',
+    contrastOnBg: '7.57:1',
     pairs: [
-      { label: 'FG ON DANGER', ratio: '3.52:1', level: 'AA LARGE' },
-      { label: 'BG ON DANGER', ratio: '5.96:1', level: 'AA' },
+      { label: 'BG ON DANGER', ratio: '7.57:1', level: 'AAA' },
+      { label: 'FG ON DANGER', ratio: '2.77:1', level: 'FAIL' },
+    ],
+  },
+  {
+    token: '--color-muted',
+    hex: '#B3B3B3',
+    role: 'SECONDARY TEXT',
+    usage: 'The ONE sanctioned reduced-emphasis text color. Metadata, helper text, timestamps. 10.02:1 on black — WCAG AAA.',
+    onLight: false,
+    contrastOnBg: '10.02:1',
+    pairs: [
+      { label: 'MUTED ON BG', ratio: '10.02:1', level: 'AAA' },
     ],
   },
   {
@@ -122,8 +135,10 @@ const SWATCHES: Swatch[] = [
 const RULES: [string, string][] = [
   ['NO OPACITY HIERARCHY', 'Hierarchy uses neutral tokens (fg, fg-muted, fg-subtle) — never opacity or rgba() alpha. If it\'s muted, it\'s a token.'],
   ['RED IS BG ONLY', 'Bare red text on black is banned. White text always sits on red.'],
+  ['NO ARBITRARY GREYS', 'Hierarchy is size + weight + --color-muted (the token). Opacity tricks, #666, #999, unlisted hex greys — banned. See docs/contract.md §1.2.'],
+  ['RED IS BG ONLY', 'Bare red text on black is banned. Black text always sits on red backgrounds.'],
   ['GREEN IS SCARCE', 'Max one green hit per component. Stacking greens is banned.'],
-  ['REVERSE PAIRINGS', 'Black-on-green and white-on-red are the only allowed reverses.'],
+  ['REVERSE PAIRINGS', 'Black-on-green and black-on-danger are the only allowed reverses.'],
   ['HAIRLINE IS NEVER TEXT', 'hairline and bg-alt exist for surfaces only. Using them for text is a bug.'],
 ];
 
@@ -236,6 +251,8 @@ export function Color() {
       eyebrow="FOUNDATIONS / COLOR"
       title="COLORS + HIERARCHY"
       kicker="Two structural (bg, fg). Two expressive (earned, danger). Three text tiers (fg, fg-muted, fg-subtle). Two border weights (hairline, hairline-strong). One surface variant (bg-alt). Hierarchy is built from tokens — never from opacity or rgba() alpha."
+      title="SEVEN TOKENS"
+      kicker="Two structural (bg, fg). Two expressive (earned, danger). One hierarchy (muted). Two surface-only (hairline, bg-alt). No arbitrary greys, no tertiaries, no brand secondaries. Hierarchy is built from size, weight, and --color-muted — not from opacity."
       meta={{
         status: 'stable',
         version: DS_VERSION,

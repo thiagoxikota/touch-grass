@@ -6,6 +6,9 @@ const BRUTAL_VIOLATIONS = [
   { regex: /#([0-9a-fA-F]{6}|[0-9a-fA-F]{3})(?![0-9a-fA-F])/g, message: 'No hex codes allowed in components. Use tokens from var(--color-*) or Tailwind utilities' },
   { regex: /(?<![a-zA-Z-])opacity-(?!0\b)\d+/g, message: 'No opacity-based hierarchy. Use fg / fg-muted / fg-subtle tokens instead of opacity utilities' },
   { regex: /rgba\([^)]+,\s*0\.\d+\)/g, message: 'No alpha rgba() in DS styles. Use neutral tokens (fg-muted, fg-subtle) for hierarchy' }
+  { regex: /animate-(?!none)[a-z-]+/g, message: 'Zero motion allowed. Found animate utility' },
+  { regex: /#([0-9a-fA-F]{6}|[0-9a-fA-F]{3})(?![0-9a-fA-F])/g, message: 'No hex codes allowed in components. Use tokens from var(--color-*) or Tailwind utilities' },
+  { regex: /text-[a-z]+\/[0-9]+/g, message: 'No opacity text allowed. Use --color-muted token for text hierarchy, not opacity modifiers' }
 ];
 
 module.exports = {

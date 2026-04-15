@@ -41,3 +41,20 @@ button:disabled { cursor: not-allowed; }
   transition-duration: 0ms !important;
   animation-duration: 0ms !important;
 }
+
+/* ── Density modes ─────────────────────────────────────── */
+/* Default density — standard product UI spacing.           */
+:root {
+  --density-cell-py: var(--space-4);
+  --density-cell-px: var(--space-5);
+  --density-stack: var(--space-4);
+  --density-row-min-h: 48px;
+}
+
+/* Dense — tables, leaderboards, settings lists. */
+.tg-density-dense {
+  --density-cell-py: var(--space-2);
+  --density-cell-px: var(--space-3);
+  --density-stack: var(--space-2);
+  --density-row-min-h: 36px;
+}
