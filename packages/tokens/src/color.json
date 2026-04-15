@@ -1,9 +1,13 @@
 {
   "color": {
     "bg":       { "value": "#000000",  "type": "color", "comment": "Background. Pure black." },
-    "fg":       { "value": "#FFFFFF",  "type": "color", "comment": "All text. Always." },
+    "fg":       { "value": "#FFFFFF",  "type": "color", "comment": "Primary text. Body copy + headings." },
+    "fgMuted":  { "value": "#B3B3B3",  "type": "color", "comment": "Secondary text. Labels, helper text, metadata. >7:1 on black." },
+    "fgSubtle": { "value": "#808080",  "type": "color", "comment": "Tertiary text. Timestamps, placeholders, table headers. >4.5:1 on black. Metadata/labels only — never body copy." },
     "earned":   { "value": "#A6FF00",  "type": "color", "comment": "Earned/success/active. Bloomberg lime." },
     "danger":   { "value": "#FF6B6B",  "type": "color", "comment": "Danger/loss. WCAG AAA on black." },
+    "hairline": { "value": "#1A1A1A",  "type": "color", "comment": "Border, divider. Default weight." },
+    "hairlineStrong": { "value": "#333333", "type": "color", "comment": "Emphasis border. Focus ring pairing, selected states." },
     "muted":    { "value": "#B3B3B3",  "type": "color", "comment": "Secondary/Muted text. >7:1 on black." },
     "subtle":   { "value": "#808080",  "type": "color", "comment": "Tertiary text. Metadata/labels only. >4.5:1 on black." },
     "hairline": { "value": "#1A1A1A",  "type": "color", "comment": "Border, divider. Never text." },

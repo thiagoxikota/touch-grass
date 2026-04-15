@@ -12,13 +12,16 @@ describe('token build', () => {
     await build();
   });
 
-  it('emits tokens.css with all six color variables', () => {
+  it('emits tokens.css with all color variables', () => {
     const css = readFileSync(join(dist, 'tokens.css'), 'utf8');
     expect(css).toContain('--color-bg: #000000');
     expect(css).toContain('--color-fg: #ffffff');
+    expect(css).toContain('--color-fg-muted: #b3b3b3');
+    expect(css).toContain('--color-fg-subtle: #808080');
     expect(css).toContain('--color-earned: #a6ff00');
     expect(css).toContain('--color-danger: #ff6b6b');
     expect(css).toContain('--color-hairline: #1a1a1a');
+    expect(css).toContain('--color-hairline-strong: #333333');
     expect(css).toContain('--color-bg-alt: #0a0a0a');
   });
 

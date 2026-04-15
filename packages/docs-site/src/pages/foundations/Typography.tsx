@@ -47,6 +47,13 @@ const RULES: [string, string][] = [
   ['BODY FLOORS AT 16PX', 'Never ship text below 16px for reading copy.'],
   ['TIGHT TRACKING ON DISPLAYS', 'Any size ≥32px takes -0.04em tracking to tighten silhouette.'],
   ['NO MIXED FAMILIES IN A LINE', 'One line = one family. Mixing mono and sans on the same baseline is a bug.'],
+  ['NO OPACITY FOR HIERARCHY', 'Text hierarchy uses fg / fg-muted / fg-subtle tokens. Never use opacity or rgba() alpha to dim text.'],
+];
+
+const HIERARCHY_TIERS: { token: string; cssVar: string; hex: string; role: string; usage: string }[] = [
+  { token: 'fg', cssVar: '--color-fg', hex: '#FFFFFF', role: 'PRIMARY', usage: 'Body copy, headings, stat values, button labels. The default.' },
+  { token: 'fg-muted', cssVar: '--color-fg-muted', hex: '#B3B3B3', role: 'SECONDARY', usage: 'Labels, helper text, field descriptions, secondary metadata. Not for body copy.' },
+  { token: 'fg-subtle', cssVar: '--color-fg-subtle', hex: '#808080', role: 'TERTIARY', usage: 'Timestamps, placeholders, table headers, input hints. Metadata/labels only — never body copy.' },
 ];
 
 const SIZE_CLASS: Record<number, string> = {
@@ -94,7 +101,7 @@ function Clickable({ value, children }: { value: string; children: React.ReactNo
       aria-label={`Copy ${value}`}
     >
       {children}
-      <span className="font-mono text-[10px] font-black uppercase tracking-[0.14em] opacity-60">
+      <span className="font-mono text-[10px] font-black uppercase tracking-[0.14em] text-[var(--color-fg-subtle)]">
         {copied ? 'COPIED' : 'COPY'}
       </span>
     </button>
@@ -160,6 +167,43 @@ export function Typography() {
         </p>
       </Section>
 
+      <Section eyebrow="HIERARCHY" title="THREE TIERS OF TEXT COLOR">
+        <div className="border border-[var(--color-hairline)]">
+          {HIERARCHY_TIERS.map((t, i) => (
+            <div
+              key={t.token}
+              className={`grid grid-cols-1 md:grid-cols-[200px_1fr] ${
+                i < HIERARCHY_TIERS.length - 1 ? 'border-b border-[var(--color-hairline)]' : ''
+              }`}
+            >
+              <div className="p-5 border-b md:border-b-0 md:border-r border-[var(--color-hairline)] bg-[var(--color-bg-alt)]">
+                <Clickable value={t.cssVar}>
+                  <span className="font-mono text-[13px] font-black uppercase tracking-[0.12em] text-[var(--color-earned)]">
+                    // {t.token.toUpperCase()}
+                  </span>
+                </Clickable>
+                <div className="font-mono text-[12px] font-black mt-2" style={{ color: t.hex }}>
+                  {t.hex} · {t.role}
+                </div>
+              </div>
+              <div className="p-5 flex items-center">
+                <div>
+                  <div className="text-[24px] font-black leading-none" style={{ color: t.hex }}>
+                    Sample text at this tier
+                  </div>
+                  <p className="font-mono text-[12px] font-semibold mt-3 text-[var(--color-fg)] leading-relaxed">
+                    {t.usage}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        <p className="font-mono text-[11px] font-black uppercase tracking-[0.14em] text-[var(--color-fg-muted)] mt-4">
+          // NEVER USE OPACITY OR RGBA() ALPHA TO DIM TEXT. USE THESE TOKENS.
+        </p>
+      </Section>
+
       <Section eyebrow="WEIGHTS" title="FOUR WEIGHTS ON THE LADDER">
         <div className="grid grid-cols-2 lg:grid-cols-4 border border-[var(--color-hairline)] border-r-0 border-b-0">
           {WEIGHTS.map((w) => (
@@ -210,7 +254,7 @@ export function Typography() {
         </div>
       </Section>
 
-      <Section eyebrow="RULES" title="FIVE NON-NEGOTIABLES">
+      <Section eyebrow="RULES" title="SIX NON-NEGOTIABLES">
         <div className="border border-[var(--color-hairline)]">
           {RULES.map(([rule, desc], i) => (
             <div

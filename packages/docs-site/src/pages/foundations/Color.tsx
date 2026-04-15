@@ -34,6 +34,8 @@ const SWATCHES: Swatch[] = [
   {
     token: '--color-fg',
     hex: '#FFFFFF',
+    role: 'PRIMARY TEXT',
+    usage: 'Body copy, headings. The default for all reading text.',
     role: 'TEXT (ALWAYS)',
     usage: 'Every text node. Use --color-muted for secondary hierarchy. No opacity greys.',
     onLight: true,
@@ -42,6 +44,28 @@ const SWATCHES: Swatch[] = [
       { label: 'ON BG', ratio: '21:1', level: 'AAA' },
       { label: 'ON EARNED', ratio: '1.24:1', level: 'FAIL' },
       { label: 'ON DANGER', ratio: '3.52:1', level: 'AA LARGE' },
+    ],
+  },
+  {
+    token: '--color-fg-muted',
+    hex: '#B3B3B3',
+    role: 'SECONDARY TEXT',
+    usage: 'Labels, helper text, metadata. Never body copy. >7:1 on black.',
+    onLight: false,
+    contrastOnBg: '9.65:1',
+    pairs: [
+      { label: 'ON BG', ratio: '9.65:1', level: 'AAA' },
+    ],
+  },
+  {
+    token: '--color-fg-subtle',
+    hex: '#808080',
+    role: 'TERTIARY TEXT · METADATA ONLY',
+    usage: 'Timestamps, placeholders, table headers. Never body copy. >4.5:1 on black.',
+    onLight: false,
+    contrastOnBg: '5.32:1',
+    pairs: [
+      { label: 'ON BG', ratio: '5.32:1', level: 'AA' },
     ],
   },
   {
@@ -82,10 +106,19 @@ const SWATCHES: Swatch[] = [
   {
     token: '--color-hairline',
     hex: '#1A1A1A',
-    role: 'BORDER · NEVER TEXT',
-    usage: '1px dividers, inset panels. Never used as a text color.',
+    role: 'BORDER · DEFAULT',
+    usage: '1px dividers, inset panels. Default-weight borders.',
     onLight: false,
     contrastOnBg: '1.18:1',
+    pairs: [],
+  },
+  {
+    token: '--color-hairline-strong',
+    hex: '#333333',
+    role: 'BORDER · EMPHASIS',
+    usage: 'Emphasis borders. Focus ring pairing, selected states.',
+    onLight: false,
+    contrastOnBg: '2.16:1',
     pairs: [],
   },
   {
@@ -100,6 +133,8 @@ const SWATCHES: Swatch[] = [
 ];
 
 const RULES: [string, string][] = [
+  ['NO OPACITY HIERARCHY', 'Hierarchy uses neutral tokens (fg, fg-muted, fg-subtle) — never opacity or rgba() alpha. If it\'s muted, it\'s a token.'],
+  ['RED IS BG ONLY', 'Bare red text on black is banned. White text always sits on red.'],
   ['NO ARBITRARY GREYS', 'Hierarchy is size + weight + --color-muted (the token). Opacity tricks, #666, #999, unlisted hex greys — banned. See docs/contract.md §1.2.'],
   ['RED IS BG ONLY', 'Bare red text on black is banned. Black text always sits on red backgrounds.'],
   ['GREEN IS SCARCE', 'Max one green hit per component. Stacking greens is banned.'],
@@ -132,7 +167,7 @@ function Clickable({ value, children }: { value: string; children: React.ReactNo
       aria-label={`Copy ${value}`}
     >
       {children}
-      <span className="font-mono text-[10px] font-black uppercase tracking-[0.14em] opacity-60">
+      <span className="font-mono text-[10px] font-black uppercase tracking-[0.14em] text-[var(--color-fg-subtle)]">
         {copied ? 'COPIED' : 'COPY'}
       </span>
     </button>
@@ -214,6 +249,8 @@ export function Color() {
   return (
     <DocPage
       eyebrow="FOUNDATIONS / COLOR"
+      title="COLORS + HIERARCHY"
+      kicker="Two structural (bg, fg). Two expressive (earned, danger). Three text tiers (fg, fg-muted, fg-subtle). Two border weights (hairline, hairline-strong). One surface variant (bg-alt). Hierarchy is built from tokens — never from opacity or rgba() alpha."
       title="SEVEN TOKENS"
       kicker="Two structural (bg, fg). Two expressive (earned, danger). One hierarchy (muted). Two surface-only (hairline, bg-alt). No arbitrary greys, no tertiaries, no brand secondaries. Hierarchy is built from size, weight, and --color-muted — not from opacity."
       meta={{

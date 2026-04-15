@@ -15,7 +15,7 @@ export function SessionSummaryCard({ date, duration, stats, className }: Session
       header={
         <div className="flex justify-between items-center w-full">
           <span>SESSION SUMMARY</span>
-          <span>{date}</span>
+          <span className="text-[var(--color-fg-muted)]">{date}</span>
         </div>
       }
     >

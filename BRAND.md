@@ -14,9 +14,9 @@ last-reviewed: 2026-04-14
 
 ## 0. The one-sentence manifesto
 
-**Brutalist, mono-first, tokens-only. Zero radius, zero motion, zero grey text. Built to fight iOS softness.**
+**Brutalist, mono-first, tokens-only. Zero radius, zero motion, no opacity hierarchy. Built to fight iOS softness.**
 
-If an edit softens any of those three zeros, revert it.
+If an edit softens any of those zeros, or uses opacity/rgba() to dim text, revert it.
 
 ---
 
@@ -44,8 +44,13 @@ All values live in `packages/tokens/src/*.json` and compile to CSS variables. **
 | Token | Value (dark) | Use | CSS var |
 |---|---|---|---|
 | `color.bg` | `#000000` | Background. Pure black. | `--color-bg` |
-| `color.fg` | `#FFFFFF` | All text. Always. | `--color-fg` |
+| `color.fg` | `#FFFFFF` | Primary text. Body copy + headings. | `--color-fg` |
+| `color.fgMuted` | `#B3B3B3` | Secondary text. Labels, helper text, metadata. >7:1 on black. | `--color-fg-muted` |
+| `color.fgSubtle` | `#808080` | Tertiary text. Timestamps, placeholders. >4.5:1 on black. Metadata/labels only — never body copy. | `--color-fg-subtle` |
 | `color.earned` | `#A6FF00` | Earned / active / success. Bloomberg lime. | `--color-earned` |
+| `color.danger` | `#FF6B6B` | Danger / loss. WCAG AAA on black. | `--color-danger` |
+| `color.hairline` | `#1A1A1A` | Borders, dividers. Default weight. | `--color-hairline` |
+| `color.hairlineStrong` | `#333333` | Emphasis borders. Focus ring pairing, selected states. | `--color-hairline-strong` |
 | `color.danger` | `#FF6B6B` | Danger / loss. WCAG AAA on black (7.57:1). | `--color-danger` |
 | `color.muted` | `#B3B3B3` | Secondary text hierarchy. WCAG AAA on black (10.02:1). The ONE sanctioned reduced-emphasis color. | `--color-muted` |
 | `color.hairline` | `#1A1A1A` | Borders, dividers. **Never text.** | `--color-hairline` |
@@ -53,6 +58,7 @@ All values live in `packages/tokens/src/*.json` and compile to CSS variables. **
 
 Light mode exists (`color-light.json`) but the primary canonical experience is dark. All screenshots for portfolio and Figma hero shots must be dark mode.
 
+**Forbidden patterns:** opacity-based text dimming (`opacity: 0.x`, `rgba(..., 0.x)` for text), any shade of blue, any radius-implying gradient, any drop shadow. Neutral text must use `fg-muted` or `fg-subtle` tokens — never raw grey hex values or opacity tricks.
 **Forbidden colors:** arbitrary greys (opacity tricks, unlisted hex values) for text, any shade of blue, any radius-implying gradient, any drop shadow. `--color-muted` is the only sanctioned reduced-emphasis text color — see `docs/contract.md` §1.2.
 
 ### 2.2 Typography
@@ -248,6 +254,8 @@ Every node links to every other node at least once. No dead ends.
 
 - **Don't** add a "delightful" animation because "just this one won't hurt". It will.
 - **Don't** soften a hairline to "look cleaner". The edges are the design.
+- **Don't** add a grey `text-muted` class outside the token system. Use `--color-fg-muted` or `--color-fg-subtle`.
+- **Don't** use `opacity` or `rgba()` alpha to create text hierarchy. Use the neutral tier tokens.
 - **Don't** add arbitrary grey text classes. Use `--color-muted` (the token) for secondary text hierarchy. Unlisted greys and opacity-based dimming are banned.
 - **Don't** invent a new radius for "the illustrations folder". The illustrations also have 0 radius.
 - **Don't** add decorative emoji in headings "for scan-ability". The mono label IS the scan-ability.

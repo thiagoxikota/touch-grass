@@ -21,7 +21,7 @@ export function Breadcrumb() {
   return (
     <nav
       aria-label="Breadcrumb"
-      className="font-mono text-[10px] font-black uppercase tracking-[0.16em] text-[var(--color-muted)] pb-3 mb-10 flex flex-wrap items-center gap-2"
+      className="font-mono text-[10px] font-black uppercase tracking-[0.16em] text-[var(--color-fg-muted)] pb-3 mb-10 flex flex-wrap items-center gap-2"
     >
       {crumbs.map((c, i) => (
         <span key={c.href} className="flex items-center gap-2">
@@ -282,7 +282,7 @@ export function PropsTable({ rows }: { rows: PropRow[] }) {
       </div>
       <p
         aria-hidden="true"
-        className="md:hidden font-mono text-[10px] font-black uppercase tracking-[0.14em] text-[var(--color-muted)] border-t border-[var(--color-hairline)] px-5 py-2 bg-[var(--color-bg-alt)]"
+        className="md:hidden font-mono text-[10px] font-black uppercase tracking-[0.14em] text-[var(--color-fg-muted)] border-t border-[var(--color-hairline)] px-5 py-2 bg-[var(--color-bg-alt)]"
       >
         // SCROLL HORIZONTALLY →
       </p>

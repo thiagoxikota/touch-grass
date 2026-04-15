@@ -7,7 +7,7 @@ Thanks for the interest. Touch Grass is brutalist on purpose — contributions a
 Before touching anything, know that Touch Grass has a few non-negotiables:
 
 - **Zero rounded corners.** No `border-radius`. No soft edges.
-- **Zero grey text.** Foreground colors are resolved from tokens, never opacity or neutral greys.
+- **Zero opacity hierarchy.** Text hierarchy uses neutral tokens (`fg`, `fg-muted`, `fg-subtle`). No `opacity` or `rgba()` alpha to dim text.
 - **Zero motion.** No transitions, no easing, no micro-animations. Hover is a color flip, not a slide.
 - **Mono everywhere it counts.** Headings, buttons, stats, timers — `Geist Mono`, uppercase, tracked.
 - **Tokens only.** No hex codes in components. No raw pixel values for spacing. Everything goes through `@touch-grass-ds/tokens`.

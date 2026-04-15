@@ -5,6 +5,10 @@ export const title = 'ACCESSIBILITY';
 
 const RULES: [string, string][] = [
   ['WCAG 2.1 AAA', 'We aim for strict 7.0:1 contrast ratios for text. No excuses. If it\'s unreadable, it\'s unfinished.'],
+  ['ZERO SHADES OF GRAY', 'The design uses pure black (--color-bg) and flat colors. Text uses --color-fg (primary), --color-fg-muted (secondary), or --color-fg-subtle (metadata only). No opacity-based hierarchy — use the neutral tokens instead.'],
+  ['DANGER CONTRAST', 'Our danger red (--color-danger / #FF6B6B) pairs strictly with black text. Do not use white text over the red danger background; it fails WCAG.'],
+  ['FOCUS HALOS', 'Every interactive element forces a 2px rigid white outline structure with a 3px offset. It screams focus. It cannot be disabled.'],
+  ['SEMANTIC STRICTNESS', 'Use pure HTML5 whenever possible. Custom components (like our brutalist SVG toggles) rely heavily on aria-hidden="true" to keep screen readers clean and loud.'],
   ['ZERO ARBITRARY GREYS', 'Text uses --color-fg (white), --color-muted (sanctioned secondary), or high-contrast token colors. Opacity-based dimming and unlisted hex greys are banned. See docs/contract.md §1.2.'],
   ['DANGER CONTRAST', 'Our danger red (--color-danger / #FF6B6B) achieves 7.57:1 on black (AAA). Use black text on danger backgrounds — white text on danger fails WCAG at body size.'],
   ['FOCUS HALOS', 'Every interactive element forces a 2px rigid white outline at 3px offset on :focus-visible. It cannot be disabled. Appears instantly — no transition.'],
