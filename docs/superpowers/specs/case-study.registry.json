@@ -1,0 +1,12 @@
+{
+  "version": "1.0.0",
+  "default_spec": "figma-code-bridge",
+  "specs": {
+    "figma-code-bridge": {
+      "path": "docs/superpowers/specs/figma-code-bridge.case-study.json",
+      "format": "touch-grass.case-study.v1",
+      "owner": "touch-grass-ds",
+      "purpose": "Canonical AI ingestion source for design↔code bridge narratives"
+    }
+  }
+}

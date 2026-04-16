@@ -1,0 +1,47 @@
+{
+  "audit_name": "figma-code-bridge-parity-pass",
+  "version": "1.0.0",
+  "generated_at": "2026-04-15T23:59:02.914Z",
+  "scope": {
+    "code_surfaces": [
+      "packages/docs-site/src/pages/foundations/Pipeline.tsx",
+      "packages/docs-site/src/content/caseStudies/figmaCodeBridge.ts",
+      "docs/superpowers/specs/figma-code-bridge.case-study.json",
+      "docs/superpowers/specs/case-study.registry.json"
+    ],
+    "figma_surface": "NdpNrdODOwtkqn1f3hLGyn"
+  },
+  "checks": [
+    {
+      "id": "loop-bidirectional",
+      "status": "pass",
+      "detail": "Pipeline model contains both CODE→FIGMA and FIGMA→CODE stages."
+    },
+    {
+      "id": "token-codesyntax-contract",
+      "status": "pass",
+      "detail": "Mapping contract includes explicit CSS var ↔ Figma WEB codeSyntax parity requirement."
+    },
+    {
+      "id": "state-contract-coverage",
+      "status": "pass",
+      "detail": "Mappings include Disabled/Focus semantics across code and Figma states."
+    },
+    {
+      "id": "brand-binding-contract",
+      "status": "pass",
+      "detail": "Mappings include SVG import and token-bound recolor rule."
+    },
+    {
+      "id": "ai-ingestion-sync",
+      "status": "pass",
+      "detail": "Canonical spec is registered in docs/superpowers/specs/case-study.registry.json."
+    },
+    {
+      "id": "live-figma-node-verification",
+      "status": "warning",
+      "detail": "This pass validated code/docs parity only. Live node/variable IDs in Figma file require a direct Figma API verification step."
+    }
+  ],
+  "result": "pass_with_warning"
+}
