@@ -2,3 +2,11 @@
 @import '@touch-grass-ds/tokens/light';
 @import '@touch-grass-ds/tokens/tailwind';
 @import '@touch-grass-ds/react/styles/base.css';
+
+:root {
+  --color-on-earned: var(--color-bg);
+}
+
+[data-theme='light'] {
+  --color-on-earned: var(--color-fg);
+}

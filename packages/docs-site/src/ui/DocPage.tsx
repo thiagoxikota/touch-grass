@@ -104,9 +104,52 @@ export function DocPage({
           </p>
         )}
         {meta && <MetaRow meta={meta} />}
+        <BrandProofRail />
       </header>
       {children}
     </article>
+  );
+}
+
+function BrandProofRail() {
+  return (
+    <div className="mt-8 border border-[var(--color-hairline)] grid grid-cols-1 lg:grid-cols-[1.35fr_1fr]">
+      <div className="border-b lg:border-b-0 lg:border-r border-[var(--color-hairline)] bg-[var(--color-bg-alt)]">
+        <img
+          src="/og-image.png"
+          alt="Touch Grass visual identity board"
+          className="block w-full h-full object-cover min-h-[180px]"
+          loading="lazy"
+        />
+      </div>
+      <div className="p-5 md:p-6 flex flex-col gap-4">
+        <div className="font-mono text-[11px] font-black uppercase tracking-[0.14em] text-[var(--color-fg)]">
+          // BUILT FOR TIMEOUTS.APP
+        </div>
+        <p className="font-mono text-[13px] md:text-[14px] font-semibold leading-relaxed text-[var(--color-fg)] max-w-[48ch]">
+          Product landing clarity + documentation rigor in one system. Use this page to learn the rule,
+          then jump to install and ship it.
+        </p>
+        <div className="grid grid-cols-2 gap-3">
+          <a
+            href="https://timeouts.app#waitlist"
+            target="_blank"
+            rel="noreferrer noopener"
+            className="font-mono text-[11px] font-black uppercase tracking-[0.14em] border border-[var(--color-hairline)] px-3 py-2 text-[var(--color-fg)] hover:bg-[var(--color-earned)] hover:text-[var(--color-on-earned)] text-center"
+          >
+            WAITLIST ↗
+          </a>
+          <a
+            href="https://www.npmjs.com/package/@touch-grass-ds/react"
+            target="_blank"
+            rel="noreferrer noopener"
+            className="font-mono text-[11px] font-black uppercase tracking-[0.14em] border border-[var(--color-hairline)] px-3 py-2 text-[var(--color-fg)] hover:bg-[var(--color-earned)] hover:text-[var(--color-on-earned)] text-center"
+          >
+            INSTALL ↗
+          </a>
+        </div>
+      </div>
+    </div>
   );
 }
 

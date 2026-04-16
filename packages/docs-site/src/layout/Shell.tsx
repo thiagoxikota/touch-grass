@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { Link } from 'react-router-dom';
 import { Nav } from './Nav';
 
 export function Shell({ children }: { children: ReactNode }) {
@@ -7,11 +8,38 @@ export function Shell({ children }: { children: ReactNode }) {
       <Nav />
       <div className="flex-1 flex flex-col min-w-0">
         <main className="flex-1">
+          <TopRail />
           <div className="max-w-[1280px] mx-auto px-6 md:px-12 py-12">
             <div className="[&_p]:max-w-[66ch] [&_li]:max-w-[66ch]">{children}</div>
           </div>
         </main>
         <Footer />
+      </div>
+    </div>
+  );
+}
+
+function TopRail() {
+  return (
+    <div className="border-b border-[var(--color-hairline)] bg-[var(--color-bg-alt)]">
+      <div className="max-w-[1280px] mx-auto px-6 md:px-12 py-3 grid grid-cols-1 md:grid-cols-[1fr_auto_auto] gap-3 md:gap-5 items-center">
+        <div className="font-mono text-[11px] font-black uppercase tracking-[0.14em] text-[var(--color-fg)]">
+          // TIMEOUTS SOCIAL GYM · TOUCH GRASS DS DOCS
+        </div>
+        <a
+          href="https://timeouts.app#waitlist"
+          target="_blank"
+          rel="noreferrer noopener"
+          className="font-mono text-[11px] font-black uppercase tracking-[0.14em] border border-[var(--color-hairline)] px-3 py-2 text-[var(--color-fg)] hover:bg-[var(--color-earned)] hover:text-[var(--color-on-earned)]"
+        >
+          JOIN WAITLIST ↗
+        </a>
+        <Link
+          to="/primitives/button"
+          className="font-mono text-[11px] font-black uppercase tracking-[0.14em] border border-[var(--color-hairline)] px-3 py-2 text-[var(--color-fg)] hover:bg-[var(--color-earned)] hover:text-[var(--color-on-earned)]"
+        >
+          SEE COMPONENTS →
+        </Link>
       </div>
     </div>
   );
@@ -90,7 +118,7 @@ function FooterCol({
               href={it.href}
               target={it.external ? '_blank' : undefined}
               rel={it.external ? 'noreferrer noopener' : undefined}
-              className="font-mono text-[13px] font-black uppercase tracking-[0.1em] text-[var(--color-fg)] hover:bg-[var(--color-earned)] hover:text-[var(--color-bg)] inline-block px-1 -mx-1"
+              className="font-mono text-[13px] font-black uppercase tracking-[0.1em] text-[var(--color-fg)] hover:bg-[var(--color-earned)] hover:text-[var(--color-on-earned)] inline-block px-1 -mx-1"
             >
               {it.label} {it.external ? '↗' : '→'}
             </a>

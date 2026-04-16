@@ -94,6 +94,7 @@ pnpm --filter @touch-grass-ds/tokens test     # verify output integrity
 ```
 
 Token sources live in `src/*.json`. Edit those, then rebuild. Never hand-edit `dist/` or `Sources/`.
+The test suite includes a contrast contract check that blocks white-on-earned accent pairings so low-contrast regressions fail CI.
 
 ## License
 

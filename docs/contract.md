@@ -41,6 +41,7 @@ The rule bans **arbitrary greys**. It does NOT ban the `--color-muted` token.
 ### 1.3 Color usage rules
 
 - `--color-earned` MUST appear at most once per component instance (scarcity rule).
+- Filled `--color-earned` surfaces MUST use the theme's darkest foreground token for text (`--color-bg` in dark mode, `--color-fg` in light mode). White text on earned is forbidden.
 - `--color-danger` on dark backgrounds MUST be paired with black (`--color-bg`) text when used as a background fill. White text on danger background fails WCAG at body size.
 - Only two reverse pairings are allowed: black-on-earned and black-on-danger.
 
@@ -226,6 +227,7 @@ Every interactive primitive MUST define visual treatment for all applicable stat
 ### 8.2 Unit tests (CI-blocking)
 
 - Token integration tests verify: `tokens.css` emits all 7 color tokens, `base.css` enforces zero radius and zero motion, focus ring is defined.
+- Token source tests verify WCAG contrast pairings for accent fills, including the explicit ban on white text over earned backgrounds.
 - Component tests verify: correct ARIA attributes, disabled behavior, loading state, variant classes, 48px tap target (`min-h-12`).
 
 ### 8.3 Accessibility auditing

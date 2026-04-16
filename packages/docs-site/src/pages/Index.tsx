@@ -44,33 +44,69 @@ export function Index() {
 
       {/* Hero */}
       <header className="mb-20">
-        <div className="mb-4">
-          <Eyebrow>TOUCH GRASS DS / {DS_VERSION} / MIT / ON NPM</Eyebrow>
-        </div>
-        <h1 className="font-black leading-[0.9] tracking-[-0.04em] mb-8 text-[56px] sm:text-[88px] md:text-[112px]">
-          BRUTALIST.
-          <br />
-          NO&nbsp;MERCY.
-          <br />
-          <span className="text-[var(--color-earned)]">TOUCH&nbsp;GRASS.</span>
-        </h1>
-        <p className="text-[18px] font-mono font-bold max-w-[62ch] leading-relaxed mb-10">
-          Open-source brutalist design system. Zero rounded corners. Zero grey text.
-          Zero animation. Geist Mono everywhere it counts. Built to fight iOS softness —
-          and to ship <strong className="text-[var(--color-earned)]">Timeouts.app</strong>,
-          the social gym for time off the phone.
-        </p>
-        <div className="flex flex-wrap gap-4">
-          <Link to="/primitives/button">
-            <Button>BROWSE PRIMITIVES</Button>
-          </Link>
-          <a
-            href="https://github.com/thiagoxikota/touch-grass"
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            <Button variant="ghost">GITHUB ↗</Button>
-          </a>
+        <div className="grid grid-cols-1 xl:grid-cols-[1.3fr_1fr] gap-8 border border-[var(--color-hairline)]">
+          <div className="p-7 md:p-10">
+            <div className="mb-4">
+              <Eyebrow>TOUCH GRASS DS / {DS_VERSION} / MIT / ON NPM</Eyebrow>
+            </div>
+            <h1 className="font-black leading-[0.9] tracking-[-0.04em] mb-8 text-[56px] sm:text-[88px] md:text-[112px]">
+              BRUTALIST.
+              <br />
+              NO&nbsp;MERCY.
+              <br />
+              <span className="text-[var(--color-earned)]">TOUCH&nbsp;GRASS.</span>
+            </h1>
+            <p className="text-[18px] font-mono font-bold max-w-[62ch] leading-relaxed mb-10">
+              Open-source brutalist design system. Zero rounded corners. Zero grey text.
+              Zero animation. Geist Mono everywhere it counts. Built to fight iOS softness —
+              and to ship <strong className="text-[var(--color-earned)]">Timeouts.app</strong>,
+              the social gym for time off the phone.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <Link to="/primitives/button">
+                <Button>BROWSE PRIMITIVES</Button>
+              </Link>
+              <a
+                href="https://github.com/thiagoxikota/touch-grass"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                <Button variant="ghost">GITHUB ↗</Button>
+              </a>
+            </div>
+          </div>
+          <aside className="border-t xl:border-t-0 xl:border-l border-[var(--color-hairline)] bg-[var(--color-bg-alt)] p-6 md:p-8 flex flex-col">
+            <div className="font-mono text-[11px] font-black uppercase tracking-[0.14em] text-[var(--color-fg)] mb-4">
+              // VISUAL BOARD
+            </div>
+            <div className="border border-[var(--color-hairline)] overflow-hidden mb-5">
+              <img
+                src="/og-image.png"
+                alt="Touch Grass design system visual board"
+                className="block w-full h-[240px] md:h-[280px] object-cover"
+                loading="eager"
+              />
+            </div>
+            <ul className="space-y-3 mb-5">
+              {[
+                'JOIN WAITLIST FROM PRODUCT LANDING',
+                'LEARN THE BRAND + INSTALL PATH FAST',
+                'VERIFY REAL COMPONENT QUALITY IN DOCS',
+              ].map((line) => (
+                <li key={line} className="font-mono text-[12px] font-black uppercase tracking-[0.1em] text-[var(--color-fg)]">
+                  {line}
+                </li>
+              ))}
+            </ul>
+            <a
+              href="https://timeouts.app#waitlist"
+              target="_blank"
+              rel="noreferrer noopener"
+              className="mt-auto font-mono text-[11px] font-black uppercase tracking-[0.14em] border border-[var(--color-hairline)] px-3 py-2 text-[var(--color-fg)] hover:bg-[var(--color-earned)] hover:text-[var(--color-on-earned)] text-center"
+            >
+              OPEN WAITLIST ↗
+            </a>
+          </aside>
         </div>
       </header>
 
@@ -220,11 +256,12 @@ import { Button } from '@touch-grass-ds/react';
           </Preview>
           <Preview label="PATTERN / BEREAL STAMP">
             <BeRealStamp timestamp="14:02 · SÃO PAULO" hours="02:41">
-              <div className="absolute inset-0 bg-[var(--color-bg-alt)] flex items-center justify-center">
-                <div className="font-mono text-[11px] font-black uppercase tracking-[0.14em] text-[var(--color-fg)]">
-                  // PHOTO PLACEHOLDER
-                </div>
-              </div>
+              <img
+                src="/og-image.png"
+                alt="Timeouts product visual"
+                className="absolute inset-0 w-full h-full object-cover"
+                loading="lazy"
+              />
             </BeRealStamp>
           </Preview>
         </div>
@@ -237,9 +274,13 @@ import { Button } from '@touch-grass-ds/react';
             <Link
               key={c.to}
               to={c.to}
-              className={`block p-6 border-[var(--color-hairline)] ${
-                i % 4 !== 3 ? 'border-r' : ''
-              } ${i < HERO_COMPONENTS.length - 4 ? 'border-b' : ''} hover:bg-[var(--color-earned)] hover:text-[var(--color-bg)]`}
+              className={[
+                'block p-6 border-[var(--color-hairline)] hover:bg-[var(--color-earned)] hover:text-[var(--color-on-earned)]',
+                (i + 1) % 2 !== 0 ? 'border-r' : '',
+                i < (Math.ceil(HERO_COMPONENTS.length / 2) - 1) * 2 ? 'border-b' : '',
+                (i + 1) % 4 !== 0 ? 'md:border-r' : 'md:border-r-0',
+                i < (Math.ceil(HERO_COMPONENTS.length / 4) - 1) * 4 ? 'md:border-b' : 'md:border-b-0',
+              ].join(' ')}
             >
               <div className="font-mono text-[11px] font-black uppercase tracking-[0.14em] text-[var(--color-earned)] mb-3">
                 // {c.kind}
