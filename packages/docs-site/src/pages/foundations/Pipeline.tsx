@@ -131,6 +131,24 @@ export function Pipeline() {
           language="json"
           code={JSON.stringify(FIGMA_CODE_BRIDGE.aiCaseStudyPayload, null, 2)}
         />
+        <div className="mt-6 border border-[var(--color-hairline)]">
+          <div className="grid grid-cols-1 md:grid-cols-[220px_1fr] border-b border-[var(--color-hairline)]">
+            <div className="p-4 md:border-r border-[var(--color-hairline)] font-mono text-[11px] font-black uppercase tracking-[0.14em] text-[var(--color-earned)]">
+              // REGISTRY
+            </div>
+            <div className="p-4 font-mono text-[13px] font-semibold text-[var(--color-fg)]">
+              docs/superpowers/specs/case-study.registry.json
+            </div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-[220px_1fr]">
+            <div className="p-4 md:border-r border-[var(--color-hairline)] font-mono text-[11px] font-black uppercase tracking-[0.14em] text-[var(--color-earned)]">
+              // CANONICAL SPEC
+            </div>
+            <div className="p-4 font-mono text-[13px] font-semibold text-[var(--color-fg)]">
+              docs/superpowers/specs/figma-code-bridge.case-study.json
+            </div>
+          </div>
+        </div>
       </Section>
 
       <RelatedLinks

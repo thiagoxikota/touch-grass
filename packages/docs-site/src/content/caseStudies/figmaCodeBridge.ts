@@ -13,6 +13,8 @@ export interface BridgeMapping {
   rule: string;
 }
 
+import { SITE_URLS } from '../../lib/site';
+
 export const FIGMA_CODE_BRIDGE = {
   title: 'Code ↔ Figma parity loop',
   summary:
@@ -96,6 +98,9 @@ export const FIGMA_CODE_BRIDGE = {
     evidenceTypes: ['token parity', 'component parity', 'state parity', 'brand parity'],
     keyQuestion: 'Can this design system prove that implementation and design stay in lockstep?',
     references: [SITE_URLS.byteByteGoDesignToCode],
+    ingestion: {
+      registryPath: 'docs/superpowers/specs/case-study.registry.json',
+      canonicalSpecPath: 'docs/superpowers/specs/figma-code-bridge.case-study.json',
+    },
   },
 } as const;
-import { SITE_URLS } from '../../lib/site';

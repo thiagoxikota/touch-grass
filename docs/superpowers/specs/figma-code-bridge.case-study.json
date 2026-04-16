@@ -91,6 +91,10 @@
     "core_question": "Can this design system prove implementation and design stay in lockstep?",
     "references": [
       "https://blog.bytebytego.com/p/figma-design-to-code-code-to-design"
-    ]
+    ],
+    "ingestion": {
+      "registry_path": "docs/superpowers/specs/case-study.registry.json",
+      "canonical_spec_path": "docs/superpowers/specs/figma-code-bridge.case-study.json"
+    }
   }
 }
