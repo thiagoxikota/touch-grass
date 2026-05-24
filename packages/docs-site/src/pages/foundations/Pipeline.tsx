@@ -1,6 +1,6 @@
 import { CodeBlock, DocPage, RelatedLinks, Section } from '../../ui/DocPage';
 import { DS_VERSION } from '../../lib/version';
-import { SITE_URLS } from '../../lib/site';
+import { SITE_URLS } from '../../lib/siteUrls';
 import { FIGMA_CODE_BRIDGE } from '../../content/caseStudies/figmaCodeBridge';
 
 export const title = 'PIPELINE';

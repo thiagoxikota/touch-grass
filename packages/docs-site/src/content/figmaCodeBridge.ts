@@ -13,7 +13,7 @@ export interface BridgeMapping {
   rule: string;
 }
 
-import { SITE_URLS } from '../../lib/site';
+import { SITE_URLS } from '../../lib/siteUrls';
 
 export const FIGMA_CODE_BRIDGE = {
   title: 'Code ↔ Figma parity loop',

@@ -1,9 +1,9 @@
 ---
 name: Touch Grass — Kit de Consistência
 description: Single source of truth for every surface that uses the Touch Grass DS. Docs, Figma, Timeouts landing, portfolio case study — all derive from this file. If a rule conflicts with this doc, this doc wins.
-version: 0.1.2
+version: 0.2.0
 owner: Thiago Xikota
-last-reviewed: 2026-04-14
+last-reviewed: 2026-04-24
 ---
 
 # BRAND.md — Touch Grass
@@ -45,21 +45,19 @@ All values live in `packages/tokens/src/*.json` and compile to CSS variables. **
 |---|---|---|---|
 | `color.bg` | `#000000` | Background. Pure black. | `--color-bg` |
 | `color.fg` | `#FFFFFF` | Primary text. Body copy + headings. | `--color-fg` |
-| `color.fgMuted` | `#B3B3B3` | Secondary text. Labels, helper text, metadata. >7:1 on black. | `--color-fg-muted` |
-| `color.fgSubtle` | `#808080` | Tertiary text. Timestamps, placeholders. >4.5:1 on black. Metadata/labels only — never body copy. | `--color-fg-subtle` |
-| `color.earned` | `#A6FF00` | Earned / active / success. Bloomberg lime. | `--color-earned` |
-| `color.danger` | `#FF6B6B` | Danger / loss. WCAG AAA on black. | `--color-danger` |
-| `color.hairline` | `#1A1A1A` | Borders, dividers. Default weight. | `--color-hairline` |
+| `color.fgMuted` / `color.muted` | `#B3B3B3` | Secondary text hierarchy. Labels, helper text, metadata. WCAG AAA on black (>10:1). The ONE sanctioned reduced-emphasis color. | `--color-fg-muted`, `--color-muted` |
+| `color.fgSubtle` / `color.subtle` | `#808080` | Tertiary text. Timestamps, placeholders, table headers. >4.5:1 on black. Metadata/labels only — never body copy. | `--color-fg-subtle`, `--color-subtle` |
+| `color.earned` | `#A6FF00` | Earned / active / success. Bloomberg lime. Also serves as Touch Grass brand mark color; products that adopt the DS may consolidate their own brand into this token (see Timeouts doctrine). | `--color-earned` |
+| `color.danger` | `#FF6B6B` | Danger / loss. WCAG AAA on black (7.57:1). Reserved for irreversible actions — never notifications, pending badges, or routine CTAs. | `--color-danger` |
+| `color.hairline` | `#1A1A1A` | Borders, dividers. Default weight. **Never text.** | `--color-hairline` |
 | `color.hairlineStrong` | `#333333` | Emphasis borders. Focus ring pairing, selected states. | `--color-hairline-strong` |
-| `color.danger` | `#FF6B6B` | Danger / loss. WCAG AAA on black (7.57:1). | `--color-danger` |
-| `color.muted` | `#B3B3B3` | Secondary text hierarchy. WCAG AAA on black (10.02:1). The ONE sanctioned reduced-emphasis color. | `--color-muted` |
-| `color.hairline` | `#1A1A1A` | Borders, dividers. **Never text.** | `--color-hairline` |
-| `color.bg-alt` | `#0A0A0A` | Inset surface. **Never text.** | `--color-bg-alt` |
+| `color.bgAlt` | `#0A0A0A` | Inset surface. **Never text.** | `--color-bg-alt` |
 
 Light mode exists (`color-light.json`) but the primary canonical experience is dark. All screenshots for portfolio and Figma hero shots must be dark mode.
 
-**Forbidden patterns:** opacity-based text dimming (`opacity: 0.x`, `rgba(..., 0.x)` for text), any shade of blue, any radius-implying gradient, any drop shadow. Neutral text must use `fg-muted` or `fg-subtle` tokens — never raw grey hex values or opacity tricks.
-**Forbidden colors:** arbitrary greys (opacity tricks, unlisted hex values) for text, any shade of blue, any radius-implying gradient, any drop shadow. `--color-muted` is the only sanctioned reduced-emphasis text color — see `docs/contract.md` §1.2.
+**Forbidden patterns:** opacity-based text dimming (`opacity: 0.x`, `rgba(..., 0.x)` for text), any shade of blue, any radius-implying gradient, any drop shadow. Neutral text must use `fg-muted`/`muted` or `fg-subtle`/`subtle` tokens — never raw grey hex values or opacity tricks. See `docs/contract.md` §1.2.
+
+**No separate brand token.** There is no `--color-brand-*`. Products consuming the DS either stay monochrome or consolidate brand identity into `--color-earned` (green = celebration AND identity, single token). Introducing a new brand-primary/secondary hex violates the saturation budget; fix the product doctrine instead.
 
 ### 2.2 Typography
 
@@ -174,6 +172,8 @@ These five appear on **every** surface as proof-of-system. They are the face of 
 ### 5.2 `timeouts.app` (landing)
 
 **Purpose:** product pitch. Convince a user to join the waitlist / download the app.
+
+**Product doctrine contract:** every copy decision, feature description, and visual treatment on this surface defers to `brand/timeouts/doctrine.md` (v2). Green appears only in the contexts that doctrine enumerates (logo, pack card, proof border, milestone/streak, editorial illustration); red only for irreversible actions. If the landing grows a section the doctrine does not cover, update the doctrine first, not the landing.
 
 **Must include (in this order):**
 1. Hero with a live-updating dominant number (community minutes touched).

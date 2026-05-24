@@ -1,4 +1,8 @@
 import docsSitePkg from '../../package.json' with { type: 'json' };
+import { SITE_URLS } from './siteUrls';
+
+export { SITE_URLS };
+
 type PageModule = { title?: string; slug?: string };
 
 function getLinkInfo(path: string, category: string, module: PageModule) {
@@ -29,27 +33,6 @@ export const recipesLinks = [
     .filter(([p]) => !p.endsWith('/Index.tsx'))
     .map(([p, m]) => getLinkInfo(p, 'recipes', m)),
 ];
-
-export const SITE_URLS = {
-  timeoutsApp: 'https://timeouts.app',
-  waitlist: 'https://timeouts.app#waitlist',
-  githubRepo: 'https://github.com/thiagoxikota/touch-grass',
-  npmReact: 'https://www.npmjs.com/package/@touch-grass-ds/react',
-  npmTokens: 'https://www.npmjs.com/package/@touch-grass-ds/tokens',
-  figmaCommunity: 'https://www.figma.com/community/file/1625695815996602388/touch-grass-ds',
-  changelog: 'https://github.com/thiagoxikota/touch-grass/blob/main/CHANGELOG.md',
-  changelogReact: 'https://github.com/thiagoxikota/touch-grass/blob/main/packages/ds/CHANGELOG.md',
-  changelogTokens: 'https://github.com/thiagoxikota/touch-grass/blob/main/packages/tokens/CHANGELOG.md',
-  githubReleases: 'https://github.com/thiagoxikota/touch-grass/releases',
-  license: 'https://github.com/thiagoxikota/touch-grass/blob/main/LICENSE',
-  portfolio: 'https://thiagoxikota.com',
-  caseStudy: 'https://thiagoxikota.com/projects/touch-grass',
-  caseStudyPtBr: 'https://thiagoxikota.com/blog/construindo-touch-grass-com-claude-code',
-  linkedIn: 'https://br.linkedin.com/in/thiagoxikota',
-  xTwitter: 'https://x.com/thiagoxikota',
-  authorGithub: 'https://github.com/thiagoxikota',
-  byteByteGoDesignToCode: 'https://blog.bytebytego.com/p/figma-design-to-code-code-to-design',
-} as const;
 
 const TOKEN_FAMILIES = ['COLOR', 'TYPE', 'SPACE', 'BORDER', 'GRID', 'MOTION', 'COLOR-LIGHT'] as const;
 

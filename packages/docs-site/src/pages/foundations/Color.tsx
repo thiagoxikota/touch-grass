@@ -69,8 +69,8 @@ const SWATCHES: Swatch[] = [
   {
     token: '--color-earned',
     hex: '#A6FF00',
-    role: 'EARNED · SCARCE',
-    usage: 'Earned, active, success, eyebrow accent. Max one hit per component.',
+    role: 'EARNED · BRAND · SCARCE',
+    usage: 'Earned, active, success, eyebrow accent, and the Touch Grass brand mark. Products may consolidate their own brand into this token (Timeouts does). Max one hit per component.',
     onLight: true,
     contrastOnBg: '16.9:1',
     pairs: [

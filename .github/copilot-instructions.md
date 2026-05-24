@@ -19,3 +19,6 @@ Visual creativity is required (more compelling visual assets/composition), while
 3. **Accessibility is non-negotiable**: WCAG AA minimum across all text/background pairings; no low-contrast accents.
 4. **Dark-first brutalist consistency**: preserve zero-radius, zero-motion, token-only behavior as foundational constraints.
 5. **Actionable documentation UX**: make install paths, component proof, and cross-links obvious within one scroll.
+
+### Filesystem Context (Global)
+Primary user is Thi with local AI agents. The system optimizes for fast retrieval, canonical paths, and low cognitive overhead. Use technical English naming and a staged workflow (00_INBOX → 01_ACTIVE → 06_ARCHIVE). Prioritize search-first organization, auditability, and no silent duplication.

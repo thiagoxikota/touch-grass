@@ -4,7 +4,7 @@
     "fg":       { "value": "#FFFFFF",  "type": "color", "comment": "Primary text. Body copy + headings." },
     "fgMuted":  { "value": "#B3B3B3",  "type": "color", "comment": "Secondary text. Labels, helper text, metadata. >7:1 on black." },
     "fgSubtle": { "value": "#808080",  "type": "color", "comment": "Tertiary text. Timestamps, placeholders, table headers. >4.5:1 on black. Metadata/labels only — never body copy." },
-    "earned":   { "value": "#A6FF00",  "type": "color", "comment": "Earned/success/active. Bloomberg lime." },
+    "earned":   { "value": "#A6FF00",  "type": "color", "comment": "Earned/success/active + Touch Grass brand mark. Bloomberg lime. Products may consolidate own brand into this token (see brand/timeouts/doctrine.md §Brand color)." },
     "danger":   { "value": "#FF6B6B",  "type": "color", "comment": "Danger/loss. WCAG AAA on black." },
     "hairline": { "value": "#1A1A1A",  "type": "color", "comment": "Border, divider. Default weight." },
     "hairlineStrong": { "value": "#333333", "type": "color", "comment": "Emphasis border. Focus ring pairing, selected states." },
