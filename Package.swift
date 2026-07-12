@@ -23,17 +23,17 @@ let package = Package(
     targets: [
         .target(
             name: "TouchGrassTokens",
-            path: "packages/tokens/Sources/TouchGrassTokens"
+            path: "packages/tokens/Sources"
         ),
         .target(
             name: "TouchGrassUI",
             dependencies: ["TouchGrassTokens"],
-            path: "packages/ios/Sources/TouchGrassUI"
+            path: "packages/ios/Sources"
         ),
         .testTarget(
             name: "TouchGrassUITests",
             dependencies: ["TouchGrassUI"],
-            path: "packages/ios/Tests/TouchGrassUITests",
+            path: "packages/ios/Tests",
             resources: [
                 .process("Fixtures")
             ]

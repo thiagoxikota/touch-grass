@@ -1,7 +1,7 @@
 import { CodeBlock, DocPage, RelatedLinks, Section } from '../../ui/DocPage';
 import { DS_VERSION } from '../../lib/version';
 import { SITE_URLS } from '../../lib/siteUrls';
-import { FIGMA_CODE_BRIDGE } from '../../content/caseStudies/figmaCodeBridge';
+import { FIGMA_CODE_BRIDGE } from '../../content/figmaCodeBridge';
 
 export const title = 'PIPELINE';
 export const slug = 'pipeline';

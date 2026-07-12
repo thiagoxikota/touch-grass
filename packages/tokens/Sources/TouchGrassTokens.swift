@@ -40,7 +40,7 @@ public class TouchGrassTokens {
     public static let colorBg = color(0.000, 0.000, 0.000, 1) /** Background. Pure black. */
     public static let colorBgAlt = color(0.039, 0.039, 0.039, 1) /** Inset surface. Never text. */
     public static let colorDanger = color(1.000, 0.420, 0.420, 1) /** Danger/loss. WCAG AAA on black. */
-    public static let colorEarned = color(0.651, 1.000, 0.000, 1) /** Earned/success/active. Bloomberg lime. */
+    public static let colorEarned = color(0.651, 1.000, 0.000, 1) /** Earned/success/active + Touch Grass brand mark. Bloomberg lime. Products may consolidate own brand into this token (see brand/timeouts/doctrine.md §Brand color). */
     public static let colorFg = color(1.000, 1.000, 1.000, 1) /** Primary text. Body copy + headings. */
     public static let colorFgMuted = color(0.702, 0.702, 0.702, 1) /** Secondary text. Labels, helper text, metadata. >7:1 on black. */
     public static let colorFgSubtle = color(0.502, 0.502, 0.502, 1) /** Tertiary text. Timestamps, placeholders, table headers. >4.5:1 on black. Metadata/labels only — never body copy. */

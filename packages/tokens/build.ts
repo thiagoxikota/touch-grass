@@ -72,7 +72,7 @@ export async function build() {
       },
       swift: {
         transformGroup: 'js',
-        buildPath: join(__dirname, 'Sources/TouchGrassTokens/'),
+        buildPath: join(__dirname, 'Sources/'),
         files: [{
           destination: 'TouchGrassTokens.swift',
           format: 'swift/touch-grass',
