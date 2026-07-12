@@ -164,7 +164,7 @@ touch-grass/
 
 ## Roadmap
 
-- [x] `v1.0.0` stable release (tokens + react package + docs + figma + npm)
+- [x] `v1.0.0` stable release (tokens + react package + docs + figma + npm; umbrella GitHub release `v1.1.0`)
 - [ ] `v1.1.0` select/combobox + chart primitives + expanded foundations docs
 
 ## Where to use / where to get it
