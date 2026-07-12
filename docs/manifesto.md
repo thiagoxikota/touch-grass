@@ -12,15 +12,15 @@ Atenção é recurso finito. Interfaces que competem por atenção sem resistên
 
 Rejeitamos padrões que capturam atenção reflexivamente: infinite scroll, auto-play, notificações em tempo real, badges vermelhas pulsantes, pull-to-refresh. Esses padrões funcionam. Não é acidente.
 
-Em lugar deles, impomos fricção. Fricção bem desenhada não bloqueia ação legítima — apenas força o usuário a escolher com intenção. Estruturamos fricção em camadas.
+Em lugar deles, impomos fricção. Fricção bem desenhada não bloqueia ação legítima, apenas força o usuário a escolher com intenção. Estruturamos fricção em camadas.
 
 A camada reflexiva é uma pergunta. Antes de qualquer ação cujo efeito é capturar atenção, o usuário responde "Por quê?". Não é punição. É reflexão. O ato de verbalizar intenção muda a decisão que se segue.
 
-A camada visual usa redução de contraste e blur até que o usuário demonstre intenção. Uma notificação desfocada não chama atenção. Requer movimento consciente para trazer em foco. Isso não é obstáculo — é honestidade de interface.
+A camada visual usa redução de contraste e blur até que o usuário demonstre intenção. Uma notificação desfocada não chama atenção. Requer movimento consciente para trazer em foco. Isso não é obstáculo: é honestidade de interface.
 
-A camada cognitiva garante que qualquer ação de baixa intenção (um clique acidental) não resulta em captura de atenção. Se a ação exigir mais do que um gesto reflexo — mais cognição — o usuário já estava escolhendo.
+A camada cognitiva garante que qualquer ação de baixa intenção (um clique acidental) não resulta em captura de atenção. Se a ação exigir mais do que um gesto reflexo, mais cognição, o usuário já estava escolhendo.
 
-A camada temporal impõe espera. Três a cinco segundos. Tempo suficiente para mudança de estado mental. Tempo insuficiente para frustração. O atraso não bloqueia ação — apenas cria espaço para arrependimento.
+A camada temporal impõe espera. Três a cinco segundos. Tempo suficiente para mudança de estado mental. Tempo insuficiente para frustração. O atraso não bloqueia ação, apenas cria espaço para arrependimento.
 
 A fricção adapta-se. Usuários com capacidade de trabalho reduzida (cansaço, lesão, neurodiferença) têm a opção de reduzir fricção localmente sem renunciar aos seus próprios padrões de defesa.
 
@@ -28,13 +28,13 @@ A fricção adapta-se. Usuários com capacidade de trabalho reduzida (cansaço, 
 
 Vivemos em interfaces hipersaturadas. Cores clamam por atenção. Movimento também. Movimento em cores saturadas é prédio em chamas.
 
-Touch-grass usa 90% monocolor. Tons de cinza em diferentes brilhos. Sem decoração. Sem gradientes. Sem sombras — elas implicam movimento tátil.
+Touch-grass usa 90% monocolor. Tons de cinza em diferentes brilhos. Sem decoração. Sem gradientes. Sem sombras: elas implicam movimento tátil.
 
-A cor que não é cinza serve função específica. Vermelho (<1% da interface) sinaliza ação irreversível — "você não pode desfazer isso". Nunca usamos vermelho para criar urgência ou chamar atenção casualmente.
+A cor que não é cinza serve função específica. Vermelho (<1% da interface) sinaliza ação irreversível: "você não pode desfazer isso". Nunca usamos vermelho para criar urgência ou chamar atenção casualmente.
 
-Verde (4% alocado) existe para um propósito único: celebrar desconexão. Quando você completa uma sessão de tempo offline — uma conquista — verde aparece. Verde não celebra engagement. Celebra ausência.
+Verde (4% alocado) existe para um propósito único: celebrar desconexão. Quando você completa uma sessão de tempo offline, uma conquista, verde aparece. Verde não celebra engagement. Celebra ausência.
 
-Essa economia de cor muda como o olho interpreta a interface. Cada cor tem peso semântico. Saturação não é decoração — é instrução. O usuário aprende: "Quando vejo cor aqui, algo acontece que importa."
+Essa economia de cor muda como o olho interpreta a interface. Cada cor tem peso semântico. Saturação não é decoração: é instrução. O usuário aprende: "Quando vejo cor aqui, algo acontece que importa."
 
 Implementamos isso através de tokens. Nenhuma cor é hardcoded. Tudo referencia `--token-*`. A restrição não é limitação. É clareza.
 
@@ -51,7 +51,7 @@ O que medimos em lugar:
 - **Qualidade de atenção**: o usuário sai com melhor compreensão do que entrou?
 - **Hesitação pré-decisão**: quanto tempo leva para escolher. Fricção que muda padrão é fricção que funciona.
 - **Variação entre estados de atenção**: padrões mais distribuídos, menos presos a extremos.
-- **Sessões curtas concluídas**: se o usuário disse 5 minutos e gastou 5 minutos, sucesso não é mais tempo — é previsibilidade honesta.
+- **Sessões curtas concluídas**: se o usuário disse 5 minutos e gastou 5 minutos, sucesso não é mais tempo: é previsibilidade honesta.
 
 Privacidade não é seção de política. É decisão de arquitetura. Coletamos o mínimo necessário. Nada é compartilhado sem consentimento explícito. O usuário vê o que foi armazenado e pode solicitar apagamento a qualquer momento. Retenção tem data de expiração automática.
 
@@ -61,9 +61,9 @@ Não há monetização de dados de usuário. Nenhuma.
 
 Notificações em tempo real criam expectativa de resposta em tempo real. Essa expectativa é estresse.
 
-Notificações em touch-grass são agrupadas em blocos diários (padrão: três — manhã, meio do dia, noite). O agrupamento é temático, não cronológico: notificações do mesmo tipo ficam juntas.
+Notificações em touch-grass são agrupadas em blocos diários (padrão: três; manhã, meio do dia, noite). O agrupamento é temático, não cronológico: notificações do mesmo tipo ficam juntas.
 
-Nenhuma notificação é visual por padrão. Todas são ambientes — sons, vibrações sutis, indicadores de luz. Visuais exigem opt-in explícito.
+Nenhuma notificação é visual por padrão. Todas são ambientes: sons, vibrações sutis, indicadores de luz. Visuais exigem opt-in explícito.
 
 Nenhuma notificação traz medo. Sem "Você perdeu..." sem "Seus amigos estão..." sem qualquer construção de FOMO. Se notificação existe, é porque o usuário pediu para saber disso.
 
@@ -119,4 +119,4 @@ A herdança é restrição deliberada. Restrição é o ponto.
 
 ---
 
-Touch-grass não promete que usuários vão gastar menos tempo em seus produtos — esse compromisso não seria honesto. Promete que o tempo gasto é escolhido por eles. É o que design ético significa.
+Touch-grass não promete que usuários vão gastar menos tempo em seus produtos: esse compromisso não seria honesto. Promete que o tempo gasto é escolhido por eles. É o que design ético significa.

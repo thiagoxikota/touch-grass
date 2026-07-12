@@ -19,7 +19,7 @@ By [Thiago Xikota](https://thiagoxikota.com) · [Portfolio](https://thiagoxikota
 ---
 
 <p align="center">
-  <img src=".github/assets/hero-home.png" alt="Touch Grass docs home — brutalist layout with lime accent on black background" width="100%" />
+  <img src=".github/assets/hero-home.png" alt="Touch Grass docs home: brutalist layout with lime accent on black background" width="100%" />
 </p>
 
 ## The vibe (non-negotiable)
@@ -48,11 +48,11 @@ This system was built as the visual engine for [Timeouts](https://timeouts.app):
 
 <table>
 <tr>
-<td width="50%"><img src=".github/assets/foundations-color.png" alt="Foundations / Color — the 4-color brutalist palette" /></td>
-<td width="50%"><img src=".github/assets/primitives-button.png" alt="Primitives / Button — full variant and state matrix" /></td>
+<td width="50%"><img src=".github/assets/foundations-color.png" alt="Foundations / Color: the 4-color brutalist palette" /></td>
+<td width="50%"><img src=".github/assets/primitives-button.png" alt="Primitives / Button: full variant and state matrix" /></td>
 </tr>
 <tr>
-<td colspan="2"><img src=".github/assets/patterns-leaderboard.png" alt="Patterns / LeaderboardRow — composed of primitives" /></td>
+<td colspan="2"><img src=".github/assets/patterns-leaderboard.png" alt="Patterns / LeaderboardRow: composed of primitives" /></td>
 </tr>
 </table>
 
@@ -123,11 +123,11 @@ For golden snapshot updates in iOS tests, run `UPDATE_TG_GOLDENS=1 swift test` o
 
 Full docs: [**timeouts.app/touch-grass**](https://timeouts.app/touch-grass)
 
-**Design system contract:** [`docs/contract.md`](./docs/contract.md) — the normative specification covering color rules, motion bans, state model, accessibility, typography, `asChild` semantics, and enforcement. Uses MUST/SHOULD/MAY language per RFC 2119.
+**Design system contract:** [`docs/contract.md`](./docs/contract.md): the normative specification covering color rules, motion bans, state model, accessibility, typography, `asChild` semantics, and enforcement. Uses MUST/SHOULD/MAY language per RFC 2119.
 
-**Cross-platform parity tracker:** [`docs/ios-parity.md`](./docs/ios-parity.md) — current iOS vs web component coverage and accepted gaps.
+**Cross-platform parity tracker:** [`docs/ios-parity.md`](./docs/ios-parity.md): current iOS vs web component coverage and accepted gaps.
 
-**Release checklist:** [`docs/release-checklist.md`](./docs/release-checklist.md) — validation, snapshot fixture updates, parity updates, and release hygiene.
+**Release checklist:** [`docs/release-checklist.md`](./docs/release-checklist.md): validation, snapshot fixture updates, parity updates, and release hygiene.
 
 ## Local dev
 

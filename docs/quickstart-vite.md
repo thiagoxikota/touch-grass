@@ -90,7 +90,7 @@ pnpm dev
 ```
 
 Open [http://localhost:5173](http://localhost:5173). You should see a brutalist page
-with a headline, two buttons, a divider, and a stat block — all powered by Touch Grass tokens.
+with a headline, two buttons, a divider, and a stat block, all powered by Touch Grass tokens.
 
 ## What's included
 
@@ -130,8 +130,8 @@ This maps all Touch Grass tokens to Tailwind utility classes.
 
 These are non-negotiable in Touch Grass:
 
-- **Radius = 0** — No rounded corners, ever.
-- **No motion** — No transitions, no animations.
-- **Tokens only** — Every color, size, border uses `var(--*)`.
-- **48px tap targets** — All interactive controls meet WCAG 2.5.5.
-- **Mono discipline** — Geist Mono for labels, buttons, stats. Geist Sans for body text.
+- **Radius = 0**: No rounded corners, ever.
+- **No motion**: No transitions, no animations.
+- **Tokens only**: Every color, size, border uses `var(--*)`.
+- **48px tap targets**: All interactive controls meet WCAG 2.5.5.
+- **Mono discipline**: Geist Mono for labels, buttons, stats. Geist Sans for body text.

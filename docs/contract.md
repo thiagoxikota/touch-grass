@@ -1,4 +1,4 @@
-# Touch Grass Design System — Normative Contract
+# Touch Grass Design System: Normative Contract
 
 > Version 1.0.0 · Effective immediately · This document is the enforceable specification.
 > If implementation conflicts with this contract, fix the implementation.
@@ -21,7 +21,7 @@ This contract uses **MUST**, **SHOULD**, and **MAY** per [RFC 2119](https://www.
 | `color.hairline` | `#1A1A1A` | `--color-hairline` | Borders, dividers. MUST NOT be used for text. |
 | `color.bgAlt` | `#0A0A0A` | `--color-bg-alt` | Inset surface. MUST NOT be used for text. |
 
-### 1.2 "No grey text" rule — clarified
+### 1.2 "No grey text" rule: clarified
 
 The rule bans **arbitrary greys**. It does NOT ban the `--color-muted` token.
 
@@ -64,11 +64,11 @@ The rule bans **arbitrary greys**. It does NOT ban the `--color-muted` token.
 ### 2.2 Acceptable instantaneous state changes
 
 Interaction feedback MUST be structural, not temporal:
-- **Color flip** — background and foreground swap instantly on hover/active.
-- **Border inversion** — border color/style changes instantly.
-- **Text replacement** — label text changes (e.g. loading state: `█▌ VERB-ING`).
-- **Outline appearance** — focus ring appears instantly with no fade.
-- **Inset shadow** — `box-shadow: inset` appears instantly for hover bevel.
+- **Color flip**: background and foreground swap instantly on hover/active.
+- **Border inversion**: border color/style changes instantly.
+- **Text replacement**: label text changes (e.g. loading state: `█▌ VERB-ING`).
+- **Outline appearance**: focus ring appears instantly with no fade.
+- **Inset shadow**: `box-shadow: inset` appears instantly for hover bevel.
 
 ---
 
@@ -103,10 +103,10 @@ Every interactive primitive MUST define visual treatment for all applicable stat
 ### 4.1 Contrast
 
 - Text on `--color-bg` MUST meet WCAG 2.1 AAA (7.0:1 minimum).
-- `--color-fg` on `--color-bg`: 21:1 — AAA.
-- `--color-muted` on `--color-bg`: 10.02:1 — AAA.
-- `--color-earned` on `--color-bg`: 16.93:1 — AAA.
-- `--color-danger` on `--color-bg`: 7.57:1 — AAA.
+- `--color-fg` on `--color-bg`: 21:1, AAA.
+- `--color-muted` on `--color-bg`: 10.02:1, AAA.
+- `--color-earned` on `--color-bg`: 16.93:1, AAA.
+- `--color-danger` on `--color-bg`: 7.57:1, AAA.
 - Large text (≥18px bold or ≥24px) on danger backgrounds MAY use `--color-bg` text at AA Large (4.5:1 minimum).
 
 ### 4.2 Focus-visible
@@ -139,7 +139,7 @@ Every interactive primitive MUST define visual treatment for all applicable stat
 | Switch | `Space`, `Enter` | Toggle on/off state. |
 | Tag | `Enter`, `Space` | Activate if interactive. |
 | Modal | `Escape` | Close the modal. |
-| Toast | — | Auto-dismiss or manual close. Not keyboard-focusable by default. |
+| Toast | None | Auto-dismiss or manual close. Not keyboard-focusable by default. |
 
 ### 4.6 ARIA expectations
 
@@ -157,7 +157,7 @@ Every interactive primitive MUST define visual treatment for all applicable stat
 
 | Family | CSS | Use |
 |---|---|---|
-| **Geist Sans** | `font-family: 'Geist'` | Body copy, headings (h1–h3), stat numbers. |
+| **Geist Sans** | `font-family: 'Geist'` | Body copy, headings (h1-h3), stat numbers. |
 | **Geist Mono** | `font-family: 'Geist Mono'` | Labels, eyebrows, metadata, buttons, timers, code, row numbers. |
 
 ### 5.2 Usage rules
@@ -171,7 +171,7 @@ Every interactive primitive MUST define visual treatment for all applicable stat
 
 **SHOULD:**
 - Headlines SHOULD use `leading-none` and `tracking-[-0.04em]`.
-- Every page SHOULD exhibit all four typographic layers: stat/display (≥56px) → heading (18–32px) → label (13px mono) → body (16px).
+- Every page SHOULD exhibit all four typographic layers: stat/display (≥56px) → heading (18-32px) → label (13px mono) → body (16px).
 
 ### 5.3 Weight scale
 
@@ -204,7 +204,7 @@ Every interactive primitive MUST define visual treatment for all applicable stat
 **MUST:**
 - When `asChild` is true and the element is disabled, MUST set `aria-disabled="true"` (not the HTML `disabled` attribute, which only works on form elements).
 - When `asChild` is true and the element is disabled, MUST apply `pointer-events-none` to prevent interaction.
-- When `asChild` is true, keyboard behavior is the consumer's responsibility. The DS does NOT inject `onKeyDown` handlers — the rendered element must be natively interactive (e.g. `<a>`, `<Link>`) or the consumer must handle keyboard events.
+- When `asChild` is true, keyboard behavior is the consumer's responsibility. The DS does NOT inject `onKeyDown` handlers; the rendered element must be natively interactive (e.g. `<a>`, `<Link>`) or the consumer must handle keyboard events.
 
 **SHOULD:**
 - Components SHOULD document which props are forwarded when `asChild` is true.
