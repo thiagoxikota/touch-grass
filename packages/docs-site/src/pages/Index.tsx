@@ -299,15 +299,15 @@ import { Button } from '@touch-grass-ds/react';
           <div className="border-b md:border-b-0 md:border-r border-[var(--color-hairline)] p-0 bg-[var(--color-bg-alt)]">
             <img
               src="/thiagoxikota.png"
-              alt="Thiago Xikota — product designer and creator of Touch Grass DS"
+              alt="Thiago Xikota, creator of Touch Grass DS"
               className="block w-full h-full object-cover"
               loading="lazy"
             />
           </div>
           <div className="p-6 md:p-8 flex flex-col gap-5">
             <p className="font-mono text-[14px] font-semibold leading-relaxed text-[var(--color-fg)] max-w-[60ch]">
-              <strong className="text-[var(--color-earned)]">Thiago Xikota</strong> — product designer,
-              design system lead, AI workflow engineer. Built Touch Grass DS from scratch in 48 hours
+              <strong className="text-[var(--color-earned)]">Thiago Xikota</strong> is a Forward Deployed
+              Product Designer specializing in artificial intelligence. Built Touch Grass DS from scratch in 48 hours
               with Claude Code. Shipping <strong className="text-[var(--color-earned)]">Timeouts</strong>,
               the social gym for time off the phone.
             </p>
