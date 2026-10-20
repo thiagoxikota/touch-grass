@@ -21,4 +21,4 @@ Visual creativity is required (more compelling visual assets/composition), while
 5. **Actionable documentation UX**: make install paths, component proof, and cross-links obvious within one scroll.
 
 ### Filesystem Context (Global)
-Primary user is Thi with local AI agents. The system optimizes for fast retrieval, canonical paths, and low cognitive overhead. Use technical English naming and a staged workflow (00_INBOX → 01_ACTIVE → 06_ARCHIVE). Prioritize search-first organization, auditability, and no silent duplication.
+Primary user is Thi with local AI agents. The system optimizes for fast retrieval, canonical paths, and low cognitive overhead. Use technical English naming and this repository’s actual structure. The canonical workspace is ~/xikota-os with projects under 02_Projects; the retired 00_INBOX/01_ACTIVE/06_ARCHIVE map is not an active workflow. Prioritize search-first organization, auditability, and no silent duplication.
